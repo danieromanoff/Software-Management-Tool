@@ -1,7 +1,7 @@
 /**
  * 
  */
-package agile.changereqview;
+package softwaremanagementtool.agile.changereqview;
 
 /**
  * @author Stephen

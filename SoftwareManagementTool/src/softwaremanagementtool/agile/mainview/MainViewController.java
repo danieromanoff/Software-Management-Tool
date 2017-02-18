@@ -1,10 +1,12 @@
-package agile.mainview;
+package softwaremanagementtool.agile.mainview;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import softwaremanagementtool.agile.AgileProject;
 
 public class MainViewController {
   
+  private AgileProject agilePrj;
   
   @FXML
   private void GoToReports(ActionEvent Reports) {
@@ -13,9 +15,9 @@ public class MainViewController {
   }  
   
   @FXML
-  private void GoToBackLog(ActionEvent BackLog) {
+  private void GoToBackLog() {
       // Button was clicked, do something...
-      
+    agilePrj.showBacklog();
   } 
   
   @FXML
@@ -24,4 +26,13 @@ public class MainViewController {
       
   }  
 
+  public void setAgileProject(AgileProject inPrj) {
+    agilePrj = inPrj;
+  }
+  
+  public void setPrjName(String inName) {
+    // TBD set Name
+  }
+  
+  
 }

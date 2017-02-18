@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: PALEGOLDENROD;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="softwaremanagementtool.agile.mainview.MainViewController">
+   <children>
+      <Button fx:id="Reports" layoutX="253.0" layoutY="350.0" mnemonicParsing="false" onAction="#GoToReports" prefHeight="36.0" prefWidth="115.0" style="-fx-background-color: DARKSLATEGREY;" text="Reports" textFill="#fcfcfc" />
+      
+      <Button fx:id="BackLog" layoutX="471.0" layoutY="14.0" mnemonicParsing="false" onAction="#GoToBackLog" prefHeight="36.0" prefWidth="115.0" style="-fx-background-color: DARKSLATEGREY;" text="Back Log" textFill="#fcf8f8" />
+      
+      <Button fx:id="Sprints" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#GoToSprints" prefHeight="36.0" prefWidth="115.0" style="-fx-background-color: DARKSLATEGREY;" text="Sprints" textFill="#f8f6f6" AnchorPane.topAnchor="14.0" />
+      
+      <Label fx:id="ProjectName" alignment="CENTER" contentDisplay="CENTER" layoutX="221.0" layoutY="5.0" prefHeight="51.0" prefWidth="153.0" text="Project Name" textAlignment="CENTER" />
+   </children>
+</AnchorPane>

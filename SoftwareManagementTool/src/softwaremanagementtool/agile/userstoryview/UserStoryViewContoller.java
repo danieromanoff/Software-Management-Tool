@@ -1,7 +1,7 @@
 /**
  * 
  */
-package agile.userstoryview;
+package softwaremanagementtool.agile.userstoryview;
 
 /**
  * @author Stephen

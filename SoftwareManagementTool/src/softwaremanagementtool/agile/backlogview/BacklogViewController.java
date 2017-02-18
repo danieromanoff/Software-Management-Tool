@@ -1,7 +1,7 @@
 /**
  * 
  */
-package agile.backlogview;
+package softwaremanagementtool.agile.backlogview;
 
 /**
  * @author Stephen

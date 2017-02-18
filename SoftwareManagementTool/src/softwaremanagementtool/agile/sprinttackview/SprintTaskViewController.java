@@ -1,7 +1,7 @@
 /**
  * 
  */
-package agile.sprinttaskview;
+package softwaremanagementtool.agile.sprinttackview;
 
 /**
  * @author Stephen

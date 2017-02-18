@@ -1,7 +1,7 @@
 /**
  * 
  */
-package agile.sprintview;
+package softwaremanagementtool.agile.sprintview;
 
 /**
  * @author Stephen
