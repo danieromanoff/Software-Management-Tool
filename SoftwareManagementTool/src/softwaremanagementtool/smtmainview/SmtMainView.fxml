@@ -5,24 +5,24 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 
-
-<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111">
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SmtMainViewControl">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem mnemonicParsing="false" text="Create New Agile Scrum Project" />
+                  <MenuItem mnemonicParsing="false" text="Open Existing Project" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+              <MenuItem mnemonicParsing="false" text="Delete Existing Project" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="View">
               <items>
-                <MenuItem mnemonicParsing="false" text="Agile Scrum" />
+                <MenuItem mnemonicParsing="false" text="Existing Projects" />
               </items>
             </Menu>
           <Menu mnemonicParsing="false" text="Help">
