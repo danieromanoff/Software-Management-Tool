@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import softwaremanagementtool.agile.AgileProject;
+import softwaremanagementtool.smtmainview.SmtMainViewControl;
 
 public class SoftwareManagementToolMain extends Application {
 
@@ -36,12 +38,18 @@ public class SoftwareManagementToolMain extends Application {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(SoftwareManagementToolMain.class.getResource("smtmainview/SmtMainView.fxml"));
 		mainLayout = loader.load();
+		
+		SmtMainViewControl controller = (SmtMainViewControl)loader.getController();
+    controller.setSmt(this);
+		
 		Scene scene = new Scene(mainLayout);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
 	
-	
+	public void newAgile() throws IOException {
+	  AgileProject ap = new AgileProject("First Project", mainLayout);
+	}
 	
 	
 	/**
