@@ -37,7 +37,7 @@ public class AgileProject {
     
   }
 
-  public static void showBacklog() {
+  public  void showBacklog() {
     // TODO Auto-generated method stub
     System.out.println("showBacklog");
  }
