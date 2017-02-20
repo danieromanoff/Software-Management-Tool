@@ -48,7 +48,7 @@ public class SoftwareManagementToolMain extends Application {
 	}
 	
 	public void newAgile() throws IOException {
-	  AgileProject ap = new AgileProject("First Project", mainLayout);
+	  AgileProject ap = new AgileProject("First Project", primaryStage, mainLayout);
 
 	}
 	
