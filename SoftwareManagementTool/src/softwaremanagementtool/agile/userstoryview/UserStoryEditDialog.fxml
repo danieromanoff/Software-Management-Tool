@@ -28,10 +28,10 @@
          <children>
             <Label text="Title" GridPane.rowIndex="1" />
             <Label text="Owner" GridPane.rowIndex="2" />
-            <Label text="As_a_user_i_want" GridPane.rowIndex="3" />
+            <Label text="As A User I Want" GridPane.rowIndex="3" />
             <Label text="Acceptance_Criteria" GridPane.rowIndex="4" />
-            <Label text="priority" GridPane.rowIndex="5" />
-            <Label text="date" GridPane.rowIndex="6" />
+            <Label text="Priority" GridPane.rowIndex="5" />
+            <Label text="Date" GridPane.rowIndex="6" />
             <TextField fx:id="TitleField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="OwnerField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
