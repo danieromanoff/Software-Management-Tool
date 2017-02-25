@@ -33,10 +33,10 @@
           </Menu>
             <Menu fx:id="menuAgile" mnemonicParsing="false" text="Agile" visible="false">
               <items>
-                <MenuItem mnemonicParsing="false" text="Dashboard" />
-                <MenuItem mnemonicParsing="false" text="Backlog" />
-                  <MenuItem mnemonicParsing="false" text="Sprints" />
-                  <MenuItem mnemonicParsing="false" text="Reports" />
+                <MenuItem mnemonicParsing="false" onAction="#showAgileDashboard" text="Dashboard" />
+                <MenuItem mnemonicParsing="false" onAction="#showAgileBacklog" text="Backlog" />
+                  <MenuItem mnemonicParsing="false" onAction="#showAgileSprint" text="Sprints" />
+                  <MenuItem mnemonicParsing="false" onAction="#showAgileReports" text="Reports" />
               </items>
             </Menu>
           <Menu mnemonicParsing="false" text="Help">

@@ -11,7 +11,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import softwaremanagementtool.SoftwareManagementToolMain;
-import softwaremanagementtool.agile.mainview.MainViewController;
+import softwaremanagementtool.agile.dashboardview.DashboardViewController;
+import softwaremanagementtool.agile.sprintview.SprintViewController;
 import softwaremanagementtool.agile.userstoryview.UserStoryEditDialogController;
 import softwaremanagementtool.agile.userstoryview.UserStoryOverviewController;
 import softwaremanagementtool.smtmainview.SmtMainViewControl;
@@ -30,17 +31,17 @@ public class AgileProject {
     projectName = prjName;
     primaryStage = inStage;
     mainLayout = inLayout;
-    showAgileMain();
+    showDashboard();
     
   }
 
-  public void showAgileMain() throws IOException {
+  public void showDashboard() throws IOException {
     FXMLLoader loader = new FXMLLoader();
-    loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/mainview/AgileMainView.fxml"));
+    loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/dashboardview/DashboardView.fxml"));
        
     AnchorPane agileLayout = loader.load();
     
-    MainViewController controller = (MainViewController)loader.getController();
+    DashboardViewController controller = (DashboardViewController)loader.getController();
     
     controller.setAgileProject(this); 
     controller.setPrjName(projectName); 
@@ -63,15 +64,12 @@ public class AgileProject {
   //user story default view
   public void showUserStoryOverview() throws IOException 
   {
-    
           FXMLLoader loader = new FXMLLoader();
           loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/userstoryview/UserStoryOverview.fxml"));
           AnchorPane userstoryOverview = (AnchorPane) loader.load();
           mainLayout.setCenter(userstoryOverview);
           UserStoryOverviewController controller = loader.getController();
           controller.setMainApp(this);
-
-     
   }
   
 //opens the editor window to edit the user story
@@ -101,6 +99,30 @@ public class AgileProject {
       }
   }
 
+  
+  public  void showSprint() throws IOException {
+    // TODO
+    System.out.println("showSprint");
+    
+    FXMLLoader loader = new FXMLLoader();
+    loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/sprintview/SprintView.fxml"));
+    AnchorPane sprintLayout = (AnchorPane) loader.load();
+    mainLayout.setCenter(sprintLayout);
+    SprintViewController controller = loader.getController();
+    
+  }
+  
+  public  void showReports() throws IOException {
+    // TODO 
+    System.out.println("showReports");
+    
+    FXMLLoader loader = new FXMLLoader();
+    loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/reportsview/ReportsView.fxml"));
+    AnchorPane reportsLayout = (AnchorPane) loader.load();
+    mainLayout.setCenter(reportsLayout);
+    SprintViewController controller = loader.getController();
+  }
+  
   public Stage getPrimaryStage() {
       return primaryStage;
   }

@@ -9,7 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import softwaremanagementtool.agile.AgileProject;
-import softwaremanagementtool.agile.mainview.MainViewController;
+import softwaremanagementtool.agile.dashboardview.DashboardViewController;
 import softwaremanagementtool.smtmainview.SmtMainViewControl;
 
 /**
@@ -75,8 +75,37 @@ public class SoftwareManagementToolMain extends Application {
     {
     	controller.showAgileMenu(true);
     }
-
   }
+	
+	public void showAgileDashboard() throws IOException {
+    if (agilePrj != null)
+    {
+    	agilePrj.showDashboard();
+    }
+  }
+	
+	public void showAgileBacklog() throws IOException {
+    if (agilePrj != null)
+    {
+    	agilePrj.showBacklog();
+    }
+  }
+	
+	public void showAgileSprint() throws IOException {
+    if (agilePrj != null)
+    {
+    	agilePrj.showSprint();
+    }
+	}
+    
+  public void showAgileReports() throws IOException {
+    if (agilePrj != null)
+    {
+    	agilePrj.showReports();
+    }
+  }
+    
+  
 	
 	/**
 	 *  History - Initials, Date, Description

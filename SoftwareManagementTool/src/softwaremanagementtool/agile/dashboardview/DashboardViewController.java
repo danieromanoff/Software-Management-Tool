@@ -1,10 +1,10 @@
-package softwaremanagementtool.agile.mainview;
+package softwaremanagementtool.agile.dashboardview;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import softwaremanagementtool.agile.AgileProject;
 
-public class MainViewController {
+public class DashboardViewController {
   
   private AgileProject agilePrj;
   
