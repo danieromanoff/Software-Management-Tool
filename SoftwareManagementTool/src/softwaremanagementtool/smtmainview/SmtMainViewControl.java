@@ -20,6 +20,7 @@ public class SmtMainViewControl {
   @FXML
   private MenuItem menuClose;
   
+  
   @FXML
   private void goNewAgile() throws IOException {
     smt.openAgile("NEW");
@@ -43,6 +44,26 @@ public class SmtMainViewControl {
   @FXML
   private void goEditProp() throws IOException {
     smt.editProp();
+  }
+  
+  @FXML
+  private void showAgileDashboard() throws IOException {
+    smt.showAgileDashboard();
+  }
+  
+  @FXML
+  private void showAgileBacklog() throws IOException {
+    smt.showAgileBacklog();
+  }
+  
+  @FXML
+  private void showAgileSprint() throws IOException {
+    smt.showAgileSprint();
+  }
+  
+  @FXML
+  private void showAgileReports() throws IOException {
+    smt.showAgileReports();
   }
   
   public void setSmt(SoftwareManagementToolMain inSmt) {
