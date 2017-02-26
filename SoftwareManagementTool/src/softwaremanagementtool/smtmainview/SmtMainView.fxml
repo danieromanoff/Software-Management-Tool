@@ -5,29 +5,43 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SmtMainViewControl">
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="softwaremanagementtool.smtmainview.SmtMainViewControl">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Create New Agile Scrum Project" />
-                  <MenuItem mnemonicParsing="false" text="Open Existing Project" />
+                  <Menu mnemonicParsing="false" text="New">
+                    <items>
+                    <MenuItem mnemonicParsing="false" onAction="#goNewAgile" text="Agile Scrum Project" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Open">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#goOpenAgile" text="Agile Project" />
+                    </items>
+                  </Menu>
+                  <MenuItem fx:id="menuSave" disable="true" mnemonicParsing="false" text="Save" />
+                  <MenuItem fx:id="menuClose" disable="true" mnemonicParsing="false" onAction="#goClose" text="Close Project" />
+                  <MenuItem mnemonicParsing="false" onAction="#goExit" text="Exit" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu fx:id="menuEdit" mnemonicParsing="false" text="Edit" visible="false">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete Existing Project" />
+              <MenuItem mnemonicParsing="false" text="Project Properties" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" text="View">
+            <Menu fx:id="menuAgile" mnemonicParsing="false" text="Agile" visible="false">
               <items>
-                <MenuItem mnemonicParsing="false" text="Existing Projects" />
+                <MenuItem mnemonicParsing="false" onAction="#showAgileDashboard" text="Dashboard" />
+                <MenuItem mnemonicParsing="false" onAction="#showAgileBacklog" text="Backlog" />
+                  <MenuItem mnemonicParsing="false" onAction="#showAgileSprint" text="Sprints" />
+                  <MenuItem mnemonicParsing="false" onAction="#showAgileReports" text="Reports" />
               </items>
             </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" text="About SMT" />
             </items>
           </Menu>
         </menus>
