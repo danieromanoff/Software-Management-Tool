@@ -27,7 +27,7 @@
         </rowConstraints>
          <children>
             <Label text="Title" GridPane.rowIndex="1" />
-            <Label text="Owner" GridPane.rowIndex="2" />
+            <Label text="Story Points" GridPane.rowIndex="2" />
             <Label text="As_a_user_i_want" GridPane.rowIndex="3" />
             <Label text="Acceptance_Criteria" GridPane.rowIndex="4" />
             <Label text="priority" GridPane.rowIndex="5" />
@@ -40,7 +40,7 @@
             <TextField fx:id="priorityField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <TextField fx:id="calanderdayField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <Label layoutX="10.0" layoutY="47.0" text="ID" />
-            <TextField fx:id="IDField" layoutX="132.0" layoutY="43.0" GridPane.columnIndex="1" />
+            <TextField fx:id="IDField" editable="false" layoutX="132.0" layoutY="43.0" GridPane.columnIndex="1" />
          </children>
       </GridPane>
       <ButtonBar layoutX="176.0" layoutY="233.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
