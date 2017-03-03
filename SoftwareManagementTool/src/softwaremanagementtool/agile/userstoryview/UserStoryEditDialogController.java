@@ -48,7 +48,7 @@ public class UserStoryEditDialogController
         priorityField.setText(Integer.toString(userstory.getpriority()));
         Acceptance_CriteriaField.setText(userstory.getAcceptance_Criteria());
         calanderdayField.setText(DateUtil.format(userstory.getcalanderday()));
-        calanderdayField.setPromptText("dd.mm.yyyy");
+        calanderdayField.setPromptText("mm/dd/yyyy");
     }
 
     public boolean isOkClicked() {
@@ -123,7 +123,7 @@ public class UserStoryEditDialogController
             errorMessage += "No valid birthday!\n";
         } else {
             if (!DateUtil.validDate(calanderdayField.getText())) {
-                errorMessage += "No valid birthday. Use the format dd.mm.yyyy!\n";
+                errorMessage += "No valid birthday. Use the format mm/dd/yyyy!\n";
             }
         }
 
