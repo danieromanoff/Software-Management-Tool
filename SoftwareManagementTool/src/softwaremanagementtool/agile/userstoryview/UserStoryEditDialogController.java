@@ -43,7 +43,7 @@ public class UserStoryEditDialogController
         this.userstory = userstory;
         IDField.setText(Integer.toString(userstory.getID()));
         TitleField.setText(userstory.getTitle());
-        OwnerField.setText(userstory.getOwner());
+       // OwnerField.setText(userstory.getOwner());
         As_a_user_i_wantField.setText(userstory.getAs_a_user_i_want());
         priorityField.setText(Integer.toString(userstory.getpriority()));
         Acceptance_CriteriaField.setText(userstory.getAcceptance_Criteria());
@@ -62,7 +62,7 @@ public class UserStoryEditDialogController
         if (isInputValid()) {
         	userstory.setID(Integer.parseInt(IDField.getText()));
         	userstory.setTitle(TitleField.getText());
-        	userstory.setOwner(OwnerField.getText());
+  
         	userstory.setAs_a_user_i_want(As_a_user_i_wantField.getText());
         	userstory.setpriority(Integer.parseInt(priorityField.getText()));
         	userstory.setAcceptance_Criteria(Acceptance_CriteriaField.getText());
