@@ -31,8 +31,9 @@ public class ProductBacklogViewController {
    }
 
    @FXML
-   private void goEditBacklogItem() {
+   private void goSaveBacklogItem() {
    	
+  	 agilePrj.updateBacklogItem();
    /*	UserStory selectedUserStory = userstoryTable.getSelectionModel().getSelectedItem();
        if (selectedUserStory != null) {
            boolean okClicked = mainApp.showUserStoryEditDialog(selectedUserStory);
