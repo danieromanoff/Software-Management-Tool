@@ -94,14 +94,14 @@ public class SoftwareManagementToolMain extends Application {
 	public void showAgileSprint() throws IOException {
     if (agilePrj != null)
     {
-    	agilePrj.showSprint();
+    	agilePrj.showSprintView();
     }
 	}
     
   public void showAgileReports() throws IOException {
     if (agilePrj != null)
     {
-    	agilePrj.showReports();
+    	agilePrj.showReportsView();
     }
   }
     

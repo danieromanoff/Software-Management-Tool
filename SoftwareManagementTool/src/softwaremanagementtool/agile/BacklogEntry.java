@@ -7,6 +7,8 @@ import javafx.beans.property.StringProperty;
 
 public class BacklogEntry {
 
+	public static final Integer[] PRIORITIES = {1,2,3,4,5};
+	
 	private final IntegerProperty id;
 	private final StringProperty title;
 	private final IntegerProperty priority;
@@ -37,8 +39,20 @@ public class BacklogEntry {
   public void setTitle(String Title) {
     this.title.set(Title);
   }
-  public StringProperty TitleProperty() {
+  public StringProperty titleProperty() {
     return title;
+  }
+  
+  public int getPriority() {
+    return priority.get();
+  }
+  
+  public void setPriority(int priority) {
+    this.priority.set(priority);
+  }
+  
+  public IntegerProperty priorityProperty() {
+    return priority;
   }
   
   public String getType() {
