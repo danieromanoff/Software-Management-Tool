@@ -9,6 +9,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import softwaremanagementtool.agile.AgileProject;
+import softwaremanagementtool.agile.BacklogEntry;
 import softwaremanagementtool.agile.UserStory;
 
 /**
@@ -31,6 +32,10 @@ public class UserStoryViewController {
     private DatePicker date;
     @FXML
     private ComboBox<Integer> priority;
+    @FXML
+    private ComboBox<Integer> storyPoints;
+    @FXML
+    private ComboBox<String> state;
 
     // Reference to the main application.
   private AgileProject agilePrj;
@@ -44,7 +49,15 @@ public class UserStoryViewController {
   private void initialize() {
     // Clear user story details.
   	clearUserStoryDetails();    
-  	priority.getItems().addAll(1,2,3,4,5); //TODO
+  	for (Integer prior : BacklogEntry.PRIORITIES) {
+  		priority.getItems().add(prior);
+  	}
+  	for (Integer points : BacklogEntry.STORY_POINTS) {
+  		storyPoints.getItems().add(points);
+  	}
+  	for (String usState : UserStory.STATE) {
+  		state.getItems().add(usState);
+  	}
   }
 
   /**
@@ -67,8 +80,10 @@ public class UserStoryViewController {
       titleText.setText(userstory.getTitle());      
       userStoryText.setText(userstory.getUserStory());
       priority.setValue(userstory.getPriority());
+      state.setValue(userstory.getState());
       acceptanceCriteriaText.setText(userstory.getAcceptanceCriteria());
       date.setValue(userstory.getDateCreated());
+      storyPoints.setValue(userstory.getStoryPoints());
     } 
   }
   
@@ -79,6 +94,8 @@ public class UserStoryViewController {
     	userstory.setPriority(priority.getValue());
     	userstory.setAcceptanceCriteria(acceptanceCriteriaText.getText());
     	userstory.setDateCreated(date.getValue());
+    	userstory.setState(state.getValue());
+    	userstory.setStoryPoints(storyPoints.getValue());
     }
   }
   

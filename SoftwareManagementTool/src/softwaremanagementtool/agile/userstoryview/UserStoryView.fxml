@@ -37,16 +37,16 @@
             <Label text="Acceptance Criteria" GridPane.rowIndex="4" />
             <Label text="Priority" GridPane.rowIndex="5" />
             <Label text="Story Points" GridPane.rowIndex="6" />
-            <Label text="As A User I Want" GridPane.rowIndex="3" />
-            <Label text="Acceptance Criteria" GridPane.rowIndex="4" />
-            <Label text="Priority" GridPane.rowIndex="5" />
-            <Label text="Date" GridPane.rowIndex="2" />
+            <Label text="State" GridPane.rowIndex="7" />
+            <TextField fx:id="iDText" editable="false" GridPane.columnIndex="1">
+               <effect>
+                  <ColorAdjust brightness="-0.07" />
                </effect></TextField>
             <TextField fx:id="titleText" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="acceptanceCriteriaText" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <ComboBox prefHeight="25.0" prefWidth="280.0" promptText="0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <ComboBox fx:id="storyPoints" prefHeight="25.0" prefWidth="280.0" promptText="0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <Label layoutX="10.0" layoutY="47.0" text="ID" />
-            <ComboBox prefHeight="25.0" prefWidth="282.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <ComboBox fx:id="state" prefHeight="25.0" prefWidth="282.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
             <TextArea fx:id="userStoryText" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label prefHeight="17.0" prefWidth="79.0" text="User Story" GridPane.rowIndex="3">
                <GridPane.margin>
