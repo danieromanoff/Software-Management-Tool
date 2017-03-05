@@ -37,10 +37,10 @@
             <Label text="Acceptance Criteria" GridPane.rowIndex="4" />
             <Label text="Priority" GridPane.rowIndex="5" />
             <Label text="Story Points" GridPane.rowIndex="6" />
-            <Label text="State" GridPane.rowIndex="7" />
-            <TextField fx:id="iDText" editable="false" GridPane.columnIndex="1">
-               <effect>
-                  <ColorAdjust brightness="-0.07" />
+            <Label text="As A User I Want" GridPane.rowIndex="3" />
+            <Label text="Acceptance Criteria" GridPane.rowIndex="4" />
+            <Label text="Priority" GridPane.rowIndex="5" />
+            <Label text="Date" GridPane.rowIndex="2" />
                </effect></TextField>
             <TextField fx:id="titleText" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="acceptanceCriteriaText" GridPane.columnIndex="1" GridPane.rowIndex="4" />
