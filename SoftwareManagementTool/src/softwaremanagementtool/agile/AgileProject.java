@@ -13,7 +13,6 @@ import softwaremanagementtool.agile.backlogview.ProductBacklogViewController;
 import softwaremanagementtool.agile.dashboardview.DashboardViewController;
 import softwaremanagementtool.agile.sprintview.SprintViewController;
 import softwaremanagementtool.agile.UserStory;
-import softwaremanagementtool.agile.UserStory;
 import softwaremanagementtool.agile.userstoryview.UserStoryViewController;
 
 
@@ -29,7 +28,9 @@ public class AgileProject {
   private AnchorPane blEntryPane;
   private UserStoryViewController userStoryController;
   private BacklogViewController backlogViewController;
+  SprintViewController sprintController;
   private ProductBacklog productBacklog;
+  private SprintList sprintList;
   
   /**
    *  Constructor
@@ -39,6 +40,7 @@ public class AgileProject {
     primaryStage = inStage;
     mainLayout = inLayout;
     productBacklog = new ProductBacklog();
+    sprintList = new SprintList();
     showDashboard();
   }
 
@@ -113,7 +115,14 @@ public class AgileProject {
     loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/sprintview/SprintView.fxml"));
     AnchorPane sprintLayout = (AnchorPane) loader.load();
     mainLayout.setCenter(sprintLayout);
-    SprintViewController controller = loader.getController();
+    sprintController = loader.getController();
+    sprintController.setAgilePrj(this);
+    // Allow re-size
+   
+    AnchorPane.setTopAnchor(sprintLayout, 0.0);
+    AnchorPane.setLeftAnchor(sprintLayout, 0.0);
+    AnchorPane.setRightAnchor(sprintLayout, 0.0);
+    AnchorPane.setBottomAnchor(sprintLayout, 0.0);
     
   }
   
@@ -171,6 +180,9 @@ public class AgileProject {
     // TODO
   } 
 
+  public ObservableList<BacklogEntry> getBacklogList() {
+    return productBacklog.backlogList();
+  }
   
   /**
    *  History - Initials, Date, Description
@@ -183,12 +195,17 @@ public class AgileProject {
   
 
   /**
-   *  History - Initials, Date, Description
+   *  Sprint Methods
    *  
    *
    */
-  public ObservableList<BacklogEntry> getBacklogList() {
-    return productBacklog.backlogList();
+  public void newSprint() throws IOException {
+  	Sprint newSprint = new Sprint();
+  	newSprint.setID(sprintList.nextId());
+  	sprintList.sprintList().add(newSprint);
+  	//sprintViewController.showUserSprint(newSprint); TODO
+  	//sprintViewController.setLastListItem();
+  	
   }
   
   
