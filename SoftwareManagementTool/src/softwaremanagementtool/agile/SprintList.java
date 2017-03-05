@@ -23,4 +23,9 @@ public class SprintList {
   	}
   	return biggest + 1;
   }
+  
+  public void add(Sprint sprint) {
+  	sprintList.add(sprint);
+  }
+  
 }
