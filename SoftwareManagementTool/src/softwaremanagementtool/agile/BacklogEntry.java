@@ -7,7 +7,8 @@ import javafx.beans.property.StringProperty;
 
 public class BacklogEntry {
 
-	public static final Integer[] PRIORITIES = {1,2,3,4,5};
+	public static final int[] PRIORITIES = {1,2,3,4,5};
+	public static final int[] STORY_POINTS = {1,2,3,5,8,13,20,40,100};
 	
 	private final IntegerProperty id;
 	private final StringProperty title;
@@ -19,7 +20,7 @@ public class BacklogEntry {
   	this.id = new SimpleIntegerProperty(0);
     this.title = new SimpleStringProperty("New");
     this.priority = new SimpleIntegerProperty(5);
-    this.storyPoints = new SimpleIntegerProperty(1);
+    this.storyPoints = new SimpleIntegerProperty(STORY_POINTS[0]);
   }
 	
 	public int getID() {
@@ -53,6 +54,18 @@ public class BacklogEntry {
   
   public IntegerProperty priorityProperty() {
     return priority;
+  }
+  
+  public int getStoryPoints() {
+    return storyPoints.get();
+  }
+  
+  public void setStoryPoints(int inStoryPoints) {
+    this.storyPoints.set(inStoryPoints);
+  }
+  
+  public IntegerProperty storyPointsProperty() {
+    return storyPoints;
   }
   
   public String getType() {

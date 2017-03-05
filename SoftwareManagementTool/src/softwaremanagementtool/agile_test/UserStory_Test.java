@@ -65,4 +65,20 @@ public class UserStory_Test {
 		assertEquals(us.titleProperty().get(), "This is a User Story");
 	}
 	
+	@Test
+	public void test_state() {
+		UserStory us = new UserStory();
+		us.setState(UserStory.STATE[0]);;
+		assertEquals(us.getState(), UserStory.STATE[0]);
+		assertEquals(us.stateProperty().get(), UserStory.STATE[0]);
+	}
+	
+	@Test
+	public void test_storyPoints() {
+		UserStory us = new UserStory();
+		us.setStoryPoints(UserStory.STORY_POINTS[0]);;
+		assertEquals(us.getStoryPoints(), UserStory.STORY_POINTS[0]);
+		assertEquals(us.storyPointsProperty().get(), UserStory.STORY_POINTS[0]);
+	}
+	
 }
