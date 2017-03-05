@@ -13,8 +13,17 @@ import softwaremanagementtool.agile.backlogview.ProductBacklogViewController;
 import softwaremanagementtool.agile.dashboardview.DashboardViewController;
 import softwaremanagementtool.agile.sprintview.SprintViewController;
 import softwaremanagementtool.agile.UserStory;
+<<<<<<< HEAD
+import softwaremanagementtool.agile.userstoryview.UserStoryViewController;
 
 
+=======
+import softwaremanagementtool.agile.UserStory;
+import softwaremanagementtool.agile.userstoryview.UserStoryViewController;
+
+
+
+>>>>>>> refs/remotes/origin/feature/Stephen
 public class AgileProject {
   
 	 /**

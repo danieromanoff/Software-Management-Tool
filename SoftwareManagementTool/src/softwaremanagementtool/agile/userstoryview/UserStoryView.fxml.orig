@@ -44,7 +44,11 @@
                </effect></TextField>
             <TextField fx:id="titleText" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="acceptanceCriteriaText" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+<<<<<<< HEAD
+            <ComboBox prefHeight="25.0" prefWidth="280.0" promptText="0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+=======
             <ComboBox fx:id="storyPoints" prefHeight="25.0" prefWidth="280.0" promptText="0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+>>>>>>> refs/remotes/origin/feature/Stephen
             <Label layoutX="10.0" layoutY="47.0" text="ID" />
             <ComboBox fx:id="state" prefHeight="25.0" prefWidth="282.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
             <TextArea fx:id="userStoryText" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />

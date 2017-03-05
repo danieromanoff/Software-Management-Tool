@@ -4,9 +4,12 @@
 package softwaremanagementtool.agile.userstoryview;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import softwaremanagementtool.agile.AgileProject;
-import softwaremanagementtool.agile.DateUtil;
+import softwaremanagementtool.agile.BacklogEntry;
 import softwaremanagementtool.agile.UserStory;
 
 /**
@@ -16,20 +19,23 @@ import softwaremanagementtool.agile.UserStory;
 public class UserStoryViewController {
 
 
-	
 	//setting table field
     @FXML
     private TextField iDText;
     @FXML
     private TextField titleText;
     @FXML
-    private TextField userStoryText;
-    @FXML
-    private TextField priorityText;
+    private TextArea userStoryText;
     @FXML
     private TextField acceptanceCriteriaText;
     @FXML
-    private TextField dateText;
+    private DatePicker date;
+    @FXML
+    private ComboBox<Integer> priority;
+    @FXML
+    private ComboBox<Integer> storyPoints;
+    @FXML
+    private ComboBox<String> state;
 
     // Reference to the main application.
   private AgileProject agilePrj;
@@ -42,7 +48,16 @@ public class UserStoryViewController {
   @FXML
   private void initialize() {
     // Clear user story details.
-    showUserStoryDetails(null);    
+  	clearUserStoryDetails();    
+  	for (Integer prior : BacklogEntry.PRIORITIES) {
+  		priority.getItems().add(prior);
+  	}
+  	for (Integer points : BacklogEntry.STORY_POINTS) {
+  		storyPoints.getItems().add(points);
+  	}
+  	for (String usState : UserStory.STATE) {
+  		state.getItems().add(usState);
+  	}
   }
 
   /**
@@ -62,23 +77,34 @@ public class UserStoryViewController {
   public void showUserStoryDetails(UserStory userstory) {
     if (userstory != null) {
       iDText.setText(Integer.toString(userstory.getID()));
-      titleText.setText(userstory.getTitle());
-            
-      userStoryText.setText(userstory.getAs_a_user_i_want());
-      priorityText.setText(Integer.toString(userstory.getpriority()));
-      acceptanceCriteriaText.setText(userstory.getAcceptance_Criteria());
-      dateText.setText(DateUtil.format(userstory.getcalanderday()));
+      titleText.setText(userstory.getTitle());      
+      userStoryText.setText(userstory.getUserStory());
+      priority.setValue(userstory.getPriority());
+      state.setValue(userstory.getState());
+      acceptanceCriteriaText.setText(userstory.getAcceptanceCriteria());
+      date.setValue(userstory.getDateCreated());
+      storyPoints.setValue(userstory.getStoryPoints());
     } 
-    else 
-    {
-    	iDText.setText("");
-      titleText.setText("");
-          //  
-      userStoryText.setText("");
-      priorityText.setText("");
-      acceptanceCriteriaText.setText("");
-      dateText.setText("");
+  }
+  
+  public void updateUserStoryDetails(UserStory userstory) {
+    if (userstory != null) {
+    	userstory.setTitle(titleText.getText());
+    	userstory.setUserStory(userStoryText.getText());
+    	userstory.setPriority(priority.getValue());
+    	userstory.setAcceptanceCriteria(acceptanceCriteriaText.getText());
+    	userstory.setDateCreated(date.getValue());
+    	userstory.setState(state.getValue());
+    	userstory.setStoryPoints(storyPoints.getValue());
     }
+  }
+  
+  private void clearUserStoryDetails() {
+    iDText.setText("");
+    titleText.setText(""); 
+    userStoryText.setText("");  
+    acceptanceCriteriaText.setText("");
+    date.setPromptText("");
   }  
 }
 

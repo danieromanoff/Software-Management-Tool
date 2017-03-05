@@ -35,7 +35,7 @@ public class BacklogViewController {
   private void initialize() {
     // Initialize the person table with the two columns.
    	IDColumn.setCellValueFactory(cellData -> cellData.getValue().IDProperty().asObject());
-    TitleColumn.setCellValueFactory(cellData -> cellData.getValue().TitleProperty());
+    TitleColumn.setCellValueFactory(cellData -> cellData.getValue().titleProperty());
        
     // Clear user story details.
    // showUserStoryDetails(null);
@@ -53,6 +53,14 @@ public class BacklogViewController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+  }
+  
+  public void setLast () {
+  	backlogTable.getSelectionModel().selectLast(); 
+  }
+  
+  public BacklogEntry getSelectedItem() {
+  	return backlogTable.getSelectionModel().getSelectedItem();
   }
   
   public void setAgilePrj(AgileProject agileProject) {
