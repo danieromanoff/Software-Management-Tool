@@ -6,15 +6,12 @@
     -fx-base: #8B8989;
     -fx-control-inner-background: #8B8989;
     -fx-background-color: #8B8989;
-    -fx-table-cell-border-color: transparent;
-    -fx-table-header-border-color: transparent;
     -fx-padding: 5;
 }
 
 .table-view .column-header-background {
     -fx-background-color: transparent;
 }
-
 
 .table-view .column-header, .table-view .filler {
     -fx-size: 35;
@@ -47,10 +44,6 @@
 
 .split-pane {
     -fx-padding: 1 0 0 0;
-}
-
-.button-bar{
--fx-background-color: derive(#8B8989,20%);
 }
 
 .button{
