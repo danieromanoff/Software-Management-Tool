@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="386.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="softwaremanagementtool.agile.userstoryview.UserStoryViewController">
+<AnchorPane prefHeight="386.0" prefWidth="600.0" stylesheets="@UserStoryView.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="softwaremanagementtool.agile.userstoryview.UserStoryViewController">
    <children>
       <Label text="User Story Details" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
       <GridPane AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0">
@@ -33,7 +33,7 @@
          <children>
             <Label text="Title" GridPane.rowIndex="1" />
             <Label text="Date" GridPane.rowIndex="2" />
-            <Label prefWidth="84.0" text="As a user I want" GridPane.rowIndex="3" />
+            <Label prefHeight="21.0" prefWidth="111.0" text="As a user I want" GridPane.rowIndex="3" />
             <Label text="Acceptance Criteria" GridPane.rowIndex="4" />
             <Label text="Priority" GridPane.rowIndex="5" />
             <Label text="Story Points" GridPane.rowIndex="6" />
@@ -44,7 +44,7 @@
                </effect></TextField>
             <TextField fx:id="titleText" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="acceptanceCriteriaText" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <ComboBox fx:id="storyPoints" prefHeight="25.0" prefWidth="280.0" promptText="0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <ComboBox fx:id="storyPoints" prefHeight="25.0" prefWidth="283.0" promptText="0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <Label layoutX="10.0" layoutY="47.0" text="ID" />
             <ComboBox fx:id="state" prefHeight="25.0" prefWidth="282.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
             <TextArea fx:id="userStoryText" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
