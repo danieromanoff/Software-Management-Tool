@@ -6,8 +6,6 @@
     -fx-base: #8B8989;
     -fx-control-inner-background: #8B8989;
     -fx-background-color: #8B8989;
-    -fx-table-cell-border-color: transparent;
-    -fx-table-header-border-color: transparent;
     -fx-padding: 5;
 }
 
