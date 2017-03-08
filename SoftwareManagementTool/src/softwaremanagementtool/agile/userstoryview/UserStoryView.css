@@ -117,3 +117,22 @@
     -fx-background-color: linear-gradient(to left, #ff0000, #7d1e15);
 }
 
+.date-picker {
+    -fx-background-color: #8B8989;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+
+}
+
+.date-picker:hover {
+    -fx-background-color: #8B8989;
+}
+
+.date-picker:focused , .date-picker:focused:hover {
+    -fx-background-color: #8B8989;
+}
+
+.date-picker-popup {
+    -fx-background-color: #8B8989;
+    -fx-background-insets: 0;
+}
