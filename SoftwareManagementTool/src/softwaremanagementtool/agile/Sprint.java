@@ -13,7 +13,7 @@ import javafx.collections.ObservableList;
 
 public class Sprint {
 
-	public static final String[] STATE = {"Draft","InProgress","Closed","Deleted"};
+	public static final String[] STATE = {"Planning","Scrum","Review","Retrospect","Complete"};
 	
 	private final IntegerProperty id;
 	private final ObjectProperty<LocalDate> startDate;
@@ -30,6 +30,7 @@ public class Sprint {
 	private final IntegerProperty numTests;
 	private final IntegerProperty testsAttempted;
 	private final IntegerProperty testsPassed;
+	private BacklogStats backlogStats;
 	
 	public Sprint() {
   	

@@ -23,4 +23,11 @@ public class ProductBacklog {
   	}
   	return biggest + 1;
   }
+  
+  public BacklogStats getStats() {
+  	BacklogStats stats = new BacklogStats();
+  	
+  	// TODO gather
+  	return stats;
+  }
 }

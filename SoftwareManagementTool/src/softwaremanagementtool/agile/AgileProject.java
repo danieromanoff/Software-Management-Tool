@@ -12,6 +12,7 @@ import softwaremanagementtool.agile.backlogview.BacklogViewController;
 import softwaremanagementtool.agile.backlogview.ProductBacklogViewController;
 import softwaremanagementtool.agile.dashboardview.DashboardViewController;
 import softwaremanagementtool.agile.sprintview.SprintViewController;
+import softwaremanagementtool.agile.ui.SprintUi;
 import softwaremanagementtool.agile.UserStory;
 import softwaremanagementtool.agile.userstoryview.UserStoryViewController;
 
@@ -28,9 +29,9 @@ public class AgileProject {
   private AnchorPane blEntryPane;
   private UserStoryViewController userStoryController;
   private BacklogViewController backlogViewController;
-  SprintViewController sprintController;
   private ProductBacklog productBacklog;
   private SprintList sprintList;
+	private SprintUi theSprintUi;
   
   /**
    *  Constructor
@@ -111,18 +112,7 @@ public class AgileProject {
   
   public  void showSprintView() throws IOException {
     // TODO    
-    FXMLLoader loader = new FXMLLoader();
-    loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/sprintview/SprintView.fxml"));
-    AnchorPane sprintLayout = (AnchorPane) loader.load();
-    mainLayout.setCenter(sprintLayout);
-    sprintController = loader.getController();
-    sprintController.setAgilePrj(this);
-    // Allow re-size
-   
-    AnchorPane.setTopAnchor(sprintLayout, 0.0);
-    AnchorPane.setLeftAnchor(sprintLayout, 0.0);
-    AnchorPane.setRightAnchor(sprintLayout, 0.0);
-    AnchorPane.setBottomAnchor(sprintLayout, 0.0);
+  	theSprintUi = new SprintUi(this);
     
   }
   
@@ -189,10 +179,13 @@ public class AgileProject {
    *  
    *
    */
-//  public Stage getPrimaryStage() {
-//    return primaryStage;
-//  }
+  public Stage getPrimaryStage() {
+    return primaryStage;
+  }
   
+  public BorderPane getMainLayout() {
+    return mainLayout;
+  }
 
   /**
    *  Sprint Methods

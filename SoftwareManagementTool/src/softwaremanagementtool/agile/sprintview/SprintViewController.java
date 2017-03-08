@@ -27,7 +27,13 @@ public class SprintViewController {
   private AnchorPane sprintInfoPane;
   @FXML
   private AnchorPane sprintBacklogPane;
-	
+  @FXML
+  private AnchorPane sprintTaskPane;
+  @FXML
+  private AnchorPane sprintReviewPane;
+  @FXML
+  private AnchorPane sprintRetrospectPane;
+  
 	@FXML
   private void initialize() {
     // Initialize the person table with the two columns.
@@ -44,11 +50,29 @@ public class SprintViewController {
 
  }
 	
+  
+  
 	@FXML
   private void goNewSprint() throws IOException {
 		 agilePrj.newSprint();
   }
 	
+	public AnchorPane getSprintInfoPane() {
+		return sprintInfoPane;
+	}
+	public AnchorPane getSprintBacklogPane() {
+		return sprintBacklogPane;
+	}
+	public AnchorPane getSprintTaskPane() {
+		return sprintTaskPane;
+	}
+	public AnchorPane getSprintReviewPane() {
+		return sprintReviewPane;
+	}
+	public AnchorPane getSprintRetrospctPane() {
+		return sprintRetrospectPane;
+	}
+
 	public void setAgilePrj(AgileProject agileProject) {
     this.agilePrj = agileProject;
   }
