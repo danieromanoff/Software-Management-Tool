@@ -34,7 +34,7 @@ public class AgileProject {
   private ProductBacklog productBacklog;
   private SprintList sprintList;
 	private SprintUi theSprintUi;
-  
+	private ChangeReqViewController ChangeReqController;
   /**
    *  Constructor
    */
@@ -153,8 +153,8 @@ public class AgileProject {
     } 
     else 
     {
-  
-    }  
+      
+    }
   
   }
   
@@ -168,8 +168,12 @@ public class AgileProject {
   } 
   
   public void newChangeRequest() throws IOException {
-    ChangeRequest tempChangeReq = new ChangeRequest();
-    // TODO
+    ChangeRequest tempChangeRequest = new ChangeRequest();
+    tempChangeRequest.setID(productBacklog.nextId());
+    getBacklogList().add(tempChangeRequest);
+    ChangeReqController.showChangeRequestDetails(tempChangeRequest);
+    backlogViewController.setLast();
+
   } 
 
   public ObservableList<BacklogEntry> getBacklogList() {
