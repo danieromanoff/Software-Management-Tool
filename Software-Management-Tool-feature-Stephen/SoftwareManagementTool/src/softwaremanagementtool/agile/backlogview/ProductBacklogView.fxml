@@ -5,7 +5,7 @@
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@BacklogStyling.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="softwaremanagementtool.agile.backlogview.ProductBacklogViewController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="softwaremanagementtool.agile.backlogview.ProductBacklogViewController">
    <children>
       <AnchorPane fx:id="backlogPane" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <ButtonBar prefHeight="40.0" prefWidth="286.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
@@ -16,7 +16,7 @@
       </ButtonBar>
       <ButtonBar layoutX="345.0" layoutY="342.0" prefHeight="40.0" prefWidth="255.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="288.0" AnchorPane.rightAnchor="0.0">
         <buttons>
-            <Button mnemonicParsing="false" onAction="#goSaveBacklogItem" text="Save/Update" />
+            <Button mnemonicParsing="false" onAction="#goSaveBacklogItem" text="Update" />
         </buttons>
          <padding>
             <Insets right="10.0" />
