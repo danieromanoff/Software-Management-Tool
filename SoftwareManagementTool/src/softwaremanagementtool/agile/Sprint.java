@@ -187,5 +187,4 @@ public class Sprint {
   public IntegerProperty numTestsProperty() {
     return numTests;
   }
-  }
 }

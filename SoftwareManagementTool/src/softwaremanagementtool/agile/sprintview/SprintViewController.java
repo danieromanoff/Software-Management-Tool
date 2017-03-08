@@ -24,6 +24,12 @@ public class SprintViewController {
   private AnchorPane sprintInfoPane;
   @FXML
   private AnchorPane sprintBacklogPane;
+  @FXML
+  private AnchorPane sprintTaskPane;
+  @FXML
+  private AnchorPane sprintReviewPane;
+  @FXML
+  private AnchorPane sprintRetrospectPane;
   
   @FXML
   private void initialize() {
@@ -50,9 +56,6 @@ public class SprintViewController {
     this.agilePrj = agileProject;
   }
   
-  private void goNewSprint() throws IOException {
-		 agilePrj.newSprint();
-  }
 	
 	public AnchorPane getSprintInfoPane() {
 		return sprintInfoPane;
@@ -70,8 +73,5 @@ public class SprintViewController {
 		return sprintRetrospectPane;
 	}
 
-	public void setAgilePrj(AgileProject agileProject) {
-    this.agilePrj = agileProject;
-  }
 	
 }

@@ -12,12 +12,10 @@ import softwaremanagementtool.agile.backlogview.BacklogViewController;
 import softwaremanagementtool.agile.backlogview.ProductBacklogViewController;
 import softwaremanagementtool.agile.dashboardview.DashboardViewController;
 import softwaremanagementtool.agile.sprintview.SprintViewController;
+import softwaremanagementtool.agile.ui.SprintUi;
 import softwaremanagementtool.agile.userstoryview.UserStoryViewController;
 import softwaremanagementtool.agile.UserStory;
-import softwaremanagementtool.agile.userstoryview.UserStoryViewController;
 
-import softwaremanagementtool.agile.UserStory;
-import softwaremanagementtool.agile.userstoryview.UserStoryViewController;
 import softwaremanagementtool.agile.changereqview.ChangeReqViewController;
 
 
@@ -117,14 +115,6 @@ public class AgileProject {
   public  void showSprintView() throws IOException {
     // TODO    
   	theSprintUi = new SprintUi(this);
-    sprintController = loader.getController();
-    sprintController.setAgilePrj(this);
-    // Allow re-size
-   
-    AnchorPane.setTopAnchor(sprintLayout, 0.0);
-    AnchorPane.setLeftAnchor(sprintLayout, 0.0);
-    AnchorPane.setRightAnchor(sprintLayout, 0.0);
-    AnchorPane.setBottomAnchor(sprintLayout, 0.0);
     
   }
   
