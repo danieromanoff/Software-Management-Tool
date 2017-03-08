@@ -1,0 +1,39 @@
+.root {
+    -fx-background-color: #8B8989;
+}
+
+.table-view {
+   -fx-base: #8B8989;
+   -fx-control-inner-background: #8B8989;
+   -fx-background-color: #8B8989;
+   -fx-padding: 5;
+}
+
+.menu-bar{
+  -fx-background-color: #8B8989;
+  -fx-border-color:  #8B8989;
+  -fx-border-width: 2
+}
+
+.context-menu {
+    -fx-background-color: derive(#1d1d1d,35%);
+}
+
+.menu-bar .label {
+   -fx-font-size: 16 pt;
+   -fx-font-family: "Segoe UI Light";
+   -fx-text-fill: #dedede;
+   -fx-opacity: 0.9;
+}
+
+.menu .left-container {
+    -fx-background-color: black;
+}
+
+.menu:hover {
+   -fx-background-color: linear-gradient(to left, #ff0000, #7d1e15);
+}
+
+.menu-item .label{
+    -fx-font-size: 16 pt;
+}
