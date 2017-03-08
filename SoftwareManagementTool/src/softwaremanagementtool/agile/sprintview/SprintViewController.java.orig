@@ -13,13 +13,14 @@ import softwaremanagementtool.agile.Sprint;
 
 public class SprintViewController {
 
-  private AgileProject agilePrj;
-  @FXML
-  private TableView<Sprint> sprintTable;
-  @FXML
-  private TableColumn<Sprint, Integer> idColumn;
-  @FXML
-  private TableColumn<Sprint, String> titleColumn;
+<<<<<<< HEAD
+	private AgileProject agilePrj;
+	@FXML
+	private TableView<Sprint> sprintTable;
+	@FXML
+	private TableColumn<Sprint, Integer> idColumn;
+	@FXML
+	private TableColumn<Sprint, String> titleColumn;
   @FXML
   private AnchorPane sprintInfoPane;
   @FXML
@@ -31,31 +32,47 @@ public class SprintViewController {
   @FXML
   private AnchorPane sprintRetrospectPane;
   
+	@FXML
+  private void initialize() {
+    // Initialize the person table with the two columns.
+   	idColumn.setCellValueFactory(cellData -> cellData.getValue().IDProperty().asObject());
+=======
+  private AgileProject agilePrj;
+  @FXML
+  private TableView<Sprint> sprintTable;
+  @FXML
+  private TableColumn<Sprint, Integer> idColumn;
+  @FXML
+  private TableColumn<Sprint, String> titleColumn;
+  @FXML
+  private AnchorPane sprintInfoPane;
+  @FXML
+  private AnchorPane sprintBacklogPane;
+  
   @FXML
   private void initialize() {
     // Initialize the person table with the two columns.
     idColumn.setCellValueFactory(cellData -> cellData.getValue().IDProperty().asObject());
+>>>>>>> refs/remotes/origin/Sprint
    // titleColumn.setCellValueFactory(cellData -> cellData.getValue().titleProperty());
        
     // Listen for selection changes and show the user story details when changed.
     sprintTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showSprintDetails(newValue));
     
-  }
-  
+<<<<<<< HEAD
+	}
+	
   private void showSprintDetails(Sprint sprint) {
-      // TODO agilePrj.showBacklogEntry(blEntry);
+			// TODO agilePrj.showBacklogEntry(blEntry);
 
  }
+	
   
-  @FXML
+  
+	@FXML
   private void goNewSprint() throws IOException {
-     agilePrj.newSprint();
+		 agilePrj.newSprint();
   }
-  
-  public void setAgilePrj(AgileProject agileProject) {
-    this.agilePrj = agileProject;
-  }
-  
 	
 	public AnchorPane getSprintInfoPane() {
 		return sprintInfoPane;
@@ -73,5 +90,27 @@ public class SprintViewController {
 		return sprintRetrospectPane;
 	}
 
+	public void setAgilePrj(AgileProject agileProject) {
+    this.agilePrj = agileProject;
+  }
 	
 }
+=======
+  }
+  
+  private void showSprintDetails(Sprint sprint) {
+      // TODO agilePrj.showBacklogEntry(blEntry);
+
+ }
+  
+  @FXML
+  private void goNewSprint() throws IOException {
+     agilePrj.newSprint();
+  }
+  
+  public void setAgilePrj(AgileProject agileProject) {
+    this.agilePrj = agileProject;
+  }
+  
+}
+>>>>>>> refs/remotes/origin/Sprint

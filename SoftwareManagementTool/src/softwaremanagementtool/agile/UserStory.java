@@ -10,7 +10,7 @@ import javafx.beans.property.StringProperty;
 
 public class UserStory extends BacklogEntry {
    
-	public static final String[] STATE = {"Draft","Open","Closed","Deleted"};
+	public static final String[] STATE = {"Draft","Deferred","Open","Closed","Deleted"};
 	
   private final StringProperty userStory;
   private final StringProperty acceptanceCriteria;
