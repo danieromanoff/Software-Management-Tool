@@ -1,6 +1,3 @@
-/**
- * 
- */
 package softwaremanagementtool.agile.sprintview;
 
 import java.io.IOException;
@@ -16,43 +13,43 @@ import softwaremanagementtool.agile.Sprint;
 
 public class SprintViewController {
 
-	private AgileProject agilePrj;
-	@FXML
-	private TableView<Sprint> sprintTable;
-	@FXML
-	private TableColumn<Sprint, Integer> idColumn;
-	@FXML
-	private TableColumn<Sprint, String> titleColumn;
+  private AgileProject agilePrj;
+  @FXML
+  private TableView<Sprint> sprintTable;
+  @FXML
+  private TableColumn<Sprint, Integer> idColumn;
+  @FXML
+  private TableColumn<Sprint, String> titleColumn;
   @FXML
   private AnchorPane sprintInfoPane;
   @FXML
   private AnchorPane sprintBacklogPane;
-  @FXML
-  private AnchorPane sprintTaskPane;
-  @FXML
-  private AnchorPane sprintReviewPane;
-  @FXML
-  private AnchorPane sprintRetrospectPane;
   
-	@FXML
+  @FXML
   private void initialize() {
     // Initialize the person table with the two columns.
-   	idColumn.setCellValueFactory(cellData -> cellData.getValue().IDProperty().asObject());
+    idColumn.setCellValueFactory(cellData -> cellData.getValue().IDProperty().asObject());
    // titleColumn.setCellValueFactory(cellData -> cellData.getValue().titleProperty());
        
     // Listen for selection changes and show the user story details when changed.
     sprintTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showSprintDetails(newValue));
     
-	}
-	
+  }
+  
   private void showSprintDetails(Sprint sprint) {
-			// TODO agilePrj.showBacklogEntry(blEntry);
+      // TODO agilePrj.showBacklogEntry(blEntry);
 
  }
-	
   
+  @FXML
+  private void goNewSprint() throws IOException {
+     agilePrj.newSprint();
+  }
   
-	@FXML
+  public void setAgilePrj(AgileProject agileProject) {
+    this.agilePrj = agileProject;
+  }
+  
   private void goNewSprint() throws IOException {
 		 agilePrj.newSprint();
   }

@@ -12,16 +12,18 @@ import softwaremanagementtool.agile.backlogview.BacklogViewController;
 import softwaremanagementtool.agile.backlogview.ProductBacklogViewController;
 import softwaremanagementtool.agile.dashboardview.DashboardViewController;
 import softwaremanagementtool.agile.sprintview.SprintViewController;
-import softwaremanagementtool.agile.ui.SprintUi;
+import softwaremanagementtool.agile.userstoryview.UserStoryViewController;
 import softwaremanagementtool.agile.UserStory;
 import softwaremanagementtool.agile.userstoryview.UserStoryViewController;
 
 import softwaremanagementtool.agile.UserStory;
+import softwaremanagementtool.agile.userstoryview.UserStoryViewController;
+import softwaremanagementtool.agile.changereqview.ChangeReqViewController;
 
 
 public class AgileProject {
   
-	 /**
+   /**
    *  Class Attributes
    */
   private String projectName;
@@ -30,6 +32,7 @@ public class AgileProject {
   private AnchorPane blEntryPane;
   private UserStoryViewController userStoryController;
   private BacklogViewController backlogViewController;
+  SprintViewController sprintController;
   private ProductBacklog productBacklog;
   private SprintList sprintList;
 	private SprintUi theSprintUi;
@@ -65,8 +68,8 @@ public class AgileProject {
   }
 
   public  void showBacklog() throws IOException {
-  	// Frame to hold backlog view
-  	FXMLLoader loader = new FXMLLoader();
+    // Frame to hold backlog view
+    FXMLLoader loader = new FXMLLoader();
     loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/backlogview/ProductBacklogView.fxml"));
     AnchorPane prodBlLayout = loader.load();
     ProductBacklogViewController controller = (ProductBacklogViewController)loader.getController();
@@ -114,6 +117,14 @@ public class AgileProject {
   public  void showSprintView() throws IOException {
     // TODO    
   	theSprintUi = new SprintUi(this);
+    sprintController = loader.getController();
+    sprintController.setAgilePrj(this);
+    // Allow re-size
+   
+    AnchorPane.setTopAnchor(sprintLayout, 0.0);
+    AnchorPane.setLeftAnchor(sprintLayout, 0.0);
+    AnchorPane.setRightAnchor(sprintLayout, 0.0);
+    AnchorPane.setBottomAnchor(sprintLayout, 0.0);
     
   }
   
@@ -131,43 +142,43 @@ public class AgileProject {
    *  
    */
   public void showBacklogEntry(BacklogEntry blEntry) throws IOException {
-  	if (blEntry != null) {
-     	if (blEntry.getType().equals("UserStory")) {
-     		userStoryController.showUserStoryDetails((UserStory) blEntry);
-     	}
+    if (blEntry != null) {
+      if (blEntry.getType().equals("UserStory")) {
+        userStoryController.showUserStoryDetails((UserStory) blEntry);
+      }
     } 
     else 
     {
-	
-    }  	
+  
+    }   
   }
   
   public void updateBacklogItem() {
-  	BacklogEntry blEntry = backlogViewController.getSelectedItem();
-  	System.out.println(blEntry.getID());
-  	if (blEntry != null) {
-     	if (blEntry.getType().equals("UserStory")) {
-     		userStoryController.updateUserStoryDetails((UserStory) blEntry);
-     	}
+    BacklogEntry blEntry = backlogViewController.getSelectedItem();
+    System.out.println(blEntry.getID());
+    if (blEntry != null) {
+      if (blEntry.getType().equals("UserStory")) {
+        userStoryController.updateUserStoryDetails((UserStory) blEntry);
+      }
     } 
     else 
     {
-	
+  
     }  
   
   }
   
   public void newUserStory() throws IOException {
-  	UserStory tempUserStory = new UserStory();
-  	tempUserStory.setID(productBacklog.nextId());
-  	getBacklogList().add(tempUserStory);
-  	userStoryController.showUserStoryDetails(tempUserStory);
-  	backlogViewController.setLast();
-  	
+    UserStory tempUserStory = new UserStory();
+    tempUserStory.setID(productBacklog.nextId());
+    getBacklogList().add(tempUserStory);
+    userStoryController.showUserStoryDetails(tempUserStory);
+    backlogViewController.setLast();
+    
   } 
   
   public void newChangeRequest() throws IOException {
-  	ChangeRequest tempChangeReq = new ChangeRequest();
+    ChangeRequest tempChangeReq = new ChangeRequest();
     // TODO
   } 
 
@@ -194,13 +205,13 @@ public class AgileProject {
    *
    */
   public void newSprint() throws IOException {
-  	Sprint newSprint = new Sprint();
-  	newSprint.setID(sprintList.nextId());
-  	sprintList.sprintList().add(newSprint);
-  	//sprintViewController.showUserSprint(newSprint); TODO
-  	//sprintViewController.setLastListItem();
+    Sprint newSprint = new Sprint();
+    newSprint.setID(sprintList.nextId());
+    sprintList.sprintList().add(newSprint);
+    //sprintViewController.showUserSprint(newSprint); TODO
+    //sprintViewController.setLastListItem();
   	
+    
   }
   
-  
-}
+}  
