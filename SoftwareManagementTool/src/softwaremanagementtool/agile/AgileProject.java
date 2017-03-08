@@ -12,8 +12,10 @@ import softwaremanagementtool.agile.backlogview.BacklogViewController;
 import softwaremanagementtool.agile.backlogview.ProductBacklogViewController;
 import softwaremanagementtool.agile.dashboardview.DashboardViewController;
 import softwaremanagementtool.agile.sprintview.SprintViewController;
-import softwaremanagementtool.agile.UserStory;
+import softwaremanagementtool.agile.ui.SprintUi;
 import softwaremanagementtool.agile.userstoryview.UserStoryViewController;
+import softwaremanagementtool.agile.UserStory;
+
 import softwaremanagementtool.agile.changereqview.ChangeReqViewController;
 
 
@@ -31,7 +33,8 @@ public class AgileProject {
   SprintViewController sprintController;
   private ProductBacklog productBacklog;
   private SprintList sprintList;
-  
+	private SprintUi theSprintUi;
+	private ChangeReqViewController ChangeReqController;
   /**
    *  Constructor
    */
@@ -111,18 +114,7 @@ public class AgileProject {
   
   public  void showSprintView() throws IOException {
     // TODO    
-    FXMLLoader loader = new FXMLLoader();
-    loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/sprintview/SprintView.fxml"));
-    AnchorPane sprintLayout = (AnchorPane) loader.load();
-    mainLayout.setCenter(sprintLayout);
-    sprintController = loader.getController();
-    sprintController.setAgilePrj(this);
-    // Allow re-size
-   
-    AnchorPane.setTopAnchor(sprintLayout, 0.0);
-    AnchorPane.setLeftAnchor(sprintLayout, 0.0);
-    AnchorPane.setRightAnchor(sprintLayout, 0.0);
-    AnchorPane.setBottomAnchor(sprintLayout, 0.0);
+  	theSprintUi = new SprintUi(this);
     
   }
   
@@ -161,8 +153,8 @@ public class AgileProject {
     } 
     else 
     {
-  
-    }  
+      
+    }
   
   }
   
@@ -176,8 +168,12 @@ public class AgileProject {
   } 
   
   public void newChangeRequest() throws IOException {
-    ChangeRequest tempChangeReq = new ChangeRequest();
-    // TODO
+    ChangeRequest tempChangeRequest = new ChangeRequest();
+    tempChangeRequest.setID(productBacklog.nextId());
+    getBacklogList().add(tempChangeRequest);
+    ChangeReqController.showChangeRequestDetails(tempChangeRequest);
+    backlogViewController.setLast();
+
   } 
 
   public ObservableList<BacklogEntry> getBacklogList() {
@@ -189,10 +185,13 @@ public class AgileProject {
    *  
    *
    */
-//  public Stage getPrimaryStage() {
-//    return primaryStage;
-//  }
+  public Stage getPrimaryStage() {
+    return primaryStage;
+  }
   
+  public BorderPane getMainLayout() {
+    return mainLayout;
+  }
 
   /**
    *  Sprint Methods
@@ -205,6 +204,7 @@ public class AgileProject {
     sprintList.sprintList().add(newSprint);
     //sprintViewController.showUserSprint(newSprint); TODO
     //sprintViewController.setLastListItem();
+  	
     
   }
   
