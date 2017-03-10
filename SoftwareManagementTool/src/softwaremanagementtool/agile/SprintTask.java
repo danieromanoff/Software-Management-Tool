@@ -16,7 +16,7 @@ public class SprintTask {
   private final IntegerProperty estTime;
   private final IntegerProperty actTime;
   private final IntegerProperty backlogRef;
-  
+  private final StringProperty status;
 
   
   public SprintTask() {
@@ -27,6 +27,7 @@ public class SprintTask {
     this.estTime = new SimpleIntegerProperty(0);
     this.actTime = new SimpleIntegerProperty(0);
     this.backlogRef = new SimpleIntegerProperty(0);
+    this.status = new SimpleStringProperty("");
   }
   
   public int getID() {
@@ -87,5 +88,14 @@ public class SprintTask {
   }
   public IntegerProperty backlogRefProperty() {
     return backlogRef;
+  }
+  public String getStatus() {
+    return status.get();
+  }
+  public void setStatus(String inStatus) {
+    this.status.set(inStatus);
+  }
+  public StringProperty statusProperty() {
+    return status;
   }
 }
