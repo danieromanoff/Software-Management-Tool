@@ -1,29 +1,15 @@
 package softwaremanagementtool.agile.ui;
 
 import java.io.IOException;
-
-import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.AnchorPane;
-import softwaremanagementtool.SoftwareManagementToolMain;
 import softwaremanagementtool.agile.AgileProject;
-import softwaremanagementtool.agile.dashboardview.DashboardViewController;
+import softwaremanagementtool.agile.reportsview.ReportsViewController;
 
-public class ReportsUi {
-
-	private AgileProject agilePrj;
-	private DashboardViewController controller;
-	AnchorPane reportsLayout ;
+public class ReportsUi extends BaseUi<ReportsViewController> {
 	
+	private final String FXML_REPORTS_VIEW = "agile/reportsview/ReportsView.fxml";
+
 	public ReportsUi(AgileProject parent) throws IOException {
-		agilePrj = parent;
-	  FXMLLoader loader = new FXMLLoader();
-    loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/reportsview/ReportsView.fxml"));
-    reportsLayout = (AnchorPane) loader.load();
-    controller = loader.getController();
-	}
-	
-  
-  public void show() {
-		agilePrj.getMainLayout().setCenter(reportsLayout);
+		loadView(parent, FXML_REPORTS_VIEW);
+  	classController.setAgileProject(agilePrj);
 	}
 }
