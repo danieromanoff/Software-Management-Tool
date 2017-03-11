@@ -24,19 +24,19 @@
 }
 
 .table-view {
-    -fx-base: #1d1d1d;
-    -fx-control-inner-background: #1d1d1d;
-    -fx-background-color: #1d1d1d;
+    -fx-base: #8B8989;
+    -fx-control-inner-background: #8B8989;
+    -fx-background-color: #8B8989;
     -fx-padding: 5;
 }
 .table-view .column-header-background {
-    -fx-background-color: transparent;
+    -fx-background-color: #8B8989;
 }
 
 .table-view .column-header, .table-view .filler {
     -fx-size: 35;
     -fx-border-width: 0 0 1 0;
-    -fx-background-color: transparent;
+    -fx-background-color: #8B8989;
     -fx-border-color: 
         transparent
         transparent

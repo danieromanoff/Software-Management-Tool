@@ -2,13 +2,6 @@
     -fx-background-color: #8B8989;
 }
 
-.table-view {
-   -fx-base: #8B8989;
-   -fx-control-inner-background: #8B8989;
-   -fx-background-color: #8B8989;
-   -fx-padding: 5;
-}
-
 .menu-bar{
   -fx-background-color: #8B8989;
   -fx-border-color:  #8B8989;
