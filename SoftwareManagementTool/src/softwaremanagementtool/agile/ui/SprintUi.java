@@ -14,36 +14,32 @@ public class SprintUi {
 	
 	private AgileProject agilePrj;
 	private SprintViewController sprintController;
+	AnchorPane sprintLayout;
 	
-	public  SprintUi(AgileProject parent) {
+	public  SprintUi(AgileProject parent) throws IOException {
 		agilePrj = parent;
     // TODO  
-		try {
-      FXMLLoader loader = new FXMLLoader();
-      loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/sprintview/SprintView.fxml"));
-      AnchorPane sprintLayout = (AnchorPane) loader.load();
-      agilePrj.getMainLayout().setCenter(sprintLayout);
-      sprintController = loader.getController();
-      sprintController.setAgilePrj(agilePrj);
-       // Allow re-size
-      AnchorPane.setTopAnchor(sprintLayout, 0.0);
-      AnchorPane.setLeftAnchor(sprintLayout, 0.0);
-      AnchorPane.setRightAnchor(sprintLayout, 0.0);
-      AnchorPane.setBottomAnchor(sprintLayout, 0.0);
+		
+    FXMLLoader loader = new FXMLLoader();
+    loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/sprintview/SprintView.fxml"));
+    sprintLayout = (AnchorPane) loader.load();
+    sprintController = loader.getController();
+    sprintController.setAgilePrj(agilePrj);
+     // Allow re-size
+    AnchorPane.setTopAnchor(sprintLayout, 0.0);
+    AnchorPane.setLeftAnchor(sprintLayout, 0.0);
+    AnchorPane.setRightAnchor(sprintLayout, 0.0);
+    AnchorPane.setBottomAnchor(sprintLayout, 0.0);
       
-      showSprintInfo();
-      showSprintBacklog();
-      showSprintTasks();
-      showSprintReview();
-      showSprintRetrospect();
-      
-	  } catch (IOException e) {
-		  // TODO Auto-generated catch block
-		  e.printStackTrace();
-	  }
+    initSprintInfo();
+    initSprintBacklog();
+    initSprintTasks();
+    initSprintReview();
+    initSprintRetrospect();
+     
 	}
 	
-	private void showSprintInfo() throws IOException {
+	private void initSprintInfo() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
     loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/sprintview/SprintInfoView.fxml"));
     AnchorPane sprintInfoPane = (AnchorPane) loader.load();
@@ -59,7 +55,7 @@ public class SprintUi {
 	}
 	
 
-	private void showSprintBacklog() throws IOException {
+	private void initSprintBacklog() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
     loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/sprintview/SprintBacklogView.fxml"));
     AnchorPane sprintBacklogPane = (AnchorPane) loader.load();
@@ -74,11 +70,11 @@ public class SprintUi {
     AnchorPane.setBottomAnchor(sprintBacklogPane, 0.0);
     
     AnchorPane detailsPane = backlogViewController.getBacklogEntryPane();
-    showUserStoryView(detailsPane);
+    initUserStoryView(detailsPane);
     // showChangeReqView
 	}
 	
-	 private void showUserStoryView(AnchorPane parent) throws IOException 
+	 private void initUserStoryView(AnchorPane parent) throws IOException 
 	  {
 	    FXMLLoader loader = new FXMLLoader();
 	    loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/userstoryview/UserStoryView.fxml"));
@@ -99,7 +95,7 @@ public class SprintUi {
 	    
 	  }
 
-  private void showSprintTasks() throws IOException {
+  private void initSprintTasks() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
     loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/sprintview/SprintTasksView.fxml"));
     AnchorPane sprintTasksPane = (AnchorPane) loader.load();
@@ -114,7 +110,7 @@ public class SprintUi {
     AnchorPane.setBottomAnchor(sprintTasksPane, 0.0);
 	}
  
-  private void showSprintReview() throws IOException {
+  private void initSprintReview() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
     loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/sprintview/SprintReviewView.fxml"));
     AnchorPane sprintReviewPane = (AnchorPane) loader.load();
@@ -129,7 +125,7 @@ public class SprintUi {
     AnchorPane.setBottomAnchor(sprintReviewPane, 0.0);
 	}
 	
-	private void showSprintRetrospect() throws IOException {
+	private void initSprintRetrospect() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
     loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/sprintview/SprintRetrospectView.fxml"));
     AnchorPane sprintRetrospectPane = (AnchorPane) loader.load();
@@ -142,5 +138,9 @@ public class SprintUi {
     AnchorPane.setLeftAnchor(sprintRetrospectPane, 0.0);
     AnchorPane.setRightAnchor(sprintRetrospectPane, 0.0);
     AnchorPane.setBottomAnchor(sprintRetrospectPane, 0.0);
+	}
+	
+	public void show() {
+		agilePrj.getMainLayout().setCenter(sprintLayout);
 	}
 }
