@@ -8,6 +8,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import softwaremanagementtool.agile.AgileProject;
 import softwaremanagementtool.agile.BacklogEntry;
 import softwaremanagementtool.agile.UserStory;
@@ -39,6 +40,7 @@ public class UserStoryViewController {
 
     // Reference to the main application.
   private AgileProject agilePrj;
+  private AnchorPane thisPane;
 
   
   public UserStoryViewController() {
@@ -60,20 +62,19 @@ public class UserStoryViewController {
   	}
   }
 
-  /**
-   *  History - Initials, Date, Description
-   *  
-   *
-   */
+
   public void setAgilePrj(AgileProject agileProject) {
     this.agilePrj = agileProject;
   }
 
-  /**
-   *  History - Initials, Date, Description
-   *  
-   *
-   */
+  public void setPane(AnchorPane inPane) {
+  	this.thisPane = inPane;
+  }
+  
+  public void setVisable(boolean visable) {
+  	thisPane.setVisible(visable);
+  }
+
   public void showUserStoryDetails(UserStory userstory) {
     if (userstory != null) {
       iDText.setText(Integer.toString(userstory.getID()));

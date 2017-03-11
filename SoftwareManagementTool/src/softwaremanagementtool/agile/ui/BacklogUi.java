@@ -22,7 +22,7 @@ public class BacklogUi extends BaseUi<ProductBacklogViewController> {
   private final String FXML_PROD_BACKLOG_VIEW = "agile/backlogview/ProductBacklogView.fxml";
   private final String FXML_BACKLOG_VIEW = "agile/backlogview/BacklogView.fxml";
   private final String FXML_USER_STORY_VIEW = "agile/userstoryview/UserStoryView.fxml";
-	
+  private final String FXML_CHANGE_REQ_VIEW = "agile/changereqview/ChangeReqView.fxml";
   
   public BacklogUi(AgileProject parent) throws IOException {
   	loadView(parent, FXML_PROD_BACKLOG_VIEW);
@@ -33,13 +33,14 @@ public class BacklogUi extends BaseUi<ProductBacklogViewController> {
   	backlogViewController.setAgilePrj(agilePrj);
     blEntryPane = backlogViewController.getBacklogEntryPane();
     
-    initUserStoryView();
-  }
-  
-  private void initUserStoryView() throws IOException 
-  {
-  	userStoryController = (UserStoryViewController) loadSubView(blEntryPane, FXML_USER_STORY_VIEW);
+    userStoryController = (UserStoryViewController) loadSubView(blEntryPane, FXML_USER_STORY_VIEW);
+    userStoryController.setPane( (AnchorPane) blEntryPane.getChildren().get(0));
     userStoryController.setAgilePrj(agilePrj);
+    userStoryController.setVisable(false);
+    changeReqController = (ChangeReqViewController) loadSubView(blEntryPane, FXML_CHANGE_REQ_VIEW);
+    changeReqController.setPane( (AnchorPane) blEntryPane.getChildren().get(1));
+    changeReqController.setAgilePrj(agilePrj);
+    changeReqController.setVisable(false);
   }
   
   
@@ -47,6 +48,13 @@ public class BacklogUi extends BaseUi<ProductBacklogViewController> {
     if (blEntry != null) {
       if (blEntry.getType().equals("UserStory")) {
         userStoryController.showUserStoryDetails((UserStory) blEntry);
+        userStoryController.setVisable(true);
+        changeReqController.setVisable(false);
+      }
+      else if (blEntry.getType().equals("ChangeRequest")) {
+      	changeReqController.showChangeRequestDetails((ChangeRequest) blEntry);
+      	userStoryController.setVisable(false);
+      	changeReqController.setVisable(true);
       }
     } 
     else 
@@ -61,6 +69,11 @@ public class BacklogUi extends BaseUi<ProductBacklogViewController> {
     if (blEntry != null) {
       if (blEntry.getType().equals("UserStory")) {
         userStoryController.updateUserStoryDetails((UserStory) blEntry);
+        userStoryController.setVisable(true);
+      }
+      else if (blEntry.getType().equals("ChangeRequest")) {
+      	changeReqController.showChangeRequestDetails((ChangeRequest) blEntry);
+      	userStoryController.setVisable(false);
       }
     } 
     else 

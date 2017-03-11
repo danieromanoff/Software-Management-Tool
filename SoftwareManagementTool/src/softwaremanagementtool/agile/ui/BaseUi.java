@@ -35,7 +35,7 @@ public class BaseUi<T> {
     loader.setLocation(SoftwareManagementToolMain.class.getResource(fxmlFile));
     AnchorPane pane = loader.load();    
     // Allow re-size
-     parent.getChildren().add(pane);
+    parent.getChildren().add(pane);
     AnchorPane.setTopAnchor(pane, 0.0);
     AnchorPane.setLeftAnchor(pane, 0.0);
     AnchorPane.setRightAnchor(pane, 0.0);
