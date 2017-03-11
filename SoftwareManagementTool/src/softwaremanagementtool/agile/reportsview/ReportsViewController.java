@@ -1,5 +1,12 @@
 package softwaremanagementtool.agile.reportsview;
 
-public class ReportsViewController {
+import softwaremanagementtool.agile.AgileProject;
 
+public class ReportsViewController {
+  private AgileProject agilePrj;
+  
+
+  public void setAgileProject(AgileProject inPrj) {
+    agilePrj = inPrj;
+  }
 }

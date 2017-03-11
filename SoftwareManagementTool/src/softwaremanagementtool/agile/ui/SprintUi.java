@@ -2,145 +2,47 @@ package softwaremanagementtool.agile.ui;
 
 import java.io.IOException;
 
-import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
-import softwaremanagementtool.SoftwareManagementToolMain;
 import softwaremanagementtool.agile.AgileProject;
 import softwaremanagementtool.agile.sprintview.SprintBacklogViewController;
+import softwaremanagementtool.agile.sprintview.SprintInfoViewController;
+import softwaremanagementtool.agile.sprintview.SprintRetrospectViewController;
+import softwaremanagementtool.agile.sprintview.SprintReviewViewController;
+import softwaremanagementtool.agile.sprintview.SprintTaskViewController;
 import softwaremanagementtool.agile.sprintview.SprintViewController;
 import softwaremanagementtool.agile.userstoryview.UserStoryViewController;
 
-public class SprintUi {
+public class SprintUi extends BaseUi<SprintViewController> {
 	
-	private AgileProject agilePrj;
-	private SprintViewController sprintController;
+	private AnchorPane sprintLayout;
+	private SprintInfoViewController infoViewController;
+	private SprintBacklogViewController backlogViewController;
+	private UserStoryViewController userStoryController;
+	private SprintTaskViewController taskViewController;
+	private SprintReviewViewController reviewViewController;
+	private SprintRetrospectViewController retrospectViewController;
 	
-	public  SprintUi(AgileProject parent) {
-		agilePrj = parent;
-    // TODO  
-		try {
-      FXMLLoader loader = new FXMLLoader();
-      loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/sprintview/SprintView.fxml"));
-      AnchorPane sprintLayout = (AnchorPane) loader.load();
-      agilePrj.getMainLayout().setCenter(sprintLayout);
-      sprintController = loader.getController();
-      sprintController.setAgilePrj(agilePrj);
-       // Allow re-size
-      AnchorPane.setTopAnchor(sprintLayout, 0.0);
-      AnchorPane.setLeftAnchor(sprintLayout, 0.0);
-      AnchorPane.setRightAnchor(sprintLayout, 0.0);
-      AnchorPane.setBottomAnchor(sprintLayout, 0.0);
-      
-      showSprintInfo();
-      showSprintBacklog();
-      showSprintTasks();
-      showSprintReview();
-      showSprintRetrospect();
-      
-	  } catch (IOException e) {
-		  // TODO Auto-generated catch block
-		  e.printStackTrace();
-	  }
-	}
+	private final String FXML_SPRINT_VIEW = "agile/sprintview/SprintView.fxml";
+	private final String FXML_SPRINT_INFO_VIEW = "agile/sprintview/SprintInfoView.fxml";
+	private final String FXML_SPRINT_BACKLOG_VIEW = "agile/sprintview/SprintBacklogView.fxml";
+	private final String FXML_USER_STORY_VIEW = "agile/userstoryview/UserStoryView.fxml";
+	private final String FXML_SPRINT_TASK_VIEW = "agile/sprintview/SprintTasksView.fxml";
+	private final String FXML_SPRINT_REVIEW_VIEW = "agile/sprintview/SprintReviewView.fxml";
+	private final String FXML_SPRINT_RETROSPECT_VIEW = "agile/sprintview/SprintRetrospectView.fxml";
 	
-	private void showSprintInfo() throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-    loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/sprintview/SprintInfoView.fxml"));
-    AnchorPane sprintInfoPane = (AnchorPane) loader.load();
-    sprintController.getSprintInfoPane().getChildren().add(sprintInfoPane);
-  
-   // sprintController = loader.getController();
-   // sprintController.setAgilePrj(agilePrj);
-     // Allow re-size
-    AnchorPane.setTopAnchor(sprintInfoPane, 0.0);
-    AnchorPane.setLeftAnchor(sprintInfoPane, 0.0);
-    AnchorPane.setRightAnchor(sprintInfoPane, 0.0);
-    AnchorPane.setBottomAnchor(sprintInfoPane, 0.0);
-	}
 	
-
-	private void showSprintBacklog() throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-    loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/sprintview/SprintBacklogView.fxml"));
-    AnchorPane sprintBacklogPane = (AnchorPane) loader.load();
-    sprintController.getSprintBacklogPane().getChildren().add(sprintBacklogPane);
-  
-    SprintBacklogViewController backlogViewController = loader.getController();
-   // sprintController.setAgilePrj(agilePrj);
-     // Allow re-size
-    AnchorPane.setTopAnchor(sprintBacklogPane, 0.0);
-    AnchorPane.setLeftAnchor(sprintBacklogPane, 0.0);
-    AnchorPane.setRightAnchor(sprintBacklogPane, 0.0);
-    AnchorPane.setBottomAnchor(sprintBacklogPane, 0.0);
+	public  SprintUi(AgileProject parent) throws IOException {
+		loadView(parent, FXML_SPRINT_VIEW);
+  	classController.setAgilePrj(agilePrj);
     
-    AnchorPane detailsPane = backlogViewController.getBacklogEntryPane();
-    showUserStoryView(detailsPane);
-    // showChangeReqView
+  	infoViewController = (SprintInfoViewController) loadSubView(classController.getSprintInfoPane(), FXML_SPRINT_INFO_VIEW);
+  	backlogViewController = (SprintBacklogViewController) loadSubView(classController.getSprintBacklogPane(), FXML_SPRINT_BACKLOG_VIEW);
+  	userStoryController = (UserStoryViewController) loadSubView(backlogViewController.getBacklogEntryPane(), FXML_USER_STORY_VIEW); 
+  	//userstoryPane.setVisible(false); ???
+  	taskViewController = (SprintTaskViewController) loadSubView(classController.getSprintTaskPane(), FXML_SPRINT_TASK_VIEW);
+  	reviewViewController = (SprintReviewViewController) loadSubView(classController.getSprintReviewPane(), FXML_SPRINT_REVIEW_VIEW);
+  	retrospectViewController = (SprintRetrospectViewController) loadSubView(classController.getSprintRetrospctPane(), FXML_SPRINT_RETROSPECT_VIEW);
+  	     
 	}
 	
-	 private void showUserStoryView(AnchorPane parent) throws IOException 
-	  {
-	    FXMLLoader loader = new FXMLLoader();
-	    loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/userstoryview/UserStoryView.fxml"));
-	    AnchorPane userstoryPane = (AnchorPane) loader.load();
-	    //userStoryController = (UserStoryViewController)loader.getController();
-	    
-	    // Set Callback
-	    //userStoryController.setAgilePrj(this);
-	    
-	    // Allow re-size
-	    parent.getChildren().add(userstoryPane);
-	    AnchorPane.setTopAnchor(userstoryPane, 0.0);
-	    AnchorPane.setLeftAnchor(userstoryPane, 0.0);
-	    AnchorPane.setRightAnchor(userstoryPane, 0.0);
-	    AnchorPane.setBottomAnchor(userstoryPane, 0.0);
-	    
-	    userstoryPane.setVisible(false);
-	    
-	  }
-
-  private void showSprintTasks() throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-    loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/sprintview/SprintTasksView.fxml"));
-    AnchorPane sprintTasksPane = (AnchorPane) loader.load();
-    sprintController.getSprintTaskPane().getChildren().add(sprintTasksPane);
-  
-   // sprintController = loader.getController();
-   // sprintController.setAgilePrj(agilePrj);
-     // Allow re-size
-    AnchorPane.setTopAnchor(sprintTasksPane, 0.0);
-    AnchorPane.setLeftAnchor(sprintTasksPane, 0.0);
-    AnchorPane.setRightAnchor(sprintTasksPane, 0.0);
-    AnchorPane.setBottomAnchor(sprintTasksPane, 0.0);
-	}
- 
-  private void showSprintReview() throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-    loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/sprintview/SprintReviewView.fxml"));
-    AnchorPane sprintReviewPane = (AnchorPane) loader.load();
-    sprintController.getSprintReviewPane().getChildren().add(sprintReviewPane);
-  
-   // sprintController = loader.getController();
-   // sprintController.setAgilePrj(agilePrj);
-     // Allow re-size
-    AnchorPane.setTopAnchor(sprintReviewPane, 0.0);
-    AnchorPane.setLeftAnchor(sprintReviewPane, 0.0);
-    AnchorPane.setRightAnchor(sprintReviewPane, 0.0);
-    AnchorPane.setBottomAnchor(sprintReviewPane, 0.0);
-	}
-	
-	private void showSprintRetrospect() throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-    loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/sprintview/SprintRetrospectView.fxml"));
-    AnchorPane sprintRetrospectPane = (AnchorPane) loader.load();
-    sprintController.getSprintRetrospctPane().getChildren().add(sprintRetrospectPane);
-  
-   // sprintController = loader.getController();
-   // sprintController.setAgilePrj(agilePrj);
-     // Allow re-size
-    AnchorPane.setTopAnchor(sprintRetrospectPane, 0.0);
-    AnchorPane.setLeftAnchor(sprintRetrospectPane, 0.0);
-    AnchorPane.setRightAnchor(sprintRetrospectPane, 0.0);
-    AnchorPane.setBottomAnchor(sprintRetrospectPane, 0.0);
-	}
 }

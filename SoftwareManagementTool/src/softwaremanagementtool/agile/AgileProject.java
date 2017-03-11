@@ -8,15 +8,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import softwaremanagementtool.SoftwareManagementToolMain;
-import softwaremanagementtool.agile.backlogview.BacklogViewController;
-import softwaremanagementtool.agile.backlogview.ProductBacklogViewController;
-import softwaremanagementtool.agile.dashboardview.DashboardViewController;
-import softwaremanagementtool.agile.sprintview.SprintViewController;
+
+import softwaremanagementtool.agile.ui.BacklogUi;
+import softwaremanagementtool.agile.ui.DashboardUi;
+import softwaremanagementtool.agile.ui.ReportsUi;
 import softwaremanagementtool.agile.ui.SprintUi;
-import softwaremanagementtool.agile.userstoryview.UserStoryViewController;
 import softwaremanagementtool.agile.UserStory;
 
-import softwaremanagementtool.agile.changereqview.ChangeReqViewController;
 
 
 public class AgileProject {
@@ -27,14 +25,13 @@ public class AgileProject {
   private String projectName;
   private BorderPane mainLayout;
   private Stage primaryStage;
-  private AnchorPane blEntryPane;
-  private UserStoryViewController userStoryController;
-  private BacklogViewController backlogViewController;
-  SprintViewController sprintController;
   private ProductBacklog productBacklog;
   private SprintList sprintList;
-	private SprintUi theSprintUi;
-	private ChangeReqViewController ChangeReqController;
+	private SprintUi sprintUi;
+	private DashboardUi dashboardUi;
+	private BacklogUi backlogUi;
+	private ReportsUi reportsUi;
+
   /**
    *  Constructor
    */
@@ -44,6 +41,12 @@ public class AgileProject {
     mainLayout = inLayout;
     productBacklog = new ProductBacklog();
     sprintList = new SprintList();
+    // Create views
+    sprintUi = new SprintUi(this);
+    dashboardUi = new DashboardUi(this);
+    backlogUi = new BacklogUi(this);
+    reportsUi = new ReportsUi(this);
+    
     showDashboard();
   }
 
@@ -52,79 +55,20 @@ public class AgileProject {
    *  
    */
   public void showDashboard() throws IOException {
-    FXMLLoader loader = new FXMLLoader();
-    loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/dashboardview/DashboardView.fxml"));
-    AnchorPane dbLayout = loader.load();    
-    DashboardViewController controller = (DashboardViewController)loader.getController();
-    controller.setAgileProject(this); 
-    controller.setPrjName(projectName); 
-    AnchorPane.setTopAnchor(dbLayout, 0.0);
-    AnchorPane.setLeftAnchor(dbLayout, 0.0);
-    AnchorPane.setRightAnchor(dbLayout, 0.0);
-    AnchorPane.setBottomAnchor(dbLayout, 0.0);
-    mainLayout.setCenter(dbLayout);
+    dashboardUi.show();
   }
 
   public  void showBacklog() throws IOException {
     // Frame to hold backlog view
-    FXMLLoader loader = new FXMLLoader();
-    loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/backlogview/ProductBacklogView.fxml"));
-    AnchorPane prodBlLayout = loader.load();
-    ProductBacklogViewController controller = (ProductBacklogViewController)loader.getController();
-    controller.setAgileProject(this);  
-    mainLayout.setCenter(prodBlLayout);
-    
-    // The Backlog view
-    FXMLLoader blLoader = new FXMLLoader();
-    blLoader.setLocation(SoftwareManagementToolMain.class.getResource("agile/backlogview/BacklogView.fxml"));
-    AnchorPane blLayout = blLoader.load();
-    backlogViewController = (BacklogViewController)blLoader.getController();
-    
-    // Set callback
-    backlogViewController.setAgilePrj(this);
-    AnchorPane blPane = controller.getBacklogPane();
-    blEntryPane = backlogViewController.getBacklogEntryPane();
-    
-    // Adjust with re-size
-    blPane.getChildren().add(blLayout);
-    AnchorPane.setTopAnchor(blLayout, 0.0);
-    AnchorPane.setLeftAnchor(blLayout, 0.0);
-    AnchorPane.setRightAnchor(blLayout, 0.0);
-    AnchorPane.setBottomAnchor(blLayout, 0.0);
-    showUserStoryView();
-  }
-  
-  private void showUserStoryView() throws IOException 
-  {
-    FXMLLoader loader = new FXMLLoader();
-    loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/userstoryview/UserStoryView.fxml"));
-    AnchorPane userstoryPane = (AnchorPane) loader.load();
-    userStoryController = (UserStoryViewController)loader.getController();
-    
-    // Set Callback
-    userStoryController.setAgilePrj(this);
-    
-    // Allow re-size
-    blEntryPane.getChildren().add(userstoryPane);
-    AnchorPane.setTopAnchor(userstoryPane, 0.0);
-    AnchorPane.setLeftAnchor(userstoryPane, 0.0);
-    AnchorPane.setRightAnchor(userstoryPane, 0.0);
-    AnchorPane.setBottomAnchor(userstoryPane, 0.0);
+  	backlogUi.show();
   }
   
   public  void showSprintView() throws IOException {
-    // TODO    
-  	theSprintUi = new SprintUi(this);
-    
+  	sprintUi.show();
   }
   
   public  void showReportsView() throws IOException {
-    // TODO     
-    FXMLLoader loader = new FXMLLoader();
-    loader.setLocation(SoftwareManagementToolMain.class.getResource("agile/reportsview/ReportsView.fxml"));
-    AnchorPane reportsLayout = (AnchorPane) loader.load();
-    mainLayout.setCenter(reportsLayout);
-    SprintViewController controller = loader.getController();
+    reportsUi.show();
   }
   
   /**
@@ -132,47 +76,26 @@ public class AgileProject {
    *  
    */
   public void showBacklogEntry(BacklogEntry blEntry) throws IOException {
-    if (blEntry != null) {
-      if (blEntry.getType().equals("UserStory")) {
-        userStoryController.showUserStoryDetails((UserStory) blEntry);
-      }
-    } 
-    else 
-    {
-  
-    }   
+  	backlogUi.showBacklogEntry(blEntry);
   }
   
   public void updateBacklogItem() {
-    BacklogEntry blEntry = backlogViewController.getSelectedItem();
-    System.out.println(blEntry.getID());
-    if (blEntry != null) {
-      if (blEntry.getType().equals("UserStory")) {
-        userStoryController.updateUserStoryDetails((UserStory) blEntry);
-      }
-    } 
-    else 
-    {
-      
-    }
-  
+  	backlogUi.updateBacklogItem();
   }
   
   public void newUserStory() throws IOException {
-    UserStory tempUserStory = new UserStory();
-    tempUserStory.setID(productBacklog.nextId());
-    getBacklogList().add(tempUserStory);
-    userStoryController.showUserStoryDetails(tempUserStory);
-    backlogViewController.setLast();
+    UserStory newUserStory = new UserStory();
+    newUserStory.setID(productBacklog.nextId());
+    getBacklogList().add(newUserStory);
+    backlogUi.addUserStory(newUserStory);
     
   } 
   
   public void newChangeRequest() throws IOException {
-    ChangeRequest tempChangeRequest = new ChangeRequest();
-    tempChangeRequest.setID(productBacklog.nextId());
-    getBacklogList().add(tempChangeRequest);
-    ChangeReqController.showChangeRequestDetails(tempChangeRequest);
-    backlogViewController.setLast();
+    ChangeRequest newChangeRequest = new ChangeRequest();
+    newChangeRequest.setID(productBacklog.nextId());
+    getBacklogList().add(newChangeRequest);
+    backlogUi.addChangeRequest(newChangeRequest);
 
   } 
 
@@ -181,7 +104,7 @@ public class AgileProject {
   }
   
   /**
-   *  History - Initials, Date, Description
+   *  
    *  
    *
    */
