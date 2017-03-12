@@ -2,6 +2,8 @@ package softwaremanagementtool.agile;
 
 import java.time.LocalDate;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -10,6 +12,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import softwaremanagementtool.agile.db.LocalDateAdapter;
 
 public class Sprint {
 
@@ -57,6 +60,7 @@ public class Sprint {
     return id;
   }
   
+  @XmlJavaTypeAdapter(LocalDateAdapter.class)
   public LocalDate getStartDate() {
     return startDate.get();
   }
@@ -67,6 +71,7 @@ public class Sprint {
     return startDate;
   }
   
+  @XmlJavaTypeAdapter(LocalDateAdapter.class)
   public LocalDate getEndDate() {
     return endDate.get();
   }

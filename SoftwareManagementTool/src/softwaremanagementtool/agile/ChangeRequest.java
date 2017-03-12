@@ -2,15 +2,19 @@ package softwaremanagementtool.agile;
 
 import java.time.LocalDate;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import softwaremanagementtool.agile.db.LocalDateAdapter;
 
 public class ChangeRequest extends BacklogEntry {
    
-  public static final String[] STATE = {"Draft","Open","Closed","Deleted"};
+	public static final String type = "ChangeRequest";
+	public static final String[] STATE = {"Draft","Open","Closed","Deleted"};
   
   private final StringProperty ChangeReq;
   private final StringProperty Justification;
@@ -30,7 +34,7 @@ public class ChangeRequest extends BacklogEntry {
   }
   
   public String getType() {
-    return "ChangeRequest";
+    return type;
   }
   
   public String getChangeRequest() {
@@ -59,6 +63,7 @@ public class ChangeRequest extends BacklogEntry {
   }
 
   //date setter and getter method
+  @XmlJavaTypeAdapter(LocalDateAdapter.class)
   public LocalDate getDateCreated() {
     return dateCreated.get();
   }

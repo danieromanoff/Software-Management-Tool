@@ -8,7 +8,7 @@ public class SprintList {
   // List of Sprints
   private ObservableList<Sprint> sprintList = FXCollections.observableArrayList();
 
-  public ObservableList<Sprint> sprintList() {
+  public ObservableList<Sprint> get() {
     return sprintList;
   }
   

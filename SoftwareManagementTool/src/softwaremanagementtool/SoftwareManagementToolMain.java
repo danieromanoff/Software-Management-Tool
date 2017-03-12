@@ -12,10 +12,6 @@ import softwaremanagementtool.agile.AgileProject;
 import softwaremanagementtool.agile.dashboardview.DashboardViewController;
 import softwaremanagementtool.smtmainview.SmtMainViewControl;
 
-/**
- * @author Stephen
- *
- */
 public class SoftwareManagementToolMain extends Application {
 
   private Stage primaryStage;
@@ -24,11 +20,6 @@ public class SoftwareManagementToolMain extends Application {
   
   private AgileProject agilePrj;
 	
-  /**
-   *  History - Initials, Date, Description
-   *  sm  12/17/17  Creation
-   *
-   */
   @Override
   public void start(Stage primaryStage) throws IOException {
     this.primaryStage = primaryStage;
@@ -36,11 +27,6 @@ public class SoftwareManagementToolMain extends Application {
     showWindow();
   }
 	
-	/**
-	 *  History - Initials, Date, Notes
-	 *  sm  12/17/17  Creation
-	 *  
-	 */
 	private void showWindow() throws IOException
 	{
 		FXMLLoader loader = new FXMLLoader();
@@ -63,11 +49,6 @@ public class SoftwareManagementToolMain extends Application {
     mainLayout.setCenter(splashLayout);
 	}
 		
-	/**
-	 *  History - Initials, Date, Description
-	 *  
-	 *
-	 */
 	public void openAgile(String mode) throws IOException {
 	  closePrj();
     agilePrj = new AgileProject(mode, primaryStage, mainLayout); // TODO pass agilePrjData
@@ -105,17 +86,11 @@ public class SoftwareManagementToolMain extends Application {
     }
   }
     
-  
-	
-	/**
-	 *  History - Initials, Date, Description
-	 *  sm 2/23/17  Creation
-	 *
-	 */
 	public void save()  {
+		System.out.println("Save");
 	    if (agilePrj != null )
 	    {
-	      // TODO agilePrj.save();
+	      agilePrj.save();
 	    }
 	  }
 	
@@ -126,11 +101,6 @@ public class SoftwareManagementToolMain extends Application {
     }
   }
 	 
-   /**
-	 *  History - Initials, Date, Description
-	 *  sm 2/23/17  Creation
-	 *
-   */
 	public void closePrj() throws IOException  {
     if (agilePrj != null )
     {
@@ -141,22 +111,11 @@ public class SoftwareManagementToolMain extends Application {
     showSplash();
   }
 	
-	 /**
-	 *  History - Initials, Date, Description
-	 *  sm 2/23/17  Creation
-	 * @throws IOException 
-	 *
-	 */
 	public void exit() throws IOException  {
 	   closePrj();
 	   primaryStage.close();
    }
 	 
-	/**
-	 *  History - Initials, Date, Notes
-	 *  sm  12/17/17  Creation
-	 *
-	 */
 	public static void main(String[] args) {
 		launch(args);
 	}
