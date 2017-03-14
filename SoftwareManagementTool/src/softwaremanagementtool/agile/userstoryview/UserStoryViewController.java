@@ -100,6 +100,20 @@ public class UserStoryViewController {
     }
   }
   
+  public boolean anyChanges(UserStory userstory) {
+  	boolean changed = true;
+  	if ((userstory.getTitle().equals(titleText.getText())) &&
+    	 (userstory.getUserStory().equals(userStoryText.getText())) &&
+    	 (userstory.getPriority() == (priority.getValue())) &&
+    	 (userstory.getAcceptanceCriteria().equals(acceptanceCriteriaText.getText())) &&
+    	 (userstory.getDateCreated().equals(date.getValue())) &&
+    	 (userstory.getState() == state.getValue()) &&
+    	 (userstory.getStoryPoints() == storyPoints.getValue())) {
+  		changed = false;
+  	}
+  	return changed;
+  }
+  
   private void clearUserStoryDetails() {
     iDText.setText("");
     titleText.setText(""); 

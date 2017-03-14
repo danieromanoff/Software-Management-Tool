@@ -1,7 +1,9 @@
 package softwaremanagementtool.agile.sprintview;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
+import javafx.beans.property.ObjectProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -19,7 +21,11 @@ public class SprintViewController {
   @FXML
   private TableColumn<Sprint, Integer> idColumn;
   @FXML
-  private TableColumn<Sprint, String> titleColumn;
+  private TableColumn<Sprint, String> stateColumn;
+  @FXML
+  private TableColumn<Sprint, String> startDateColumn;
+  @FXML
+  private TableColumn<Sprint, String> endDateColumn;
   @FXML
   private AnchorPane sprintInfoPane;
   @FXML
@@ -35,8 +41,11 @@ public class SprintViewController {
   private void initialize() {
     // Initialize the person table with the two columns.
     idColumn.setCellValueFactory(cellData -> cellData.getValue().IDProperty().asObject());
-   // titleColumn.setCellValueFactory(cellData -> cellData.getValue().titleProperty());
-       
+    stateColumn.setCellValueFactory(cellData -> cellData.getValue().stateProperty());
+    startDateColumn.setCellValueFactory(cellData -> cellData.getValue().startDateStringProperty());
+    endDateColumn.setCellValueFactory(cellData -> cellData.getValue().endDateStringProperty());
+    
+    
     // Listen for selection changes and show the user story details when changed.
     sprintTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showSprintDetails(newValue));
     
@@ -44,12 +53,20 @@ public class SprintViewController {
   
   private void showSprintDetails(Sprint sprint) {
     agilePrj.showSprintDetails(sprint);
-
- }
+  }
+  
+  public Sprint getSelectedItem() {
+  	return sprintTable.getSelectionModel().getSelectedItem();
+  }
   
   @FXML
   private void goNewSprint() throws IOException {
      agilePrj.newSprint();
+  }
+  
+  @FXML
+  private void goSave() throws IOException {
+     agilePrj.saveSprintUpdates();
   }
   
   public void setAgilePrj(AgileProject agileProject) {
@@ -57,6 +74,9 @@ public class SprintViewController {
     sprintTable.setItems(agilePrj.getSprintList());
   }
   
+  public void setLast () {
+  	sprintTable.getSelectionModel().selectLast(); 
+  }
 	
 	public AnchorPane getSprintInfoPane() {
 		return sprintInfoPane;

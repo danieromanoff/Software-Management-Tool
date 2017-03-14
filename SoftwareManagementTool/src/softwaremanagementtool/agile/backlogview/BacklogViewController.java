@@ -5,6 +5,7 @@ package softwaremanagementtool.agile.backlogview;
 
 import java.io.IOException;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -33,10 +34,17 @@ public class BacklogViewController {
     TitleColumn.setCellValueFactory(cellData -> cellData.getValue().titleProperty());
        
     // Listen for selection changes and show the user story details when changed.
-    backlogTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showEntryDetails(newValue));
+    backlogTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> newSelection(oldValue, newValue));
     
 	}
-    
+   
+	private void newSelection(BacklogEntry oldEntry, BacklogEntry newEntry) {
+		if (oldEntry != null) {
+		  agilePrj.leavingBacklogEntry(oldEntry, displayUi);
+		}
+	  showEntryDetails(newEntry);
+	}
+	
 	// selected user story or change request
   private void showEntryDetails(BacklogEntry blEntry) {
   	try {
@@ -55,9 +63,9 @@ public class BacklogViewController {
   	return backlogTable.getSelectionModel().getSelectedItem();
   }
   
-  public void setAgilePrj(AgileProject agileProject) {
+  public void setAgilePrj(AgileProject agileProject, ObservableList<BacklogEntry> list ) {
     this.agilePrj = agileProject;
-    backlogTable.setItems(agilePrj.getBacklogList());
+    backlogTable.setItems(list);
   }
 
   public void setDisplayUi(@SuppressWarnings("rawtypes") BaseUi parentUi) {

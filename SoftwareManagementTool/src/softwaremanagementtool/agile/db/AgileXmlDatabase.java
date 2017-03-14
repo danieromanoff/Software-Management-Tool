@@ -35,6 +35,8 @@ public class AgileXmlDatabase {
   	
   	writeWrapper.setUserStories(agilePrj.getUserStories());
   	writeWrapper.setChangeReqs(agilePrj.getChangeReqs());
+  	writeWrapper.setSprints(agilePrj.getSprints());
+  	writeWrapper.setTasks(agilePrj.getTasks());
 
   	
   	writer.marshal(writeWrapper, file);
@@ -46,7 +48,8 @@ public class AgileXmlDatabase {
   	readWrapper = (AgileXmlWrapper) reader.unmarshal(file);
   	agilePrj.loadUserStories(readWrapper.getUserStories());
   	agilePrj.loadChangeReqs(readWrapper.getChangeReqs());
-  	    
+  	agilePrj.loadSprints(readWrapper.getSprints());
+  	agilePrj.loadTasks(readWrapper.getTasks());
   }
 	
 }

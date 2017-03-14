@@ -29,6 +29,10 @@ public class AgileProject {
   private Stage primaryStage;
   private ProductBacklog productBacklog;
   private SprintList sprintList;
+  private TaskList taskList;
+  
+  private ObservableList<BacklogEntry> openProdBacklogList = FXCollections.observableArrayList();
+  
 	private SprintUi sprintUi;
 	private DashboardUi dashboardUi;
 	private BacklogUi backlogUi;
@@ -43,6 +47,7 @@ public class AgileProject {
     mainLayout = inLayout;
     productBacklog = new ProductBacklog();
     sprintList = new SprintList();
+    taskList = new TaskList();
     // Create views
     sprintUi = new SprintUi(this);
     dashboardUi = new DashboardUi(this);
@@ -131,7 +136,7 @@ public class AgileProject {
   }
   
   public void loadUserStories(List<UserStory> list) {
-  	
+  	if (list == null) return;
   	for (int i = 0; i < list.size(); i++) {
   		getBacklogList().add(list.get(i));
   	}
@@ -149,7 +154,7 @@ public class AgileProject {
   }
   
   public void loadChangeReqs(List<ChangeRequest> list) {
-  	
+  	if (list == null) return;
   	for (int i = 0; i < list.size(); i++) {
   		getBacklogList().add(list.get(i));
   	}
@@ -160,10 +165,22 @@ public class AgileProject {
   }
   
   public void loadSprints(List<Sprint> list) {
-  	
+  	if (list == null) return;
   	for (int i = 0; i < list.size(); i++) {
   		sprintList.add(list.get(i));
   	}
+  }
+  
+  public List<SprintTask> getTasks() {
+  	return taskList.get();
+  }
+  
+  public void loadTasks(List<SprintTask> list) {
+  	if (list == null) return;
+  	for (int i = 0; i < list.size(); i++) {
+  		taskList.add(list.get(i));
+  	}
+  	// TODO associate with sprints
   }
   
   /**
@@ -177,6 +194,11 @@ public class AgileProject {
   
   public void updateBacklogItem() {
   	backlogUi.updateBacklogItem();
+  }
+  
+  @SuppressWarnings("rawtypes")
+  public void leavingBacklogEntry(BacklogEntry blEntry, BaseUi blUi) {
+  	blUi.leavingBacklogEntry(blEntry);
   }
   
   public void newUserStory() throws IOException {
@@ -196,7 +218,7 @@ public class AgileProject {
   } 
 
   public ObservableList<BacklogEntry> getBacklogList() {
-    return productBacklog.backlogList();
+    return productBacklog.get();
   }
   
 
@@ -211,11 +233,33 @@ public class AgileProject {
     sprintUi.addSprint(newSprint);  	
   }
   
+  public void saveSprintUpdates() throws IOException {
+  	sprintUi.saveSprint(); 
+  }
+  
   public void showSprintDetails(Sprint sprint) {
-  	
+  	sprintUi.showSprint(sprint); 
   }
   
   public ObservableList<Sprint> getSprintList() {
     return sprintList.get();
   }
+  
+  public ObservableList<BacklogEntry> getSprintBacklogList(Sprint sprint) {
+    return sprint.sprintBacklog();
+  }
+  
+  public ObservableList<BacklogEntry> getOpenProdBacklogList() {
+  	openProdBacklogList.clear();
+  	for (int i=0; i< productBacklog.get().size(); i++ ) {
+  		if (((productBacklog.get().get(i).getType() == UserStory.type) &&
+  				(((UserStory)productBacklog.get().get(i)).getState().equals("Open"))) ||
+  				((productBacklog.get().get(i).getType() == ChangeRequest.type) &&
+  	  				(((ChangeRequest)productBacklog.get().get(i)).getState().equals("Open")))) {
+  			openProdBacklogList.add(productBacklog.get().get(i));
+  		}
+  	}
+    return openProdBacklogList;
+  }
+  
 }  

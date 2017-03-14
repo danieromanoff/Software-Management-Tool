@@ -18,14 +18,15 @@
                   <TableView fx:id="sprintTable" layoutX="18.0" layoutY="38.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
                       <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
-                      <TableColumn fx:id="titleColumn" prefWidth="75.0" text="Status" />
-                        <TableColumn prefWidth="75.0" text="Start Date" />
-                        <TableColumn prefWidth="75.0" text="End Date" />
+                      <TableColumn fx:id="stateColumn" prefWidth="75.0" text="Status" />
+                        <TableColumn fx:id="startDateColumn" prefWidth="75.0" text="Start Date" />
+                        <TableColumn fx:id="endDateColumn" prefWidth="75.0" text="End Date" />
                     </columns>
                   </TableView>
                   <ButtonBar layoutX="14.0" layoutY="544.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <buttons>
                       <Button mnemonicParsing="false" onAction="#goNewSprint" text="New Sprint" />
+                        <Button layoutX="249.0" layoutY="18.0" mnemonicParsing="false" onAction="#goSave" text="Save Changes" />
                     </buttons>
                   </ButtonBar>
                </children>

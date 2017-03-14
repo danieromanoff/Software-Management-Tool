@@ -20,6 +20,7 @@ public class ChangeRequest extends BacklogEntry {
   private final StringProperty Justification;
   private final ObjectProperty<LocalDate> dateCreated;
   private final StringProperty state;
+  private  Integer openInSprintId;
    
   /**
    *  History - Initials, Date, Description
@@ -31,6 +32,7 @@ public class ChangeRequest extends BacklogEntry {
     this.Justification = new SimpleStringProperty("some acceptance test");
     this.dateCreated = new SimpleObjectProperty<LocalDate>(LocalDate.now());
     this.state = new SimpleStringProperty(STATE[0]);
+    openInSprintId = 0;
   }
   
   public String getType() {
@@ -88,4 +90,12 @@ public class ChangeRequest extends BacklogEntry {
     return state;
   }
 
+  public Integer getOpenInSprintId() {
+    return openInSprintId;
+  }
+  
+  public void setOpenInSprintId(Integer id) {
+    this.openInSprintId = id;
+  }
+  
 }

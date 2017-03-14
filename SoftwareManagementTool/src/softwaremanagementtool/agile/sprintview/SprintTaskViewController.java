@@ -3,6 +3,7 @@ package softwaremanagementtool.agile.sprintview;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import softwaremanagementtool.agile.AgileProject;
+import softwaremanagementtool.agile.Sprint;
 
 public class SprintTaskViewController {
 
@@ -33,5 +34,11 @@ public class SprintTaskViewController {
     this.agilePrj = agileProject;
   }
   
- 
+  public void showSprint(Sprint sprint) {
+		//id.setText(Integer.toString(sprint.getID()));
+	}
+  
+  public void saveSprint(Sprint sprint) {
+		// sprint.setState(status.getValue());
+	}
 }

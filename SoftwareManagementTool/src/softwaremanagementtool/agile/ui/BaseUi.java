@@ -47,4 +47,7 @@ public class BaseUi<T> {
   public void showBacklogEntry(BacklogEntry blEntry) throws IOException {
   	// need to override
   }
+  public void leavingBacklogEntry(BacklogEntry blEntry) {
+    // need to override
+  }
 }
