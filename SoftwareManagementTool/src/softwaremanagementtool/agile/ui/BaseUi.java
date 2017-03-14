@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import softwaremanagementtool.SoftwareManagementToolMain;
 import softwaremanagementtool.agile.AgileProject;
+import softwaremanagementtool.agile.BacklogEntry;
 
 public class BaseUi<T> {
 
@@ -41,5 +42,9 @@ public class BaseUi<T> {
     AnchorPane.setRightAnchor(pane, 0.0);
     AnchorPane.setBottomAnchor(pane, 0.0);
     return (loader.getController());
+  }
+  
+  public void showBacklogEntry(BacklogEntry blEntry) throws IOException {
+  	// need to override
   }
 }

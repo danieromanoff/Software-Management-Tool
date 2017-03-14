@@ -12,6 +12,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import softwaremanagementtool.agile.ui.BacklogUi;
+import softwaremanagementtool.agile.ui.BaseUi;
 import softwaremanagementtool.agile.ui.DashboardUi;
 import softwaremanagementtool.agile.ui.ReportsUi;
 import softwaremanagementtool.agile.ui.SprintUi;
@@ -47,9 +48,11 @@ public class AgileProject {
     dashboardUi = new DashboardUi(this);
     backlogUi = new BacklogUi(this);
     reportsUi = new ReportsUi(this);
+    // Open existing project
     if (mode.equals("OPEN")) {
     	load();
     }
+    
     showDashboard();
   }
 
@@ -62,7 +65,6 @@ public class AgileProject {
   }
 
   public  void showBacklog() throws IOException {
-    // Frame to hold backlog view
   	backlogUi.show();
   }
   
@@ -75,41 +77,8 @@ public class AgileProject {
   }
   
   /**
-   *  Back log methods 
+   *  Get Stage and Layout methods 
    *  
-   */
-  public void showBacklogEntry(BacklogEntry blEntry) throws IOException {
-  	backlogUi.showBacklogEntry(blEntry);
-  }
-  
-  public void updateBacklogItem() {
-  	backlogUi.updateBacklogItem();
-  }
-  
-  public void newUserStory() throws IOException {
-    UserStory newUserStory = new UserStory();
-    newUserStory.setID(productBacklog.nextId());
-    getBacklogList().add(newUserStory);
-    backlogUi.addUserStory(newUserStory);
-    
-  } 
-  
-  public void newChangeRequest() throws IOException {
-    ChangeRequest newChangeRequest = new ChangeRequest();
-    newChangeRequest.setID(productBacklog.nextId());
-    getBacklogList().add(newChangeRequest);
-    backlogUi.addChangeRequest(newChangeRequest);
-
-  } 
-
-  public ObservableList<BacklogEntry> getBacklogList() {
-    return productBacklog.backlogList();
-  }
-  
-  /**
-   *  
-   *  
-   *
    */
   public Stage getPrimaryStage() {
     return primaryStage;
@@ -118,25 +87,13 @@ public class AgileProject {
   public BorderPane getMainLayout() {
     return mainLayout;
   }
-
-  /**
-   *  Sprint Methods
-   *  
-   *
-   */
-  public void newSprint() throws IOException {
-    Sprint newSprint = new Sprint();
-    newSprint.setID(sprintList.nextId());
-    sprintList.get().add(newSprint);
-    //sprintViewController.showUserSprint(newSprint); TODO
-    //sprintViewController.setLastListItem();
-  	
-    
-  }
   
+  /**
+   *  Load and Save methods 
+   *  
+   */
   public void save() {
-
-  	
+	
   	File file = new File("test.xml");
   	
   	AgileXmlDatabase db;
@@ -160,8 +117,7 @@ public class AgileProject {
 		} catch (JAXBException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-  	
+		}  	
   } 
   
   public List<UserStory> getUserStories() {
@@ -208,5 +164,58 @@ public class AgileProject {
   	for (int i = 0; i < list.size(); i++) {
   		sprintList.add(list.get(i));
   	}
+  }
+  
+  /**
+   *  Back log methods 
+   *  
+   */
+  @SuppressWarnings("rawtypes")
+	public void showBacklogEntry(BacklogEntry blEntry, BaseUi uiToShow) throws IOException {
+  	uiToShow.showBacklogEntry(blEntry);
+  }
+  
+  public void updateBacklogItem() {
+  	backlogUi.updateBacklogItem();
+  }
+  
+  public void newUserStory() throws IOException {
+    UserStory newUserStory = new UserStory();
+    newUserStory.setID(productBacklog.nextId());
+    getBacklogList().add(newUserStory);
+    backlogUi.addUserStory(newUserStory);
+    
+  } 
+  
+  public void newChangeRequest() throws IOException {
+    ChangeRequest newChangeRequest = new ChangeRequest();
+    newChangeRequest.setID(productBacklog.nextId());
+    getBacklogList().add(newChangeRequest);
+    backlogUi.addChangeRequest(newChangeRequest);
+
+  } 
+
+  public ObservableList<BacklogEntry> getBacklogList() {
+    return productBacklog.backlogList();
+  }
+  
+
+  /**
+   *  Sprint Methods
+   *  
+   */
+  public void newSprint() throws IOException {
+    Sprint newSprint = new Sprint();
+    newSprint.setID(sprintList.nextId());
+    sprintList.get().add(newSprint);
+    sprintUi.addSprint(newSprint);  	
+  }
+  
+  public void showSprintDetails(Sprint sprint) {
+  	
+  }
+  
+  public ObservableList<Sprint> getSprintList() {
+    return sprintList.get();
   }
 }  

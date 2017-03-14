@@ -29,9 +29,10 @@ public class BacklogUi extends BaseUi<ProductBacklogViewController> {
   	classController.setAgileProject(agilePrj);
   	    
     // The Backlog view
-  	backlogViewController = (BacklogViewController) loadSubView(classController.getBacklogPane(), FXML_BACKLOG_VIEW);
+  	backlogViewController = (BacklogViewController) loadSubView(classController.getBacklogListPane(), FXML_BACKLOG_VIEW);
   	backlogViewController.setAgilePrj(agilePrj);
-    blEntryPane = backlogViewController.getBacklogEntryPane();
+  	backlogViewController.setDisplayUi(this);
+    blEntryPane = classController.getBacklogEntryPane();
     
     userStoryController = (UserStoryViewController) loadSubView(blEntryPane, FXML_USER_STORY_VIEW);
     userStoryController.setPane( (AnchorPane) blEntryPane.getChildren().get(0));

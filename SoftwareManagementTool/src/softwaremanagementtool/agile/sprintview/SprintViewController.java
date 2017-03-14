@@ -43,7 +43,7 @@ public class SprintViewController {
   }
   
   private void showSprintDetails(Sprint sprint) {
-      // TODO agilePrj.showBacklogEntry(blEntry);
+    agilePrj.showSprintDetails(sprint);
 
  }
   
@@ -54,6 +54,7 @@ public class SprintViewController {
   
   public void setAgilePrj(AgileProject agileProject) {
     this.agilePrj = agileProject;
+    sprintTable.setItems(agilePrj.getSprintList());
   }
   
 	

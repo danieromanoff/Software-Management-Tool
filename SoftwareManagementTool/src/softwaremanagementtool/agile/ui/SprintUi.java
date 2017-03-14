@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import javafx.scene.layout.AnchorPane;
 import softwaremanagementtool.agile.AgileProject;
+import softwaremanagementtool.agile.Sprint;
+import softwaremanagementtool.agile.UserStory;
 import softwaremanagementtool.agile.sprintview.SprintBacklogViewController;
 import softwaremanagementtool.agile.sprintview.SprintInfoViewController;
 import softwaremanagementtool.agile.sprintview.SprintRetrospectViewController;
@@ -45,4 +47,13 @@ public class SprintUi extends BaseUi<SprintViewController> {
   	     
 	}
 	
+	public void showSprint(Sprint sprint) {
+	  infoViewController.showSprint(sprint);
+	}
+	
+	public void addSprint(Sprint sprint)  {
+    showSprint(sprint);
+    //backlogViewController.setLast();
+    
+  }
 }
