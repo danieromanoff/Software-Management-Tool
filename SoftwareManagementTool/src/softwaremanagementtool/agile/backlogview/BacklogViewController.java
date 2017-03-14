@@ -5,31 +5,27 @@ package softwaremanagementtool.agile.backlogview;
 
 import java.io.IOException;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.layout.AnchorPane;
 import softwaremanagementtool.agile.AgileProject;
 import softwaremanagementtool.agile.BacklogEntry;
-import softwaremanagementtool.agile.DateUtil;
-import softwaremanagementtool.agile.UserStory;
+import softwaremanagementtool.agile.ui.BaseUi;
 
-/**
- * @author Stephen
- *
- */
+
 public class BacklogViewController {
 
 	private AgileProject agilePrj;
+	@SuppressWarnings("rawtypes")
+	private BaseUi displayUi;
 	@FXML
 	private TableView<BacklogEntry> backlogTable;
 	@FXML
 	private TableColumn<BacklogEntry, Integer> IDColumn;
 	@FXML
 	private TableColumn<BacklogEntry, String> TitleColumn;
-  @FXML
-  private AnchorPane backlogEntryPane;
-
+ 
 	
 	@FXML
   private void initialize() {
@@ -37,18 +33,22 @@ public class BacklogViewController {
    	IDColumn.setCellValueFactory(cellData -> cellData.getValue().IDProperty().asObject());
     TitleColumn.setCellValueFactory(cellData -> cellData.getValue().titleProperty());
        
-    // Clear user story details.
-   // showUserStoryDetails(null);
-       
     // Listen for selection changes and show the user story details when changed.
-    backlogTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showEntryDetails(newValue));
+    backlogTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> newSelection(oldValue, newValue));
     
 	}
-    
-	// showing user story 
+   
+	private void newSelection(BacklogEntry oldEntry, BacklogEntry newEntry) {
+		if (oldEntry != null) {
+		  agilePrj.leavingBacklogEntry(oldEntry, displayUi);
+		}
+	  showEntryDetails(newEntry);
+	}
+	
+	// selected user story or change request
   private void showEntryDetails(BacklogEntry blEntry) {
   	try {
-			agilePrj.showBacklogEntry(blEntry);
+			agilePrj.showBacklogEntry(blEntry, displayUi);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -63,14 +63,12 @@ public class BacklogViewController {
   	return backlogTable.getSelectionModel().getSelectedItem();
   }
   
-  public void setAgilePrj(AgileProject agileProject) {
+  public void setAgilePrj(AgileProject agileProject, ObservableList<BacklogEntry> list ) {
     this.agilePrj = agileProject;
-      
-    backlogTable.setItems(agilePrj.getBacklogList());
-  
+    backlogTable.setItems(list);
   }
 
-  public AnchorPane getBacklogEntryPane() {
-		return backlogEntryPane;
+  public void setDisplayUi(@SuppressWarnings("rawtypes") BaseUi parentUi) {
+  	displayUi = parentUi;
 	}
 }

@@ -27,10 +27,10 @@
             <Label text="Start Date" GridPane.rowIndex="1" />
             <Label text="End Date" GridPane.rowIndex="2" />
             <Label text="Status" GridPane.rowIndex="3" />
-            <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="1" />
+            <ComboBox fx:id="status" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <DatePicker fx:id="endDate" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <DatePicker fx:id="startDate" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="id" GridPane.columnIndex="1" />
          </children>
       </GridPane>
    </children>

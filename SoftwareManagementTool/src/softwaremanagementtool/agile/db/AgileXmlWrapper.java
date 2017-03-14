@@ -4,6 +4,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import softwaremanagementtool.agile.ChangeRequest;
+import softwaremanagementtool.agile.Sprint;
+import softwaremanagementtool.agile.SprintTask;
 import softwaremanagementtool.agile.UserStory;
 
 /*
@@ -15,6 +17,8 @@ public class AgileXmlWrapper
 {
     private List<UserStory> userStories;
     private List<ChangeRequest> changeReqs;
+    private List<Sprint> sprints;
+    private List<SprintTask> tasks;
 
     @XmlElement(name = "userstory")
     public List<UserStory> getUserStories() 
@@ -34,6 +38,26 @@ public class AgileXmlWrapper
     public void setChangeReqs(List<ChangeRequest> changeReqs) 
     {
         this.changeReqs = changeReqs;
+    }
+    
+    @XmlElement(name = "sprints")
+    public List<Sprint> getSprints() 
+    {
+        return sprints;
+    }
+    public void setSprints(List<Sprint> sprints) 
+    {
+        this.sprints = sprints;
+    }
+    
+    @XmlElement(name = "tasks")
+    public List<SprintTask> getTasks() 
+    {
+        return tasks;
+    }
+    public void setTasks(List<SprintTask> tasks) 
+    {
+        this.tasks = tasks;
     }
     
 }

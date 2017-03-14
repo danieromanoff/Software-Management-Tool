@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import softwaremanagementtool.agile.AgileProject;
 import softwaremanagementtool.agile.BacklogEntry;
 import softwaremanagementtool.agile.ChangeRequest;
+import softwaremanagementtool.agile.UserStory;
 
 
 
@@ -102,5 +103,19 @@ public class ChangeReqViewController {
     JustificationText.setText("");
     date.setPromptText("");
   }  
+  
+  public boolean anyChanges(ChangeRequest changeRequest) {
+  	boolean changed = true;
+  	if ((changeRequest.getTitle().equals(titleText.getText())) &&
+    	 (changeRequest.getChangeRequest().equals(ChangeReqText.getText())) &&
+    	 (changeRequest.getPriority() == (priority.getValue())) &&
+    	 (changeRequest.getJustification().equals(JustificationText.getText())) &&
+    	 (changeRequest.getDateCreated().equals(date.getValue())) &&
+    	 (changeRequest.getState() == state.getValue()) &&
+    	 (changeRequest.getStoryPoints() == storyPoints.getValue())) {
+  		changed = false;
+  	}
+  	return changed;
+  }
 }
 
