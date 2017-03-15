@@ -42,6 +42,11 @@ public class SmtMainViewControl {
   }
   
   @FXML
+  private void goSave() throws IOException {
+    smt.save();
+  }
+  
+  @FXML
   private void goEditProp() throws IOException {
     smt.editProp();
   }

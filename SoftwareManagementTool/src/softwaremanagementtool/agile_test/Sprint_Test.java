@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import org.junit.Test;
 
 import javafx.collections.ObservableList;
+import softwaremanagementtool.agile.BacklogEntry;
 import softwaremanagementtool.agile.ChangeRequest;
 import softwaremanagementtool.agile.Sprint;
 import softwaremanagementtool.agile.UserStory;
@@ -47,15 +48,15 @@ public class Sprint_Test {
 	
 	@Test
 	public void test_sprintBacklog() {
-		ObservableList<Integer> sprintBacklog;
+		ObservableList<BacklogEntry> sprintBacklog;
 		Sprint sprint = new Sprint();
 		UserStory us = new UserStory();
 		sprint.addToBacklog(us); 
 		UserStory us2 = new UserStory();
 		sprint.addToBacklog(us2);
 		sprintBacklog = sprint.sprintBacklog();
-		assertEquals(sprintBacklog.get(0), (Integer)us.getID());
-		assertEquals(sprintBacklog.get(1), (Integer)us2.getID());
+		assertEquals(sprintBacklog.get(0).getID(), us.getID());
+		assertEquals(sprintBacklog.get(1).getID(), us2.getID());
 	}
 	
 	@Test
@@ -66,7 +67,7 @@ public class Sprint_Test {
 		sprint.addToIssues(cr); 
 		ChangeRequest cr2 = new ChangeRequest();
 		sprint.addToIssues(cr2);
-		issues = sprint.sprintBacklog();
+		issues = sprint.issuesOpened();
 		assertEquals(issues.get(0), (Integer) 7);//TODO cr.getID());
 		assertEquals(issues.get(1), (Integer) 7);//TODO cr2.getID());
 	}

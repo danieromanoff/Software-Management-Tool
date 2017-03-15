@@ -2,6 +2,8 @@ package softwaremanagementtool.agile;
 
 import java.time.LocalDate;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -10,6 +12,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import softwaremanagementtool.agile.db.LocalDateAdapter;
 
 public class Sprint {
 
@@ -19,7 +22,7 @@ public class Sprint {
   private final ObjectProperty<LocalDate> startDate;
   private final ObjectProperty<LocalDate> endDate;
   private final StringProperty state;
-  private ObservableList<Integer> sprintBacklog = FXCollections.observableArrayList();
+  private ObservableList<BacklogEntry> sprintBacklog = FXCollections.observableArrayList();
   private ObservableList<SprintTask> taskList = FXCollections.observableArrayList();
   private ObservableList<Integer> issuesOpened = FXCollections.observableArrayList();
   private final IntegerProperty endNumFiles;
@@ -34,8 +37,8 @@ public class Sprint {
   public Sprint() {
     
     this.id = new SimpleIntegerProperty(0);
-    this.startDate = new SimpleObjectProperty<LocalDate>();
-    this.endDate = new SimpleObjectProperty<LocalDate>();
+    this.startDate = new SimpleObjectProperty<LocalDate>(LocalDate.now());
+    this.endDate = new SimpleObjectProperty<LocalDate>(LocalDate.now());
     this.state = new SimpleStringProperty(STATE[0]);
     this.endNumFiles = new SimpleIntegerProperty(0);
     this.endSloc = new SimpleIntegerProperty(0);
@@ -57,6 +60,11 @@ public class Sprint {
     return id;
   }
   
+  public StringProperty dateToStringPoperty(LocalDate date) {
+		return	new SimpleStringProperty(date.toString());
+  }
+  
+  @XmlJavaTypeAdapter(LocalDateAdapter.class)
   public LocalDate getStartDate() {
     return startDate.get();
   }
@@ -66,7 +74,11 @@ public class Sprint {
   public ObjectProperty<LocalDate> startDateProperty() {
     return startDate;
   }
+  public StringProperty startDateStringProperty() {
+  	return dateToStringPoperty(startDate.get());
+  }
   
+  @XmlJavaTypeAdapter(LocalDateAdapter.class)
   public LocalDate getEndDate() {
     return endDate.get();
   }
@@ -75,6 +87,9 @@ public class Sprint {
   }
   public ObjectProperty<LocalDate> endDateProperty() {
     return endDate;
+  }
+  public StringProperty endDateStringProperty() {
+  	return dateToStringPoperty(endDate.get());
   }
   
   public String getState() {
@@ -87,10 +102,11 @@ public class Sprint {
     return state;
   }
   
+  
   public void addToBacklog(BacklogEntry item) {
-    sprintBacklog.add((Integer)item.getID());
+    sprintBacklog.add(item);
   }
-  public ObservableList<Integer> sprintBacklog( ) {
+  public ObservableList<BacklogEntry> sprintBacklog( ) {
     return sprintBacklog;
   }
   

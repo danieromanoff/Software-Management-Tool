@@ -20,7 +20,7 @@ public class SprintList_Test {
 		Sprint sp2 = new Sprint();
 		sp2.setID(sl.nextId());
 		sl.add(sp2);
-		sprintList = sl.sprintList();
+		sprintList = sl.get();
 		assertEquals(sprintList.get(0), sp1);
 		assertEquals(sprintList.get(1), sp2);
 	}
