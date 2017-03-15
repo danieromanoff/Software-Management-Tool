@@ -5,7 +5,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import softwaremanagementtool.agile.AgileProject;
+<<<<<<< HEAD
+import softwaremanagementtool.agile.Sprint;
+=======
 import softwaremanagementtool.agile.SprintTask;
+>>>>>>> refs/remotes/origin/feature/Danielle
 
 public class SprintTaskViewController {
 
@@ -45,6 +49,15 @@ public class SprintTaskViewController {
     this.agilePrj = agileProject;
   }
   
+<<<<<<< HEAD
+  public void showSprint(Sprint sprint) {
+		//id.setText(Integer.toString(sprint.getID()));
+	}
+  
+  public void saveSprint(Sprint sprint) {
+		// sprint.setState(status.getValue());
+	}
+=======
   public void setPane(AnchorPane inPane) {
     this.thisPane = inPane;
   }
@@ -82,4 +95,5 @@ public class SprintTaskViewController {
       backlogRef.setText("");
       status.setPromptText("");
     }
+>>>>>>> refs/remotes/origin/feature/Danielle
 }

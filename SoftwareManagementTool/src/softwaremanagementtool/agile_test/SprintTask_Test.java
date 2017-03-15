@@ -36,25 +36,25 @@ public class SprintTask_Test {
 	@Test
 	public void test_estTime() {
 		SprintTask task = new SprintTask();
-		task.setEstTime(120);
+		task.setestTime(120);
 		assertEquals(task.getEstTime(), 120);
-		assertEquals(task.estTimeProperty().get(), 120);
+		assertEquals(task.EstTimeProperty().get(), 120);
 	}
 	
 	@Test
 	public void test_actTime() {
 		SprintTask task = new SprintTask();
-		task.setActTime(110);
+		task.setactTime(110);
 		assertEquals(task.getActTime(), 110);
-		assertEquals(task.actTimeProperty().get(), 110);
+		assertEquals(task.ActTimeProperty().get(), 110);
 	}
 	
 	@Test
 	public void test_backlogRef() {
 		SprintTask task = new SprintTask();
-		task.setBacklogRef(9);
+		task.setbacklogRef(9);
 		assertEquals(task.getBacklogRef(), 9);
-		assertEquals(task.backlogRefProperty().get(), 9);
+		assertEquals(task.BacklogRefProperty().get(), 9);
 	}
 	
 }
