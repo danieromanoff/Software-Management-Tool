@@ -74,7 +74,7 @@ public class SprintUi extends BaseUi<SprintViewController> {
 	    sprintBlViewController.setAgilePrj(agilePrj, agilePrj.getSprintBacklogList(sprint));
 	    prodOpenBlViewController.setAgilePrj(agilePrj, agilePrj.getOpenProdBacklogList());
 	    backlogViewController.showSprint(sprint);
-	    taskViewController.showSprint(sprint);
+	  // TODO  taskViewController.showSprint(sprint);
 	    reviewViewController.showSprint(sprint);
 	    retrospectViewController.showSprint(sprint);
 		}
@@ -92,7 +92,7 @@ public class SprintUi extends BaseUi<SprintViewController> {
     if (sprint != null) {
     	infoViewController.saveSprint(sprint);
     	backlogViewController.saveSprint(sprint);
-  	  taskViewController.saveSprint(sprint);
+  	// TODO  taskViewController.saveSprint(sprint);
   	  reviewViewController.saveSprint(sprint);
   	  retrospectViewController.saveSprint(sprint);
     }

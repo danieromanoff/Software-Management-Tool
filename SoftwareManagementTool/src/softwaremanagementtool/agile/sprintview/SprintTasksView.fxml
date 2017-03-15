@@ -49,13 +49,13 @@
                         <Label text="  Actual Time" GridPane.rowIndex="4" />
                         <Label text="  Backlog Item Reference" GridPane.rowIndex="5" />
                         <Label text="  Status" GridPane.rowIndex="6" />
-                        <TextField prefHeight="30.0" prefWidth="306.0" promptText="User Story or Change Request ID" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <TextField prefHeight="33.0" prefWidth="306.0" promptText="How much time did it take to do this" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <TextField prefHeight="33.0" prefWidth="306.0" promptText="How much time do you think this task will take" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextField prefHeight="81.0" prefWidth="306.0" promptText="Description of what needs to be done" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField prefHeight="34.0" prefWidth="306.0" promptText="Name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField prefHeight="13.0" prefWidth="306.0" GridPane.columnIndex="1" />
-                        <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <TextField fx:id="backlogRef" prefHeight="30.0" prefWidth="306.0" promptText="User Story or Change Request ID" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <TextField fx:id="actTime" prefHeight="33.0" prefWidth="306.0" promptText="How much time did it take to do this" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField fx:id="estTime" prefHeight="33.0" prefWidth="306.0" promptText="How much time do you think this task will take" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="theTask" prefHeight="81.0" prefWidth="306.0" promptText="Description of what needs to be done" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="assignee" prefHeight="34.0" prefWidth="306.0" promptText="Name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="id" prefHeight="13.0" prefWidth="306.0" GridPane.columnIndex="1" />
+                        <ComboBox fx:id="status" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                      </children>
                   </GridPane>
                   <Label layoutX="158.0" layoutY="14.0" text="Sprint Number" />
