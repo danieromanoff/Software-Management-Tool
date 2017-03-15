@@ -13,10 +13,10 @@ public class SprintTask {
   private final IntegerProperty id;
   private final StringProperty assignee;
   private final StringProperty theTask;
-  private final IntegerProperty estTime;
-  private final IntegerProperty actTime;
-  private final IntegerProperty backlogRef;
-  
+  private final StringProperty estTime;
+  private final StringProperty actTime;
+  private final StringProperty backlogRef;
+  private final StringProperty status;
 
   
   public SprintTask() {
@@ -24,9 +24,10 @@ public class SprintTask {
     this.id = new SimpleIntegerProperty(0);
     this.assignee = new SimpleStringProperty("");
     this.theTask = new SimpleStringProperty("");
-    this.estTime = new SimpleIntegerProperty(0);
-    this.actTime = new SimpleIntegerProperty(0);
-    this.backlogRef = new SimpleIntegerProperty(0);
+    this.estTime = new SimpleStringProperty("");
+    this.actTime = new SimpleStringProperty("");
+    this.backlogRef = new SimpleStringProperty("");
+    this.status = new SimpleStringProperty("");
   }
   
   public int getID() {
@@ -59,33 +60,45 @@ public class SprintTask {
     return theTask;
   }
   
-  public int getEstTime() {
+  public String getEstTime() {
     return estTime.get();
   }
-  public void setEstTime(int time) {
-    this.estTime.set(time);
+  public void setEstTime(String etime) {
+    this.estTime.set(etime);
   }
-  public IntegerProperty estTimeProperty() {
+  public StringProperty EstTimeProperty() {
     return estTime;
   }
   
-  public int getActTime() {
+  public String getActTime() {
     return actTime.get();
   }
-  public void setActTime(int time) {
-    this.actTime.set(time);
+  public void setActTime(String atime) {
+    this.actTime.set(atime);
   }
-  public IntegerProperty actTimeProperty() {
+  public StringProperty ActTimeProperty() {
     return actTime;
   }
   
-  public int getBacklogRef() {
+  public String getBacklogRef() {
     return backlogRef.get();
   }
-  public void setBacklogRef(int inBacklogRef) {
-    this.backlogRef.set(inBacklogRef);
+  public void setBacklogRef(String backlog) {
+    this.backlogRef.set(backlog);
   }
-  public IntegerProperty backlogRefProperty() {
+  public StringProperty BacklogRefProperty() {
     return backlogRef;
   }
+  
+  public String getStatus() {
+    return status.get();
+  }
+  public void setStatus(String inStatus) {
+    this.status.set(inStatus);
+  }
+  public StringProperty statusProperty() {
+    return status;
+  }
+
+
 }

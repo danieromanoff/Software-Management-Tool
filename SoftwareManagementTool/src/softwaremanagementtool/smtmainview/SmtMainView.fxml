@@ -21,7 +21,7 @@
                         <MenuItem mnemonicParsing="false" onAction="#goOpenAgile" text="Agile Project" />
                     </items>
                   </Menu>
-                  <MenuItem fx:id="menuSave" disable="true" mnemonicParsing="false" text="Save" />
+                  <MenuItem fx:id="menuSave" disable="true" mnemonicParsing="false" onAction="#goSave" text="Save" />
                   <MenuItem fx:id="menuClose" disable="true" mnemonicParsing="false" onAction="#goClose" text="Close Project" />
                   <MenuItem mnemonicParsing="false" onAction="#goExit" text="Exit" />
             </items>

@@ -8,7 +8,7 @@ public class ProductBacklog {
   //user story data as an observable list of user stories.
   private ObservableList<BacklogEntry> productBacklog = FXCollections.observableArrayList();
 
-  public ObservableList<BacklogEntry> backlogList() {
+  public ObservableList<BacklogEntry> get() {
   	return productBacklog;
   }
   
@@ -22,5 +22,12 @@ public class ProductBacklog {
   		}
   	}
   	return biggest + 1;
+  }
+  
+  public BacklogStats getStats() {
+  	BacklogStats stats = new BacklogStats();
+  	
+  	// TODO gather
+  	return stats;
   }
 }
