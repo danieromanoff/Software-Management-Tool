@@ -1,32 +1,22 @@
 .root {
-    -fx-background-color: #8B8989;
+  -fx-base: darkgray;
 }
 
-.menu-bar{
-  -fx-background-color: #8B8989;
-  -fx-border-color:  #8B8989;
-  -fx-border-width: 2
+.menu-bar {
+    -fx-background-color: derive(#8B8989,10%);
 }
 
 .context-menu {
-    -fx-background-color: derive(#1d1d1d,35%);
+    -fx-background-color: derive(#8B8989,10%);
 }
 
 .menu-bar .label {
-   -fx-font-size: 16 pt;
-   -fx-font-family: "Segoe UI Light";
-   -fx-text-fill: #dedede;
-   -fx-opacity: 0.9;
+    -fx-font-size: 12pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: white;
+    -fx-opacity: 0.9;
+    -fx-effect: dropshadow(gaussian , black, 10, 0.0 , 4, 5);
 }
-
 .menu .left-container {
-    -fx-background-color: black;
-}
-
-.menu:hover {
-   -fx-background-color: linear-gradient(to left, #ff0000, #7d1e15);
-}
-
-.menu-item .label{
-    -fx-font-size: 16 pt;
+    -fx-background-color: #8B8989;
 }

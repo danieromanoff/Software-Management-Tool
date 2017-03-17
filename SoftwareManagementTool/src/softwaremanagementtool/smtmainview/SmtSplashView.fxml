@@ -4,9 +4,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane minHeight="600.0" minWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+ <AnchorPane minHeight="600.0" minWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="false">
+      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="false" preserveRatio="false">
          <image>
             <Image url="@Splash-Background-SMT.gif" />
          </image>
