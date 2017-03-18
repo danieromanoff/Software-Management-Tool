@@ -3,11 +3,11 @@
 }
 
 .menu-bar {
-    -fx-background-color: derive(#8B8989,10%);
+    -fx-background-color: #8B8989;
 }
 
 .context-menu {
-    -fx-background-color: derive(#8B8989,10%);
+    -fx-background-color: #8B8989;
 }
 
 .menu-bar .label {
