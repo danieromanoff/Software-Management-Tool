@@ -112,13 +112,14 @@ public class BacklogUi extends BaseUi<ProductBacklogViewController> {
       }
       if (changes) {
       	// check to save
-      	Alert alert = new Alert(AlertType.CONFIRMATION);
-      	alert.setTitle("Save Changes");
-      	alert.setHeaderText("Changes Made, Do you want to save?");
-      	alert.setContentText("OK to save; Cancel to proceed without saving");
+      //	Alert alert = new Alert(AlertType.CONFIRMATION);
+     // 	alert.setTitle("Save Changes");
+      //	alert.setHeaderText("Changes Made, Do you want to save?");
+     // 	alert.setContentText("OK to save; Cancel to discard");
 
-      	Optional<ButtonType> result = alert.showAndWait();
-      	if (result.get() == ButtonType.OK){
+     // 	Optional<ButtonType> result = alert.showAndWait();
+     // 	if (result.get() == ButtonType.OK){
+      	if (SaveAlert.save()) {
       		updateBacklogItem(blEntry);
       	} 
       }

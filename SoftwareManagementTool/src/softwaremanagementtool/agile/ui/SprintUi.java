@@ -7,6 +7,7 @@ import softwaremanagementtool.agile.AgileProject;
 import softwaremanagementtool.agile.BacklogEntry;
 import softwaremanagementtool.agile.ChangeRequest;
 import softwaremanagementtool.agile.Sprint;
+import softwaremanagementtool.agile.SprintTask;
 import softwaremanagementtool.agile.UserStory;
 import softwaremanagementtool.agile.backlogview.BacklogViewController;
 import softwaremanagementtool.agile.changereqview.ChangeReqViewController;
@@ -63,6 +64,7 @@ public class SprintUi extends BaseUi<SprintViewController> {
     changeReqController.setVisable(false);
   
   	taskViewController = (SprintTaskViewController) loadSubView(classController.getSprintTaskPane(), FXML_SPRINT_TASK_VIEW);
+  	taskViewController.setAgilePrj(agilePrj);
   	reviewViewController = (SprintReviewViewController) loadSubView(classController.getSprintReviewPane(), FXML_SPRINT_REVIEW_VIEW);
   	retrospectViewController = (SprintRetrospectViewController) loadSubView(classController.getSprintRetrospctPane(), FXML_SPRINT_RETROSPECT_VIEW);
   	     
@@ -74,7 +76,7 @@ public class SprintUi extends BaseUi<SprintViewController> {
 	    sprintBlViewController.setAgilePrj(agilePrj, agilePrj.getSprintBacklogList(sprint));
 	    prodOpenBlViewController.setAgilePrj(agilePrj, agilePrj.getOpenProdBacklogList());
 	    backlogViewController.showSprint(sprint);
-	  // TODO  taskViewController.showSprint(sprint);
+	    taskViewController.showSprint(sprint);
 	    reviewViewController.showSprint(sprint);
 	    retrospectViewController.showSprint(sprint);
 		}
@@ -88,15 +90,19 @@ public class SprintUi extends BaseUi<SprintViewController> {
   }
 	
 	public void saveSprint() {
-	  Sprint sprint = classController.getSelectedItem();
+	  Sprint sprint = currentSprint();
     if (sprint != null) {
     	infoViewController.saveSprint(sprint);
     	backlogViewController.saveSprint(sprint);
-  	// TODO  taskViewController.saveSprint(sprint);
+  	  taskViewController.saveSprint(sprint);
   	  reviewViewController.saveSprint(sprint);
   	  retrospectViewController.saveSprint(sprint);
     }
   }
+	
+	public Sprint currentSprint() {
+		return classController.getSelectedItem();
+	}
 	
 	public void showBacklogEntry(BacklogEntry blEntry) throws IOException {
   	// need to override
@@ -121,5 +127,11 @@ public class SprintUi extends BaseUi<SprintViewController> {
       }
     } 
   }
+	
+	public void addTask(SprintTask task) {
+		taskViewController.showSprint(currentSprint());
+		taskViewController.showSprintTaskDetails(task);
+		taskViewController.setLast();
+	}
 	
 }

@@ -12,8 +12,8 @@ public class SprintTask_Test {
 	@Test
 	public void test_id() {
 		SprintTask task = new SprintTask();
-		task.setID(111);
-		assertEquals(task.getID(), 111);
+		task.setId(111);
+		assertEquals(task.getId(), 111);
 		assertEquals(task.IDProperty().get(), 111);
 	}
 	
