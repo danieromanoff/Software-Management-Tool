@@ -16,8 +16,8 @@ public class TaskList {
     Integer biggest = 0;
     for (int i=0; i < taskList.size(); i++)
     {
-      if (taskList.get(i).getID() > biggest ) {
-        biggest = taskList.get(i).getID();
+      if (taskList.get(i).getId() > biggest ) {
+        biggest = taskList.get(i).getId();
       }
     }
     return biggest + 1;

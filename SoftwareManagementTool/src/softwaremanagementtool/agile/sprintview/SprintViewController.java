@@ -11,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import softwaremanagementtool.agile.AgileProject;
 import softwaremanagementtool.agile.BacklogEntry;
 import softwaremanagementtool.agile.Sprint;
+import softwaremanagementtool.agile.SprintTask;
 
 
 public class SprintViewController {
@@ -77,7 +78,7 @@ public class SprintViewController {
   public void setLast () {
   	sprintTable.getSelectionModel().selectLast(); 
   }
-	
+  
 	public AnchorPane getSprintInfoPane() {
 		return sprintInfoPane;
 	}

@@ -206,7 +206,6 @@ public class AgileProject {
     newUserStory.setID(productBacklog.nextId());
     getBacklogList().add(newUserStory);
     backlogUi.addUserStory(newUserStory);
-    
   } 
   
   public void newChangeRequest() throws IOException {
@@ -214,7 +213,6 @@ public class AgileProject {
     newChangeRequest.setID(productBacklog.nextId());
     getBacklogList().add(newChangeRequest);
     backlogUi.addChangeRequest(newChangeRequest);
-
   } 
 
   public ObservableList<BacklogEntry> getBacklogList() {
@@ -245,6 +243,10 @@ public class AgileProject {
     return sprintList.get();
   }
   
+  /**
+   *  Sprint Backlog 
+   *  
+   */
   public ObservableList<BacklogEntry> getSprintBacklogList(Sprint sprint) {
     return sprint.sprintBacklog();
   }
@@ -262,4 +264,28 @@ public class AgileProject {
     return openProdBacklogList;
   }
   
+  /**
+   *  Sprint Tasks 
+   *  
+   */
+  public void newTask() {
+  	SprintTask newTask = new SprintTask(); 
+  	newTask.setSprintId(sprintUi.currentSprint().getID()); 
+  	newTask.setId(taskList.nextId());
+    taskList.get().add(newTask);
+    sprintUi.addTask(newTask);
+  }
+  
+  public ObservableList<SprintTask> getTaskList(Sprint sprint) {
+  	// TODO filter for sprint
+    ObservableList<SprintTask> sprintTaskList = FXCollections.observableArrayList();
+    for (int i=0; i<taskList.get().size(); i++) {
+    	if (taskList.get().get(i).getSprintId() == sprintUi.currentSprint().getID()) {
+    		sprintTaskList.add(taskList.get().get(i));
+    	}
+    }
+  	return sprintTaskList;
+  }
+  
+
 }  
