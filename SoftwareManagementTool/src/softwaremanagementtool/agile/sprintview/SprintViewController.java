@@ -1,15 +1,12 @@
 package softwaremanagementtool.agile.sprintview;
 
 import java.io.IOException;
-import java.time.LocalDate;
 
-import javafx.beans.property.ObjectProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import softwaremanagementtool.agile.AgileProject;
-import softwaremanagementtool.agile.BacklogEntry;
 import softwaremanagementtool.agile.Sprint;
 
 
@@ -76,8 +73,13 @@ public class SprintViewController {
   
   public void setLast () {
   	sprintTable.getSelectionModel().selectLast(); 
+  	showSprintDetails(getSelectedItem());
   }
-	
+  
+  public void setFirst () {
+    sprintTable.getSelectionModel().selectFirst();
+  }
+  
 	public AnchorPane getSprintInfoPane() {
 		return sprintInfoPane;
 	}
