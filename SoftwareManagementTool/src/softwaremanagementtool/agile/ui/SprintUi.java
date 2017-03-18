@@ -134,4 +134,9 @@ public class SprintUi extends BaseUi<SprintViewController> {
 		taskViewController.setLast();
 	}
 	
+	public void show() {
+  	super.show();
+  	classController.setFirst();
+  	showSprint(classController.getSelectedItem());
+	}
 }

@@ -111,7 +111,7 @@ public class ChangeReqViewController {
     	 (changeRequest.getPriority() == (priority.getValue())) &&
     	 (changeRequest.getJustification().equals(JustificationText.getText())) &&
     	 (changeRequest.getDateCreated().equals(date.getValue())) &&
-    	 (changeRequest.getState() == state.getValue()) &&
+    	 (changeRequest.getState().equals(state.getValue())) &&
     	 (changeRequest.getStoryPoints() == storyPoints.getValue())) {
   		changed = false;
   	}

@@ -14,6 +14,7 @@ public class BacklogEntry {
 	private final StringProperty title;
 	private final IntegerProperty priority;
 	private final IntegerProperty storyPoints;
+	private final IntegerProperty sprintId;
 	
 	public BacklogEntry() {
   	//ID, title and owner data will be displayed in the user story view
@@ -21,6 +22,7 @@ public class BacklogEntry {
     this.title = new SimpleStringProperty("New");
     this.priority = new SimpleIntegerProperty(5);
     this.storyPoints = new SimpleIntegerProperty(STORY_POINTS[0]);
+    this.sprintId = new SimpleIntegerProperty(0);
   }
 	
 	public int getID() {
@@ -31,6 +33,16 @@ public class BacklogEntry {
   }
 	public IntegerProperty IDProperty() {
     return id;
+  }
+	
+	public int getSprintId() {
+    return sprintId.get();
+  }
+  public void setSprintId(int sprintId) {
+    this.sprintId.set(sprintId);
+  }
+	public IntegerProperty sprintIdProperty() {
+    return sprintId;
   }
 	
 	 //title setter and getter method
