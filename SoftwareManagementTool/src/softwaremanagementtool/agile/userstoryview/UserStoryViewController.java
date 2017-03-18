@@ -107,7 +107,7 @@ public class UserStoryViewController {
     	 (userstory.getPriority() == (priority.getValue())) &&
     	 (userstory.getAcceptanceCriteria().equals(acceptanceCriteriaText.getText())) &&
     	 (userstory.getDateCreated().equals(date.getValue())) &&
-    	 (userstory.getState() == state.getValue()) &&
+    	 (userstory.getState().equals(state.getValue())) &&
     	 (userstory.getStoryPoints() == storyPoints.getValue())) {
   		changed = false;
   	}

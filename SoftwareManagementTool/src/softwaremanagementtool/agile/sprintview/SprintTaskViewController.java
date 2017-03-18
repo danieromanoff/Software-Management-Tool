@@ -10,7 +10,6 @@ import javafx.scene.layout.AnchorPane;
 import softwaremanagementtool.agile.AgileProject;
 import softwaremanagementtool.agile.Sprint;
 import softwaremanagementtool.agile.SprintTask;
-import softwaremanagementtool.agile.UserStory;
 import softwaremanagementtool.agile.ui.SaveAlert;
 
 public class SprintTaskViewController {
@@ -133,12 +132,12 @@ public class SprintTaskViewController {
       	 (task.getEstTime() == Integer.parseInt(estTime.getText())) &&
       	 (task.getActTime() == Integer.parseInt(actTime.getText())) &&
       	 (task.getBacklogRef() == Integer.parseInt(backlogRef.getText())) &&
-      	 (task.getStatus() == status.getValue())) {
+      	 (task.getStatus().equals(status.getValue()))) {
     		changed = false;
     	}
     	return changed;
     }
-
+    
     public void setLast () {
     	taskTable.getSelectionModel().selectLast(); 
     }
@@ -151,6 +150,7 @@ public class SprintTaskViewController {
     	taskTable.setItems(agilePrj.getTaskList(sprint));
     	clearSprintTaskDetails();
     	taskTable.getSelectionModel().selectFirst(); 
+    	showSprintTaskDetails(getSelectedItem());
   	}
   	
     public void updateTask() {

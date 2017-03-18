@@ -46,8 +46,8 @@ public class Sprint_Test {
 		assertEquals(sprint.stateProperty().get(), Sprint.STATE[1]);
 	}
 	
-	@Test
-	public void test_sprintBacklog() {
+/*	@Test  TODO Remove???
+ 	public void test_sprintBacklog() {
 		ObservableList<BacklogEntry> sprintBacklog;
 		Sprint sprint = new Sprint();
 		UserStory us = new UserStory();
@@ -57,9 +57,9 @@ public class Sprint_Test {
 		sprintBacklog = sprint.sprintBacklog();
 		assertEquals(sprintBacklog.get(0).getID(), us.getID());
 		assertEquals(sprintBacklog.get(1).getID(), us2.getID());
-	}
+	} */
 	
-	@Test
+/*	@Test TODO Remove????
 	public void test_issuesOpened() {
 		ObservableList<Integer> issues;
 		Sprint sprint = new Sprint();
@@ -70,7 +70,7 @@ public class Sprint_Test {
 		issues = sprint.issuesOpened();
 		assertEquals(issues.get(0), (Integer) 7);//TODO cr.getID());
 		assertEquals(issues.get(1), (Integer) 7);//TODO cr2.getID());
-	}
+	} */
 	
 	@Test
 	public void test_numFiles() {

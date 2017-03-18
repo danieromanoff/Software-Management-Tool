@@ -43,20 +43,23 @@ public class AgileProject {
    */
   public AgileProject(String mode, Stage inStage, BorderPane inLayout) throws IOException {
     
-    primaryStage = inStage;
-    mainLayout = inLayout;
-    productBacklog = new ProductBacklog();
+  	productBacklog = new ProductBacklog();
     sprintList = new SprintList();
     taskList = new TaskList();
+  	
+    // Open existing project
+    if (mode.equals("OPEN")) {
+    	load();
+    }
+  	
+    primaryStage = inStage;
+    mainLayout = inLayout;
+
     // Create views
     sprintUi = new SprintUi(this);
     dashboardUi = new DashboardUi(this);
     backlogUi = new BacklogUi(this);
     reportsUi = new ReportsUi(this);
-    // Open existing project
-    if (mode.equals("OPEN")) {
-    	load();
-    }
     
     showDashboard();
   }
@@ -248,7 +251,7 @@ public class AgileProject {
    *  
    */
   public ObservableList<BacklogEntry> getSprintBacklogList(Sprint sprint) {
-    return sprint.sprintBacklog();
+    return openProdBacklogList; // TODO wrong list
   }
   
   public ObservableList<BacklogEntry> getOpenProdBacklogList() {
