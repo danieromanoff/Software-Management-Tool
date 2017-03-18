@@ -1,5 +1,8 @@
 .root {
   -fx-base: #8B8989;
+  -fx-background-color: #8B8989;
+  -fx-background-repeat: no-repeat;
+  -fx-background-size: stretch;
 }
 
 .label {

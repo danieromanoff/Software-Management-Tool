@@ -1,5 +1,7 @@
 .root {
-  -fx-base: #8B8989;
+  -fx-background-image: url('Splash-Background-SMT.gif');
+  -fx-background-repeat: no-repeat;
+  -fx-background-size: stretch;
 }
 
 .menu-bar {
