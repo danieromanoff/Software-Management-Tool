@@ -1,5 +1,5 @@
 .root {
-  -fx-base: darkgray;
+  -fx-base: #8B8989;
 }
 
 .label {
@@ -28,3 +28,18 @@
     -fx-font-family: "Segoe UI Semibold";
 }
 
+.grid-pane {
+    -fx-background-color: #8B8989;
+}
+
+.grid-pane .text-field {
+    -fx-background-color: white;
+}
+
+.grid-pane .text-area {
+    -fx-background-color: white;
+}
+
+.grid-pane .combo-box {
+    -fx-background-color: white;
+}
