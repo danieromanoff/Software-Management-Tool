@@ -15,12 +15,12 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <LineChart layoutX="14.0" layoutY="89.0" prefHeight="150.0" prefWidth="238.0">
+      <LineChart layoutX="14.0" layoutY="89.0" prefHeight="236.0" prefWidth="320.0" title="Burndown Chart">
         <xAxis>
-          <CategoryAxis side="BOTTOM" />
+          <CategoryAxis label="Sprints and Dates" prefHeight="30.0" prefWidth="238.0" side="BOTTOM" />
         </xAxis>
         <yAxis>
-          <NumberAxis side="LEFT" />
+          <NumberAxis label="User Stories" side="LEFT" />
         </yAxis>
       </LineChart>
    </children>
