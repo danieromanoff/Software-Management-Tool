@@ -1,5 +1,6 @@
 package softwaremanagementtool.agile.dashboardview;
 
-public class BurndownChartController {
 
+
+public class BurndownChartController {
 }
