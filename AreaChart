@@ -1,0 +1,45 @@
+package softwaremanagementtool.agile.dashboardview;
+
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import java.util.ResourceBundle
+import javafx.scene.chart.XYChart;
+
+
+public class BurndownChartController implements Initializable {
+
+@FXML
+private CategoryAxis;
+
+@FXML
+private NumberAxis;
+
+@FXML
+private AreaChart;
+
+@Override
+public vid initialize(URL, url, ResourceBundle rb){
+  
+  XYChart.Projected projected = new XYChart.Projected<>();
+  
+  projected.getData().add(new XYChart.Data("1", 123));
+  projected.getData().add(new XYChart.Data("2", 112));
+  projected.getData().add(new XYChart.Data("3", 143));
+  projected.getData().add(new XYChart.Data("4", 155));
+  projected.getData().add(new XYChart.Data("5", 122));
+  projected.getData().add(new XYChart.Data("6", 167));
+  projected.getData().add(new XYChart.Data("7", 119));
+  
+  XYChart.Actual actual = new XYChart.Actual<>();
+  
+  actual.getData().add(new XYChart.Data("1", 23));
+  actual.getData().add(new XYChart.Data("2", 12));
+  actual.getData().add(new XYChart.Data("3", 43));
+  actual.getData().add(new XYChart.Data("4", 55));
+  actual.getData().add(new XYChart.Data("5", 22));
+  actual.getData().add(new XYChart.Data("6", 67));
+  actual.getData().add(new XYChart.Data("7", 19));
+  
+  AreaChart.getData().addAll(projected,actual);
+  }
+}
