@@ -46,6 +46,7 @@ public class BacklogUi extends BaseUi<ProductBacklogViewController> {
     changeReqController.setPane( (AnchorPane) blEntryPane.getChildren().get(1));
     changeReqController.setAgilePrj(agilePrj);
     changeReqController.setVisable(false);
+    
   }
   
   
@@ -112,16 +113,18 @@ public class BacklogUi extends BaseUi<ProductBacklogViewController> {
       }
       if (changes) {
       	// check to save
-      	Alert alert = new Alert(AlertType.CONFIRMATION);
-      	alert.setTitle("Save Changes");
-      	alert.setHeaderText("Changes Made, Do you want to save?");
-      	alert.setContentText("OK to save; Cancel to proceed without saving");
-
-      	Optional<ButtonType> result = alert.showAndWait();
-      	if (result.get() == ButtonType.OK){
+      	if (SaveAlert.save()) {
       		updateBacklogItem(blEntry);
       	} 
       }
     } 
   }
+  
+  public void show() {
+  	super.show();
+  	if (backlogViewController.getSelectedItem() == null) {
+  	  backlogViewController.setFirst();
+  	}
+	}
+  
 }

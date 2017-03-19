@@ -5,8 +5,8 @@ public class BacklogStats {
 	private Integer[] numUserStory = new Integer[UserStory.STATE.length];
 	private Integer[] userStoryPnts = new Integer[UserStory.STATE.length];
 	
-// TODO	private Integer[] numChangeReq = new Integer[ChangeReq.STATE.length];
-//	private Integer[] changeReqPnts = new Integer[ChangeReq.STATE.length];
+	private Integer[] numChangeReq = new Integer[ChangeRequest.STATE.length];
+	private Integer[] changeReqPnts = new Integer[ChangeRequest.STATE.length];
 	
 	private Integer usStateIndex(String str) {
 		Integer indx;

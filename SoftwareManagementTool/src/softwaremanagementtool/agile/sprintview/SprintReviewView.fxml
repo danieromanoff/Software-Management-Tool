@@ -29,9 +29,9 @@
                   <Label text="   Number of Files" />
                   <Label text="   SLOC" GridPane.rowIndex="1" />
                   <Label text="   Review Notes" GridPane.rowIndex="2" />
-                  <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField GridPane.columnIndex="1" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextArea fx:id="notes" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="numFiles" GridPane.columnIndex="1" />
+                  <TextField fx:id="TotalSloc" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
             <GridPane layoutX="24.0" layoutY="267.0" prefHeight="134.0" prefWidth="359.0">
@@ -45,9 +45,9 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField GridPane.columnIndex="1" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="numTests" GridPane.columnIndex="1" />
+                  <TextField fx:id="testsAttempted" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="testsPassed" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <Label text="Number of Tests Passed" GridPane.rowIndex="2" />
                   <Label text="Number of Tests Attempted" GridPane.rowIndex="1" />
                   <Label text="Number of Tests" />

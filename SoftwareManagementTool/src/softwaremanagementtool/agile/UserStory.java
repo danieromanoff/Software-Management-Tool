@@ -26,8 +26,8 @@ public class UserStory extends BacklogEntry {
    */
   public UserStory() {
     //setting default data to some attributes
-    this.userStory= new SimpleStringProperty();
-    this.acceptanceCriteria = new SimpleStringProperty();
+    this.userStory= new SimpleStringProperty("");
+    this.acceptanceCriteria = new SimpleStringProperty("");
     this.dateCreated = new SimpleObjectProperty<LocalDate>(LocalDate.now());
     this.state = new SimpleStringProperty(STATE[0]);
   }

@@ -15,9 +15,15 @@
             <Font size="18.0" />
          </font>
       </Label>
+<<<<<<< HEAD
+      <LineChart layoutX="14.0" layoutY="89.0" prefHeight="202.0" prefWidth="288.0" title="Burndown Chart">
+        <xAxis>
+          <CategoryAxis label="Sprint/Date" prefHeight="31.0" prefWidth="323.0" side="BOTTOM" />
+=======
       <LineChart layoutX="14.0" layoutY="89.0" prefHeight="236.0" prefWidth="377.0" title="Burndown Chart">
         <xAxis>
           <CategoryAxis label="Sprints and Dates" prefHeight="30.0" prefWidth="238.0" side="BOTTOM" />
+>>>>>>> refs/remotes/origin/Sprint
         </xAxis>
         <yAxis>
           <NumberAxis label="User Stories" side="LEFT" />

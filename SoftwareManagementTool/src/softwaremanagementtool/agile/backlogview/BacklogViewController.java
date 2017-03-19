@@ -55,8 +55,14 @@ public class BacklogViewController {
 		}
   }
   
+  public void setFirst () {
+  	backlogTable.getSelectionModel().selectFirst(); 
+  	showEntryDetails(getSelectedItem());
+  }
+  
   public void setLast () {
   	backlogTable.getSelectionModel().selectLast(); 
+  	showEntryDetails(getSelectedItem());
   }
   
   public BacklogEntry getSelectedItem() {

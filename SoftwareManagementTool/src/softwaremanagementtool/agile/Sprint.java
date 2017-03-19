@@ -22,9 +22,9 @@ public class Sprint {
   private final ObjectProperty<LocalDate> startDate;
   private final ObjectProperty<LocalDate> endDate;
   private final StringProperty state;
-  private ObservableList<BacklogEntry> sprintBacklog = FXCollections.observableArrayList();
-  private ObservableList<SprintTask> taskList = FXCollections.observableArrayList();
-  private ObservableList<Integer> issuesOpened = FXCollections.observableArrayList();
+ // private ObservableList<BacklogEntry> sprintBacklog = FXCollections.observableArrayList();
+ // private ObservableList<SprintTask> taskList = FXCollections.observableArrayList();
+ // private ObservableList<Integer> issuesOpened = FXCollections.observableArrayList();
   private final IntegerProperty endNumFiles;
   private final IntegerProperty endSloc;
   private final StringProperty reviewNotes;
@@ -103,26 +103,26 @@ public class Sprint {
   }
   
   
-  public void addToBacklog(BacklogEntry item) {
-    sprintBacklog.add(item);
-  }
-  public ObservableList<BacklogEntry> sprintBacklog( ) {
-    return sprintBacklog;
-  }
+//  public void addToBacklog(BacklogEntry item) {
+  //  sprintBacklog.add(item);
+ // }
+ // public ObservableList<BacklogEntry> sprintBacklog( ) {
+ //   return sprintBacklog;
+ // }
   
-  public void addToIssues(ChangeRequest issue) {
+  //public void addToIssues(ChangeRequest issue) {
     // TODOissuesOpened.add((Integer)issue.getID());
-  }
-  public ObservableList<Integer> issuesOpened( ) {
-    return issuesOpened;
-  }
+ // }
+ // public ObservableList<Integer> issuesOpened( ) {
+ //   return issuesOpened;
+ // }
   
-  public void addToTaskList(SprintTask task) {
-    taskList.add(task);
-  }
-  public ObservableList<SprintTask> taskList( ) {
-    return taskList;
-  }
+ // public void addToTaskList(SprintTask task) {
+ //   taskList.add(task);
+ // }
+ // public ObservableList<SprintTask> taskList( ) {
+//    return taskList;
+ // }
   
   public int getEndNumFiles() {
     return endNumFiles.get();
