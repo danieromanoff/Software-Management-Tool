@@ -3,24 +3,26 @@
     <changereq>
         <ID>2</ID>
         <priority>2</priority>
+        <sprintId>1</sprintId>
+        <state>Assigned</state>
         <storyPoints>1</storyPoints>
         <title>New</title>
         <changeRequest>Change Request Description</changeRequest>
         <dateCreated>2017-03-14</dateCreated>
         <justification>some acceptance test</justification>
         <openInSprintId>0</openInSprintId>
-        <state>Open</state>
     </changereq>
     <changereq>
         <ID>4</ID>
         <priority>4</priority>
+        <sprintId>0</sprintId>
+        <state>Open</state>
         <storyPoints>1</storyPoints>
         <title>New</title>
         <changeRequest>Change Request Description</changeRequest>
         <dateCreated>2017-03-14</dateCreated>
         <justification>some acceptance test</justification>
         <openInSprintId>0</openInSprintId>
-        <state>Open</state>
     </changereq>
     <sprints>
         <endDate>2017-03-15</endDate>
@@ -107,21 +109,23 @@
     <userstory>
         <ID>1</ID>
         <priority>1</priority>
+        <sprintId>0</sprintId>
+        <state>Open</state>
         <storyPoints>1</storyPoints>
         <title>New</title>
         <acceptanceCriteria>some acceptance test</acceptanceCriteria>
         <dateCreated>2017-03-14</dateCreated>
-        <state>Open</state>
         <userStory>user requirment</userStory>
     </userstory>
     <userstory>
         <ID>3</ID>
         <priority>3</priority>
+        <sprintId>1</sprintId>
+        <state>Assigned</state>
         <storyPoints>1</storyPoints>
         <title>New</title>
         <acceptanceCriteria>some acceptance test</acceptanceCriteria>
         <dateCreated>2017-03-14</dateCreated>
-        <state>Open</state>
         <userStory>user requirment</userStory>
     </userstory>
 </agileproject>

@@ -9,12 +9,26 @@ public class BacklogEntry {
 
 	public static final int[] PRIORITIES = {1,2,3,4,5};
 	public static final int[] STORY_POINTS = {1,2,3,5,8,13,20,40,100};
+	public static final String STATE_DRAFT = "Draft";
+	public static final String STATE_DEFERRED = "Deferred";
+	public static final String STATE_OPEN = "Open";
+	public static final String STATE_ASSIGNED ="Assigned";
+	public static final String STATE_CLOSED ="Closed";
+	public static final String STATE_DELETED ="Deleted";
+	public static final String[] STATE = {
+			BacklogEntry.STATE_DRAFT,
+			BacklogEntry.STATE_DEFERRED,
+			BacklogEntry.STATE_OPEN,
+			BacklogEntry.STATE_ASSIGNED,
+			BacklogEntry.STATE_CLOSED,
+			BacklogEntry.STATE_DELETED};
 	
 	private final IntegerProperty id;
 	private final StringProperty title;
 	private final IntegerProperty priority;
 	private final IntegerProperty storyPoints;
 	private final IntegerProperty sprintId;
+  private final StringProperty state;
 	
 	public BacklogEntry() {
   	//ID, title and owner data will be displayed in the user story view
@@ -23,6 +37,7 @@ public class BacklogEntry {
     this.priority = new SimpleIntegerProperty(5);
     this.storyPoints = new SimpleIntegerProperty(STORY_POINTS[0]);
     this.sprintId = new SimpleIntegerProperty(0);
+    this.state = new SimpleStringProperty(STATE_DRAFT);
   }
 	
 	public int getID() {
@@ -83,4 +98,17 @@ public class BacklogEntry {
   public String getType() {
   	return "None";
   }
+  
+  public String getState() {
+    return state.get();
+  }
+  
+  public void setState(String inState) {
+    this.state.set(inState);
+  }
+  
+  public StringProperty stateProperty() {
+    return state;
+  }
+  
 }

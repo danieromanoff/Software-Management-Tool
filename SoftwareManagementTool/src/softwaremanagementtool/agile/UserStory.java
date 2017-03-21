@@ -13,12 +13,10 @@ import softwaremanagementtool.agile.db.LocalDateAdapter;
 public class UserStory extends BacklogEntry {
    
 	public static final String type = "UserStory";
-	public static final String[] STATE = {"Draft","Deferred","Open","Closed","Deleted"};
 	
   private final StringProperty userStory;
   private final StringProperty acceptanceCriteria;
   private final ObjectProperty<LocalDate> dateCreated;
-  private final StringProperty state;
    
   /**
    *  History - Initials, Date, Description
@@ -29,7 +27,6 @@ public class UserStory extends BacklogEntry {
     this.userStory= new SimpleStringProperty("");
     this.acceptanceCriteria = new SimpleStringProperty("");
     this.dateCreated = new SimpleObjectProperty<LocalDate>(LocalDate.now());
-    this.state = new SimpleStringProperty(STATE[0]);
   }
   
   public String getType() {
@@ -75,15 +72,4 @@ public class UserStory extends BacklogEntry {
     return dateCreated;
   }
   
-  public String getState() {
-    return state.get();
-  }
-  
-  public void setState(String inState) {
-    this.state.set(inState);
-  }
-  
-  public StringProperty stateProperty() {
-    return state;
-  }
 }

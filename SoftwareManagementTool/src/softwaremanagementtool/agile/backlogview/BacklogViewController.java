@@ -65,6 +65,10 @@ public class BacklogViewController {
   	showEntryDetails(getSelectedItem());
   }
   
+  public void setNoSelection () {
+  	backlogTable.getSelectionModel().clearSelection(); 
+  }
+  
   public BacklogEntry getSelectedItem() {
   	return backlogTable.getSelectionModel().getSelectedItem();
   }

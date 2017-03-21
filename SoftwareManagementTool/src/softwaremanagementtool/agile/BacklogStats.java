@@ -1,17 +1,17 @@
 package softwaremanagementtool.agile;
 
 public class BacklogStats {
-
-	private Integer[] numUserStory = new Integer[UserStory.STATE.length];
-	private Integer[] userStoryPnts = new Integer[UserStory.STATE.length];
 	
-	private Integer[] numChangeReq = new Integer[ChangeRequest.STATE.length];
-	private Integer[] changeReqPnts = new Integer[ChangeRequest.STATE.length];
+	private Integer[] numUserStory = new Integer[BacklogEntry.STATE.length];
+	private Integer[] userStoryPnts = new Integer[BacklogEntry.STATE.length];
 	
-	private Integer usStateIndex(String str) {
+	private Integer[] numChangeReq = new Integer[BacklogEntry.STATE.length];
+	private Integer[] changeReqPnts = new Integer[BacklogEntry.STATE.length];
+	
+	private Integer stateIndex(String str) {
 		Integer indx;
-		for (indx = 0; indx < UserStory.STATE.length; indx++ ) {
-			if (str.equals(UserStory.STATE[indx])) {
+		for (indx = 0; indx < BacklogEntry.STATE.length; indx++ ) {
+			if (str.equals(BacklogEntry.STATE[indx])) {
 				return indx;
 			}
 		}
@@ -19,17 +19,21 @@ public class BacklogStats {
 		return 0;
 	}
 	
+	public void clear() {
+	
+	}
+	
 	public void setUserStoryCount(String state, Integer count) {
-		numUserStory[usStateIndex(state)] = count;
+		numUserStory[stateIndex(state)] = count;
 	}
 	public void setUserStoryPoints(String state, Integer points) {
-		userStoryPnts[usStateIndex(state)] = points;
+		userStoryPnts[stateIndex(state)] = points;
 	}
 	
 	public Integer getUserStoryCount(String state) {
-		return numUserStory[usStateIndex(state)];
+		return numUserStory[stateIndex(state)];
 	}
 	public Integer getUserStoryPoints(String state) {
-		return userStoryPnts[usStateIndex(state)];
+		return userStoryPnts[stateIndex(state)];
 	}
 }

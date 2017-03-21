@@ -27,6 +27,14 @@ public class ProductBacklog {
   public BacklogStats getStats() {
   	BacklogStats stats = new BacklogStats();
   	
+  	for (int st = 0; st < BacklogEntry.STATE.length; st++ ) {
+  	 	for (int bl = 0; bl < productBacklog.size(); bl++) {
+			  if (productBacklog.get(bl).getState().equals(BacklogEntry.STATE[st])) {
+			  	
+			  }
+			}
+		}
+  	
   	// TODO gather
   	return stats;
   }
