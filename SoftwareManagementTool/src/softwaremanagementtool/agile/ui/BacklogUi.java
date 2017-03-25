@@ -75,15 +75,9 @@ public class BacklogUi extends BaseUi<ProductBacklogViewController> {
     }   
   }
   
-  public void addUserStory(UserStory userStory)  {
-    userStoryController.showUserStoryDetails(userStory);
+  public void showNewEntry()  {
     backlogViewController.setLast();
-  } 
-  
-  public void addChangeRequest(ChangeRequest changeRequest) {
-    changeReqController.showChangeRequestDetails(changeRequest);
-    backlogViewController.setLast();
-  } 
+  }  
   
   public void leavingBacklogEntry(BacklogEntry blEntry) {
   	boolean changes = false;

@@ -26,7 +26,7 @@ public class ChangeRequest extends BacklogEntry {
   public ChangeRequest() {
     //setting default data to some attributes
     this.ChangeReq= new SimpleStringProperty("Change Request Description");
-    this.Justification = new SimpleStringProperty("some acceptance test");
+    this.Justification = new SimpleStringProperty(" ");
     this.dateCreated = new SimpleObjectProperty<LocalDate>(LocalDate.now());
     openInSprintId = 0;
   }

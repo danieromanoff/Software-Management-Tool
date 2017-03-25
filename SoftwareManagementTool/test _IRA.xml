@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<agileproject>
+    <userstory>
+        <ID>1</ID>
+        <priority>1</priority>
+        <sprintId>0</sprintId>
+        <state>Draft</state>
+        <storyPoints>1</storyPoints>
+        <title>Maintain list of IRA positions</title>
+        <acceptanceCriteria>test ira positions</acceptanceCriteria>
+        <dateCreated>2017-03-24</dateCreated>
+        <userStory>As a user I want to be able to add and remove portfolio positions. I would like to be able to create multiple portfolios. </userStory>
+    </userstory>
+    <userstory>
+        <ID>2</ID>
+        <priority>1</priority>
+        <sprintId>0</sprintId>
+        <state>Draft</state>
+        <storyPoints>3</storyPoints>
+        <title>Track position performance</title>
+        <acceptanceCriteria></acceptanceCriteria>
+        <dateCreated>2017-03-24</dateCreated>
+        <userStory>As a user I would like to track and compare performance of positions over different periods of time.</userStory>
+    </userstory>
+    <userstory>
+        <ID>3</ID>
+        <priority>3</priority>
+        <sprintId>0</sprintId>
+        <state>Draft</state>
+        <storyPoints>8</storyPoints>
+        <title>Run Simulations</title>
+        <acceptanceCriteria></acceptanceCriteria>
+        <dateCreated>2017-03-24</dateCreated>
+        <userStory>As a user I would like to be able to run simulations of a selected portfolio over a particular time period in the past .</userStory>
+    </userstory>
+</agileproject>

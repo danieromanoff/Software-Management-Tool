@@ -31,6 +31,7 @@ public class AgileProject {
   
   private BacklogList openProdBacklogList;
   private BacklogList sprintBacklogList;
+  private TaskList sprintTaskList;
   
 	private SprintUi sprintUi;
 	private DashboardUi dashboardUi;
@@ -47,6 +48,7 @@ public class AgileProject {
     taskList = new TaskList();
     openProdBacklogList = new BacklogList();
     sprintBacklogList = new BacklogList();
+    sprintTaskList = new TaskList();
   	
     // Open existing project
     if (mode.equals("OPEN")) {
@@ -196,14 +198,14 @@ public class AgileProject {
     UserStory newUserStory = new UserStory();
     newUserStory.setID(productBacklog.nextId());
     getBacklogList().add(newUserStory);
-    backlogUi.addUserStory(newUserStory);
+    backlogUi.showNewEntry();
   } 
   
   public void newChangeRequest() throws IOException {
     ChangeRequest newChangeRequest = new ChangeRequest();
     newChangeRequest.setID(productBacklog.nextId());
     getBacklogList().add(newChangeRequest);
-    backlogUi.addChangeRequest(newChangeRequest);
+    backlogUi.showNewEntry();
   } 
 
   public ObservableList<BacklogEntry> getBacklogList() {
@@ -224,6 +226,21 @@ public class AgileProject {
   
   public void saveSprintUpdates() throws IOException {
   	sprintUi.saveSprint(); 
+  }
+  
+  public void sprintStateChangeReq(Sprint sprint, String newState) {
+  	if (sprint.getState().equals(newState)) {
+  		return;
+  	}
+  	if (newState.equals(Sprint.STATE_PROGRESS)) {
+  		if (sprintList.isSprintInProgress()) {
+  			// dont change another sprint in progress
+  		}
+  	}
+  	if (newState.equals(Sprint.STATE_REVIEW)) {
+  		sprint.setBacklogStats(productBacklog.getStats());
+  	}
+  	sprint.setState(newState);
   }
   
   public void showSprintDetails(Sprint sprint) {
@@ -289,18 +306,19 @@ public class AgileProject {
   	SprintTask newTask = new SprintTask(); 
   	newTask.setSprintId(sprintUi.currentSprint().getID()); 
   	newTask.setId(taskList.nextId());
-    taskList.get().add(newTask);
+    taskList.add(newTask);
+    sprintTaskList.add(newTask);
     sprintUi.showNewTask(newTask);
   }
   
   public ObservableList<SprintTask> getTaskList(Sprint sprint) {
-    ObservableList<SprintTask> sprintTaskList = FXCollections.observableArrayList();
+    sprintTaskList.clear();
     for (int i=0; i<taskList.get().size(); i++) {
     	if (taskList.get().get(i).getSprintId() == sprintUi.currentSprint().getID()) {
     		sprintTaskList.add(taskList.get().get(i));
     	}
     }
-  	return sprintTaskList;
+  	return sprintTaskList.get();
   }
   
 

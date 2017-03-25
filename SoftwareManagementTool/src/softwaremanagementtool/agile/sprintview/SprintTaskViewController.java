@@ -150,7 +150,7 @@ public class SprintTaskViewController {
     	taskTable.setItems(agilePrj.getTaskList(sprint));
     	clearSprintTaskDetails();
     	taskTable.getSelectionModel().selectFirst(); 
-    	showSprintTaskDetails(getSelectedItem());
+    	//showSprintTaskDetails(getSelectedItem());
   	}
   	
     public void updateTask() {

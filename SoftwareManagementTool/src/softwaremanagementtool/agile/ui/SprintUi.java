@@ -48,6 +48,7 @@ public class SprintUi extends BaseUi<SprintViewController> {
   	classController.setAgilePrj(agilePrj);
     
   	infoViewController = (SprintInfoViewController) loadSubView(classController.getSprintInfoPane(), FXML_SPRINT_INFO_VIEW);
+  	infoViewController.setAgilePrj(agilePrj);
   	backlogViewController = (SprintBacklogViewController) loadSubView(classController.getSprintBacklogPane(), FXML_SPRINT_BACKLOG_VIEW);
   	backlogViewController.setAgilePrj(agilePrj);
   	sprintBlViewController = (BacklogViewController) loadSubView(backlogViewController.getSprintBacklogPane(), FXML_BACKLOG_VIEW);
@@ -84,7 +85,6 @@ public class SprintUi extends BaseUi<SprintViewController> {
 	}
 	
 	public void showNewSprint(Sprint sprint)  {
-    showSprint(sprint);
     classController.setLast();
   }
 	
@@ -140,8 +140,8 @@ public class SprintUi extends BaseUi<SprintViewController> {
 	
 	
 	public void showNewTask(SprintTask task) {
-		taskViewController.showSprint(currentSprint());
-		taskViewController.showSprintTaskDetails(task);
+		//taskViewController.showSprint(currentSprint());
+		//taskViewController.showSprintTaskDetails(task);
 		taskViewController.setLast();
 	}
 	
