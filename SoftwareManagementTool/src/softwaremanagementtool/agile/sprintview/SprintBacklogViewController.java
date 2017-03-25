@@ -3,10 +3,12 @@ package softwaremanagementtool.agile.sprintview;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import softwaremanagementtool.agile.AgileProject;
 import softwaremanagementtool.agile.Sprint;
 
 public class SprintBacklogViewController {
 
+	private AgileProject agilePrj;
 	@FXML
 	private AnchorPane detailsPane;
 	@FXML
@@ -15,6 +17,10 @@ public class SprintBacklogViewController {
 	private AnchorPane productBlPane;
 	@FXML
 	private Button blButton;
+	
+	public void setAgilePrj(AgileProject agileProject) {
+    this.agilePrj = agileProject;
+  }
 	
 	public AnchorPane getBacklogEntryPane() {
 		return detailsPane;
@@ -39,8 +45,13 @@ public class SprintBacklogViewController {
 		blButton.setVisible(true);
 	}
 	
+	public void setButtonRemove() {
+		blButton.setText("Remove from Sprint");
+		blButton.setVisible(true);
+	}
+	
 	@FXML
 	private void goButton() {
-	  
+		agilePrj.moveSprintBacklogItem();
 	}
 }

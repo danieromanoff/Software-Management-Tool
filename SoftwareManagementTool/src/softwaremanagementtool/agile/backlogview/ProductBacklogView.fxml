@@ -25,7 +25,7 @@
       </ButtonBar>
       <ButtonBar layoutX="345.0" layoutY="342.0" prefHeight="40.0" prefWidth="255.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="288.0" AnchorPane.rightAnchor="0.0">
         <buttons>
-            <Button mnemonicParsing="false" onAction="#goSaveBacklogItem" prefHeight="25.0" prefWidth="117.0" text="Save/Update" />
+            <Button mnemonicParsing="false" onAction="#goSaveBacklogItem" prefHeight="25.0" prefWidth="117.0" text="Apply Updates" />
         </buttons>
          <padding>
             <Insets right="10.0" />

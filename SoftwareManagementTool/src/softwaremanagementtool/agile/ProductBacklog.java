@@ -26,8 +26,17 @@ public class ProductBacklog {
   
   public BacklogStats getStats() {
   	BacklogStats stats = new BacklogStats();
+  	stats.clear();
+   	for (int bl = 0; bl < productBacklog.size(); bl++) {
+		  if (productBacklog.get(bl).getType().equals(UserStory.type)) {
+		  	stats.addUserStoryCount(productBacklog.get(bl).getState(),1);
+		  	stats.addUserStoryPoints(productBacklog.get(bl).getState(), productBacklog.get(bl).getStoryPoints());
+		  } else {
+		  	stats.addChangeReqCount(productBacklog.get(bl).getState(),1);
+		  	stats.addChangeReqPoints(productBacklog.get(bl).getState(), productBacklog.get(bl).getStoryPoints());
+		  }
+		}
   	
-  	// TODO gather
   	return stats;
   }
 }

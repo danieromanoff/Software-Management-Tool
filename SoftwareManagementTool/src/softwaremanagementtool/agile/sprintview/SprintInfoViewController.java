@@ -4,10 +4,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import softwaremanagementtool.agile.AgileProject;
 import softwaremanagementtool.agile.Sprint;
 
 public class SprintInfoViewController {
 	
+	private AgileProject agilePrj;
 	@FXML
   private TextField id;
 	@FXML
@@ -25,6 +27,10 @@ public class SprintInfoViewController {
   	}
   }
 	
+	public void setAgilePrj(AgileProject agileProject) {
+    this.agilePrj = agileProject;
+  }
+	
 	public void showSprint(Sprint sprint) {
 	  id.setText(Integer.toString(sprint.getID()));
 	  status.setValue(sprint.getState());
@@ -33,7 +39,7 @@ public class SprintInfoViewController {
 	}
 	
 	public void saveSprint(Sprint sprint) {
-		sprint.setState(status.getValue());
+		agilePrj.sprintStateChangeReq(sprint, status.getValue());
 	  sprint.setStartDate(startDate.getValue());
 	  sprint.setEndDate(endDate.getValue());
 	}

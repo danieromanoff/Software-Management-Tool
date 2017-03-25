@@ -9,7 +9,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import softwaremanagementtool.agile.AgileProject;
-import softwaremanagementtool.agile.dashboardview.DashboardViewController;
 import softwaremanagementtool.smtmainview.SmtMainViewControl;
 
 public class SoftwareManagementToolMain extends Application {
@@ -87,7 +86,6 @@ public class SoftwareManagementToolMain extends Application {
   }
     
 	public void save()  {
-		System.out.println("Save");
 	    if (agilePrj != null )
 	    {
 	      agilePrj.save();
