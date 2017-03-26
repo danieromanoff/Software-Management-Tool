@@ -92,7 +92,43 @@ public class BacklogStats {
 		return changeReqPnts[stateIndex(state)].getVal();
 	}
 	
-	//public Integer[] numUserStory() {
-		//return numUserStory;
-	//}
+	public Integer getTotalBacklogCount() {
+		return (getUserStoryCount(BacklogEntry.STATE_OPEN) +
+				getChangeReqCount(BacklogEntry.STATE_OPEN) +
+				getUserStoryCount(BacklogEntry.STATE_CLOSED) +
+				getChangeReqCount(BacklogEntry.STATE_CLOSED) +
+				getUserStoryCount(BacklogEntry.STATE_ASSIGNED) +
+				getChangeReqCount(BacklogEntry.STATE_ASSIGNED));
+	}
+	public Integer getTotalBacklogPoints() {
+		return (getUserStoryPoints(BacklogEntry.STATE_OPEN) +
+				getChangeReqPoints(BacklogEntry.STATE_OPEN) +
+				getUserStoryPoints(BacklogEntry.STATE_CLOSED) +
+				getChangeReqPoints(BacklogEntry.STATE_CLOSED) +
+				getUserStoryPoints(BacklogEntry.STATE_ASSIGNED) +
+				getChangeReqPoints(BacklogEntry.STATE_ASSIGNED));
+	}
+	
+	public Integer getBacklogCount() {
+		return (getUserStoryCount(BacklogEntry.STATE_OPEN) +
+				getChangeReqCount(BacklogEntry.STATE_OPEN) +
+				getUserStoryCount(BacklogEntry.STATE_ASSIGNED) +
+				getChangeReqCount(BacklogEntry.STATE_ASSIGNED));
+	}
+	public Integer getBacklogPoints() {
+		return (getUserStoryPoints(BacklogEntry.STATE_OPEN) +
+				getChangeReqPoints(BacklogEntry.STATE_OPEN) +
+				getUserStoryPoints(BacklogEntry.STATE_ASSIGNED) +
+				getChangeReqPoints(BacklogEntry.STATE_ASSIGNED));
+	}
+	
+	public Integer getBacklogCompleteCount() {
+		return (getUserStoryCount(BacklogEntry.STATE_CLOSED) +
+				getChangeReqCount(BacklogEntry.STATE_CLOSED));
+	}
+	public Integer getBacklogCompletePoints() {
+		return (getUserStoryPoints(BacklogEntry.STATE_CLOSED) +
+				getChangeReqPoints(BacklogEntry.STATE_CLOSED));
+	}
+	
 }

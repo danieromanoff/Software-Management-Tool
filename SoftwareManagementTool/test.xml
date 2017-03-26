@@ -39,10 +39,10 @@
                 <val>0</val>
             </userStoryPnts>
             <userStoryPnts state="Open">
-                <val>8</val>
+                <val>3</val>
             </userStoryPnts>
             <userStoryPnts state="Assigned">
-                <val>3</val>
+                <val>8</val>
             </userStoryPnts>
             <userStoryPnts state="Closed">
                 <val>1</val>
@@ -51,7 +51,7 @@
                 <val>0</val>
             </userStoryPnts>
             <numChangeReq state="Draft">
-                <val>1</val>
+                <val>0</val>
             </numChangeReq>
             <numChangeReq state="Deferred">
                 <val>0</val>
@@ -60,7 +60,7 @@
                 <val>0</val>
             </numChangeReq>
             <numChangeReq state="Assigned">
-                <val>0</val>
+                <val>1</val>
             </numChangeReq>
             <numChangeReq state="Closed">
                 <val>0</val>
@@ -69,7 +69,7 @@
                 <val>0</val>
             </numChangeReq>
             <changeReqPnts state="Draft">
-                <val>1</val>
+                <val>0</val>
             </changeReqPnts>
             <changeReqPnts state="Deferred">
                 <val>0</val>
@@ -78,7 +78,7 @@
                 <val>0</val>
             </changeReqPnts>
             <changeReqPnts state="Assigned">
-                <val>0</val>
+                <val>1</val>
             </changeReqPnts>
             <changeReqPnts state="Closed">
                 <val>0</val>
@@ -109,13 +109,13 @@
                 <val>0</val>
             </numUserStory>
             <numUserStory state="Open">
-                <val>1</val>
+                <val>0</val>
             </numUserStory>
             <numUserStory state="Assigned">
                 <val>1</val>
             </numUserStory>
             <numUserStory state="Closed">
-                <val>1</val>
+                <val>2</val>
             </numUserStory>
             <numUserStory state="Deleted">
                 <val>0</val>
@@ -127,19 +127,19 @@
                 <val>0</val>
             </userStoryPnts>
             <userStoryPnts state="Open">
-                <val>8</val>
+                <val>0</val>
             </userStoryPnts>
             <userStoryPnts state="Assigned">
-                <val>3</val>
+                <val>8</val>
             </userStoryPnts>
             <userStoryPnts state="Closed">
-                <val>1</val>
+                <val>4</val>
             </userStoryPnts>
             <userStoryPnts state="Deleted">
                 <val>0</val>
             </userStoryPnts>
             <numChangeReq state="Draft">
-                <val>1</val>
+                <val>0</val>
             </numChangeReq>
             <numChangeReq state="Deferred">
                 <val>0</val>
@@ -148,7 +148,7 @@
                 <val>0</val>
             </numChangeReq>
             <numChangeReq state="Assigned">
-                <val>0</val>
+                <val>1</val>
             </numChangeReq>
             <numChangeReq state="Closed">
                 <val>0</val>
@@ -157,7 +157,7 @@
                 <val>0</val>
             </numChangeReq>
             <changeReqPnts state="Draft">
-                <val>1</val>
+                <val>0</val>
             </changeReqPnts>
             <changeReqPnts state="Deferred">
                 <val>0</val>
@@ -166,7 +166,7 @@
                 <val>0</val>
             </changeReqPnts>
             <changeReqPnts state="Assigned">
-                <val>0</val>
+                <val>1</val>
             </changeReqPnts>
             <changeReqPnts state="Closed">
                 <val>0</val>
