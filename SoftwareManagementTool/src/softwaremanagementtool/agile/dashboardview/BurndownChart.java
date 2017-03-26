@@ -26,4 +26,8 @@ public class BurndownChart extends Application{
       launch(args);
     }
 
+<<<<<<< HEAD
   } 
+=======
+  } 
+>>>>>>> origin/Sprint
