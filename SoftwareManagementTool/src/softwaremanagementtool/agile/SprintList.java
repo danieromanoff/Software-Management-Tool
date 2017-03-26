@@ -37,4 +37,8 @@ public class SprintList {
     }
     return false;
   }
+  
+  public int size() {
+  	return sprintList.size();
+  }
 }

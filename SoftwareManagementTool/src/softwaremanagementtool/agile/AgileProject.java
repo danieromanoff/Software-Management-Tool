@@ -73,6 +73,8 @@ public class AgileProject {
    */
   public void showDashboard() throws IOException {
     dashboardUi.show();
+   // dashboardUi.showBurndownSprintCount();
+    dashboardUi.showBurndownSprintPoints();
   }
 
   public  void showBacklog() throws IOException {
@@ -249,6 +251,9 @@ public class AgileProject {
   
   public ObservableList<Sprint> getSprintList() {
     return sprintList.get();
+  }
+  public SprintList sprintList() {
+    return sprintList;
   }
   
   /**
