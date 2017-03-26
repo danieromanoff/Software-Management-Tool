@@ -26,4 +26,9 @@ public class TaskList {
   public void add(SprintTask task) {
   	taskList.add(task);
   }
+  
+  public void clear() {
+  	taskList.clear();
+  }
+  
 }

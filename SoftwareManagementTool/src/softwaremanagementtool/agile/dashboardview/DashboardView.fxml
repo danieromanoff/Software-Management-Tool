@@ -10,17 +10,17 @@
 <AnchorPane minHeight="400.0" minWidth="600.0" stylesheets="@DashboardStyling.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="softwaremanagementtool.agile.dashboardview.DashboardViewController">
    <children>
       
-            <Label fx:id="ProjectName" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="51.0" prefWidth="153.0" text="Dashboard View" textAlignment="CENTER">
+            <Label fx:id="ProjectName" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="51.0" prefWidth="153.0" text="Dashboard View" textAlignment="CENTER" AnchorPane.topAnchor="10.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <LineChart layoutX="14.0" layoutY="89.0" prefHeight="236.0" prefWidth="377.0" title="Burndown Chart">
+      <LineChart fx:id="lineChart" layoutX="14.0" layoutY="89.0" prefHeight="236.0" prefWidth="377.0" title="Burndown Chart" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0">
         <xAxis>
-          <CategoryAxis label="Sprints and Dates" prefHeight="30.0" prefWidth="238.0" side="BOTTOM" />
+          <CategoryAxis label="Sprints and Dates" prefHeight="30.0" prefWidth="238.0" side="BOTTOM" fx:id="xAxis" />
         </xAxis>
         <yAxis>
-          <NumberAxis label="User Stories" side="LEFT" />
+          <NumberAxis fx:id="yAxis" label="User Stories" side="LEFT" />
         </yAxis>
       </LineChart>
    </children>

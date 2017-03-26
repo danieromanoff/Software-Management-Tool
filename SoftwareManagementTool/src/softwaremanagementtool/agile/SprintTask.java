@@ -8,8 +8,16 @@ import javafx.beans.property.StringProperty;
 
 public class SprintTask {
   
-  public static final String[] STATUS = {"Draft","InProgress","Complete","Deleted"};
-  
+	public static final String STATUS_DRAFT = "Draft";
+	public static final String STATUS_PROGRESS = "InProgress";
+	public static final String STATUS_COMPLETE = "Complete";
+	public static final String STATUS_DELETED = "Deleted";
+  public static final String[] STATUS = {
+  		STATUS_DRAFT,
+  		STATUS_PROGRESS,
+  		STATUS_COMPLETE,
+  		STATUS_DELETED};
+	
   private final IntegerProperty id;
   private final IntegerProperty sprintRef;
   private final StringProperty assignee;
@@ -22,7 +30,7 @@ public class SprintTask {
   public SprintTask() {
   	this.id = new SimpleIntegerProperty(0);
   	this.sprintRef = new SimpleIntegerProperty(0);
-  	this.status = new SimpleStringProperty("");
+  	this.status = new SimpleStringProperty(STATUS_DRAFT);
     this.assignee = new SimpleStringProperty("");
     this.theTask = new SimpleStringProperty("");
     this.estTime = new SimpleIntegerProperty(0);

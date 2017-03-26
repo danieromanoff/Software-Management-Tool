@@ -48,8 +48,8 @@
                         <Label alignment="CENTER" prefHeight="17.0" prefWidth="26.0" text="  ID" />
                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="60.0" text="  Assignee" textAlignment="CENTER" GridPane.rowIndex="1" />
                         <Label prefHeight="17.0" prefWidth="65.0" text="  The Task" GridPane.rowIndex="2" />
-                        <Label text="  Estimated Time" GridPane.rowIndex="3" />
-                        <Label text="  Actual Time" GridPane.rowIndex="4" />
+                        <Label text="  Estimated Time (min)" GridPane.rowIndex="3" />
+                        <Label text="  Actual Time (min)" GridPane.rowIndex="4" />
                         <Label text="  Backlog Item Reference" GridPane.rowIndex="5" />
                         <Label text="  Status" GridPane.rowIndex="6" />
                         <TextField fx:id="backlogRef" prefHeight="30.0" prefWidth="306.0" promptText="User Story or Change Request ID" GridPane.columnIndex="1" GridPane.rowIndex="5" />

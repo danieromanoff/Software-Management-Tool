@@ -28,4 +28,17 @@ public class SprintList {
     sprintList.add(sprint);
   }
   
+  public Boolean isSprintInProgress() {
+  	for (int i=0; i < sprintList.size(); i++)
+    {
+      if (sprintList.get(i).getState().equals(Sprint.STATE_PROGRESS)) {
+      	return true;
+      }
+    }
+    return false;
+  }
+  
+  public int size() {
+  	return sprintList.size();
+  }
 }
