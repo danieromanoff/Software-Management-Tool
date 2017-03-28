@@ -70,10 +70,5 @@ public class BurndownChartController {
     }
     areachart.getData().add(actual);
   }
-
-
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/Sprint
+
