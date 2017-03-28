@@ -7,7 +7,7 @@
     -fx-font-family: "Segoe UI Semibold";
     -fx-text-fill: white;
     -fx-opacity: 0.6;
-    -fx-effect: dropshadow(gaussian , black, 10, 0.0 , 4, 5);
+    -fx-effect: dropshadow(two-pass-box , black, 10, 0.0 , 4, 5);
 }
 
 .label-bright {
@@ -16,6 +16,7 @@
     -fx-text-fill: white;
     -fx-opacity: 1;
 }
+
 .label-header {
     -fx-font-size: 32pt;
     -fx-font-family: "Segoe UI Light";
@@ -23,23 +24,85 @@
     -fx-opacity: 1;
 }
 
-.text-field {
-    -fx-font-size: 12pt;
-    -fx-font-family: "Segoe UI Semibold";
+.split-pane:horizontal > .split-pane-divider {
+    -fx-border-color: #8B8989;
+    -fx-background-color: #8B8989;
+}
+.split-pane {
+    -fx-padding: 1 0 0 0;
 }
 
-.grid-pane {
+.table-view {
+    -fx-base: #8B8989;
+    -fx-control-inner-background: #8B8989;
+    -fx-background-color: #8B8989;
+    -fx-padding: 5;
+}
+.table-view .column-header-background {
     -fx-background-color: #8B8989;
 }
 
-.grid-pane .text-field {
-    -fx-background-color: white;
+.table-view .column-header, .table-view .filler {
+    -fx-size: 35;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: #8B8989;
+    -fx-border-color: 
+        transparent
+        transparent
+        derive(-fx-base, 80%) 
+        transparent;
+    -fx-border-insets: 0 10 1 0;
+}
+.table-view .column-header .label {
+    -fx-font-size: 12pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: white;
+    -fx-alignment: center-left;
+    -fx-opacity: 1;
 }
 
-.grid-pane .text-area {
-    -fx-background-color: white;
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: -fx-focus-color;
 }
 
-.grid-pane .combo-box {
-    -fx-background-color: white;
+.table-view {
+    -fx-base: #8B8989;
+    -fx-control-inner-background: #8B8989;
+    -fx-background-color: #8B8989;
+    -fx-padding: 5;
+}
+.table-view .column-header-background {
+    -fx-background-color: #8B8989;
+}
+
+.button{
+    -fx-effect: dropshadow(two-pass-box , black, 10, 0.0 , 4, 5);
+    -fx-background-color: rgba(205,205,205,0.7);
+    -fx-background-radius: 15 15 15 15;
+    -fx-background-insets: 2 2 2 2 ;
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(to left, #ff0000, #7d1e15);
+}
+
+.button:pressed, .button:default:hover:pressed {
+  -fx-background-color: white;
+  -fx-text-fill: #1d1d1d;
+}
+
+
+.button:disabled, .button:default:disabled {
+    -fx-opacity: 0.4;
+    -fx-background-color: #1d1d1d;
+    -fx-text-fill: white;
+}
+
+.button:default {
+    -fx-background-color: -fx-focus-color;
+    -fx-text-fill: #ffffff;
+}
+
+.button:default:hover {
+    -fx-background-color: derive(-fx-focus-color,30%);
 }

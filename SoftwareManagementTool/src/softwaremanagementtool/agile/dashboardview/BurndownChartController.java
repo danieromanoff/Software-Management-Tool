@@ -29,8 +29,8 @@ public class BurndownChartController {
     areachart.prefHeightProperty().bind(areachartPane.heightProperty());
     areachartPane.getChildren().add(areachart);
 
-    areachart.setTitle("Burndown Chart");
-    xAxis.setLabel("Sprint and Date");
+    areachart.setTitle("Burndown Chart - User Stories");
+    xAxis.setLabel("Sprint");
     yAxis.setLabel("User Stories");
     
 
