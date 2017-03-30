@@ -57,7 +57,7 @@ public class BacklogChartData {
 				
 		}
 		
-		lineData.xAxisLabel = "Sprints";
+	  lineData.xAxisLabel = "Sprints";
 	  lineData.yAxisLabel = "Backlog Items";
 	  lineData.title = "Backlog Burndown Count";
 
@@ -106,7 +106,7 @@ public class BacklogChartData {
 				
 		}
 		
-		lineData.xAxisLabel = "Sprints";
+	  lineData.xAxisLabel = "Sprints";
 	  lineData.yAxisLabel = "Backlog Items";
 	  lineData.title = "Backlog Burndown by Story Points";
 
