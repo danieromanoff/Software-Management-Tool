@@ -1,0 +1,53 @@
+.root {
+  -fx-base: #8B8989;
+  -fx-background-color: #8B8989;
+  -fx-background-repeat: no-repeat;
+  -fx-background-size: stretch;
+}
+
+.label {
+    -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: white;
+    -fx-opacity: 0.6;
+    -fx-effect: dropshadow(two-pass-box , gray, 10, 0.0 , 4, 5);
+}
+
+.label-bright {
+    -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: black;
+    -fx-opacity: 1;
+}
+.label-header {
+    -fx-font-size: 32pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: black;
+    -fx-opacity: 1;
+}
+
+.chart-series-line {
+	-fx-stroke-width: 2px;
+	-fx-effect: null;
+}
+
+
+.default-color0.chart-series-line {
+	-fx-stroke: blue;
+}
+
+.default-color1.chart-series-line {
+	-fx-stroke: red;
+}
+
+.default-color0.chart-line-symbol {
+	-fx-background-color: blue, white;
+}
+
+.default-color1.chart-line-symbol {
+	-fx-background-color: red, white;
+	-fx-shape: "M5,0 L10,8 L0,8 Z";
+}
+
+
+
