@@ -9,3 +9,10 @@ public class LineChartData {
 	public String yAxisLabel;
 	public String title;
 }
+
+public class AreaChartData {
+	public ObservableList<XYChart.Series> data;
+	public String xAxisLabel;
+	public String yAxisLabel;
+	public String title;
+}
