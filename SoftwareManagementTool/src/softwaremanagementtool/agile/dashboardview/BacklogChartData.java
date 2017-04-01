@@ -32,6 +32,7 @@ public class BacklogChartData {
 		// Project start
 		lineData.data.get(0).getData().add(new XYChart.Data(sprintList.get().get(0).getStartDate().toString(), 
 		    sprintList.get().get(0).getBacklogStats().getTotalBacklogCount()));
+		System.out.println(sprintList.get().get(0).getBacklogStats().getTotalBacklogCount().toString());
 		
 		for (int sprint = 0; sprint < sprintList.size(); sprint++) {
 			if (sprintList.get().get(sprint).getState().equals(Sprint.STATE_CLOSED)) {
@@ -81,7 +82,7 @@ public class BacklogChartData {
 		// Project start
 		lineData.data.get(0).getData().add(new XYChart.Data(sprintList.get().get(0).getStartDate().toString(), 
 		    sprintList.get().get(0).getBacklogStats().getTotalBacklogPoints()));
-		
+		System.out.println(sprintList.get().get(0).getBacklogStats().getTotalBacklogPoints().toString());
 		for (int sprint = 0; sprint < sprintList.size(); sprint++) {
 			if (sprintList.get().get(sprint).getState().equals(Sprint.STATE_CLOSED)) {
 			  lineData.data.get(0).getData().add(new XYChart.Data(sprintList.get().get(sprint).getEndDate().toString(), 

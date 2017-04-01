@@ -29,4 +29,8 @@ public class BacklogList {
   	}
   }
   
+  public int size() {
+  	return backlogList.size();
+  }
+  
 }
