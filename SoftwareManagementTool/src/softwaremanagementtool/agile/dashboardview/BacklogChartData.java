@@ -1,9 +1,5 @@
 package softwaremanagementtool.agile.dashboardview;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.XYChart;
 import softwaremanagementtool.agile.Sprint;
 import softwaremanagementtool.agile.SprintList;
 
@@ -22,22 +18,24 @@ public class BacklogChartData {
 		Integer projectedSprints = 0;
 		String lastSprint = "";
 		LineChartData lineData = new LineChartData();
-		// currently assuming sprints are in order
-		lineData.data = FXCollections.observableArrayList(
-        new LineChart.Series<String,Integer>("Burndown", FXCollections.observableArrayList(
-        )),
-        new LineChart.Series<String,Integer>("Projection", FXCollections.observableArrayList(
-        ))
-    );
-		// Project start
-		lineData.data.get(0).getData().add(new XYChart.Data(sprintList.get().get(0).getStartDate().toString(), 
-		    sprintList.get().get(0).getBacklogStats().getTotalBacklogCount()));
-		System.out.println(sprintList.get().get(0).getBacklogStats().getTotalBacklogCount().toString());
+		int burndownSeries, projectionSeries;
 		
+		// currently assuming sprints are in order
+		burndownSeries = lineData.addSeries("Burndown");
+    projectionSeries = lineData.addSeries("Projection");
+		
+    if ((sprintList.size() > 0) && (sprintList.Sprint(0).getState().equals(Sprint.STATE_CLOSED))) {
+    	// TODO this assumes the first sprint is not deferred or deleted   
+		  // Project start
+      lineData.addPoint(burndownSeries, sprintList.Sprint(0).startDateStr(), 
+		      sprintList.Sprint(0).getBacklogStats().getTotalBacklogCount());
+    }
+    
 		for (int sprint = 0; sprint < sprintList.size(); sprint++) {
 			if (sprintList.get().get(sprint).getState().equals(Sprint.STATE_CLOSED)) {
-			  lineData.data.get(0).getData().add(new XYChart.Data(sprintList.get().get(sprint).getEndDate().toString(), 
-				    sprintList.get().get(sprint).getBacklogStats().getBacklogCount()));
+				
+				lineData.addPoint(burndownSeries, sprintList.get().get(sprint).endDateStr(), 
+				    sprintList.Sprint(sprint).getBacklogStats().getBacklogCount());
 			  sprintsComplete++;
 			  burndownRate = ((double) sprintList.get().get(sprint).getBacklogStats().getBacklogCompleteCount())/(double)sprintsComplete;	
 			  openBacklog = sprintList.get().get(sprint).getBacklogStats().getBacklogCount();
@@ -46,7 +44,7 @@ public class BacklogChartData {
 			}
 		}
 		// Start projection at end of burndown
-		lineData.data.get(1).getData().add(new XYChart.Data(lastSprint, (int)openBacklog));
+		lineData.addPoint(projectionSeries, lastSprint, (int)openBacklog);
 		
 		while (openBacklog > 0) {
 			openBacklog -= burndownRate;
@@ -54,8 +52,7 @@ public class BacklogChartData {
 				openBacklog = 0;
 			}
 			projectedSprints++;
-			lineData.data.get(1).getData().add(new XYChart.Data(projectedSprints.toString(), (int)openBacklog));
-				
+			lineData.addPoint(projectionSeries, projectedSprints.toString(), (int)openBacklog);	
 		}
 		
 	  lineData.xAxisLabel = "Sprints";
@@ -64,6 +61,7 @@ public class BacklogChartData {
 
 		return lineData;
 	}
+
 	
 	public LineChartData getPointsBurndownData() {
 		Integer sprintsComplete = 0;
@@ -72,30 +70,33 @@ public class BacklogChartData {
 		Integer projectedSprints = 0;
 		String lastSprint = "";
 		LineChartData lineData = new LineChartData();
+		int burndownSeries, projectionSeries;
+		
 		// currently assuming sprints are in order
-		lineData.data = FXCollections.observableArrayList(
-        new LineChart.Series<Integer,Integer>("Burndown", FXCollections.observableArrayList(
-        )),
-        new LineChart.Series<Integer,Integer>("Projection", FXCollections.observableArrayList(
-        ))
-    );
-		// Project start
-		lineData.data.get(0).getData().add(new XYChart.Data(sprintList.get().get(0).getStartDate().toString(), 
-		    sprintList.get().get(0).getBacklogStats().getTotalBacklogPoints()));
-		System.out.println(sprintList.get().get(0).getBacklogStats().getTotalBacklogPoints().toString());
+		
+    burndownSeries = lineData.addSeries("Burndown");
+    projectionSeries = lineData.addSeries("Projection");
+    
+    if ((sprintList.size() > 0) && (sprintList.Sprint(0).getState().equals(Sprint.STATE_CLOSED))) {
+    	// TODO this assumes the first sprint is not deferred or deleted      
+		  // Project start
+      lineData.addPoint(burndownSeries, sprintList.Sprint(0).startDateStr(), 
+		      sprintList.Sprint(0).getBacklogStats().getTotalBacklogPoints());
+    }
+	
 		for (int sprint = 0; sprint < sprintList.size(); sprint++) {
-			if (sprintList.get().get(sprint).getState().equals(Sprint.STATE_CLOSED)) {
-			  lineData.data.get(0).getData().add(new XYChart.Data(sprintList.get().get(sprint).getEndDate().toString(), 
-				    sprintList.get().get(sprint).getBacklogStats().getBacklogPoints()));
+			if (sprintList.Sprint(sprint).getState().equals(Sprint.STATE_CLOSED)) {
+				lineData.addPoint(burndownSeries, sprintList.get().get(sprint).endDateStr(), 
+				    sprintList.Sprint(sprint).getBacklogStats().getBacklogPoints());
 			  sprintsComplete++;
-			  burndownRate = ((double) sprintList.get().get(sprint).getBacklogStats().getBacklogCompletePoints())/(double)sprintsComplete;	
-			  openBacklog = sprintList.get().get(sprint).getBacklogStats().getBacklogPoints();
-			  lastSprint = sprintList.get().get(sprint).getEndDate().toString();
+			  burndownRate = ((double) sprintList.Sprint(sprint).getBacklogStats().getBacklogCompletePoints())/(double)sprintsComplete;	
+			  openBacklog = sprintList.Sprint(sprint).getBacklogStats().getBacklogPoints();
+			  lastSprint = sprintList.Sprint(sprint).endDateStr();
 			  // TODO add dates for future sprints
 			}
 		}
 		// Start projection at end of burndown
-		lineData.data.get(1).getData().add(new XYChart.Data(lastSprint, (int)openBacklog));
+		lineData.addPoint(projectionSeries, lastSprint, (int)openBacklog);
 		
 		while (openBacklog > 0) {
 			openBacklog -= burndownRate;
@@ -103,7 +104,7 @@ public class BacklogChartData {
 				openBacklog = 0;
 			}
 			projectedSprints++;
-			lineData.data.get(1).getData().add(new XYChart.Data(projectedSprints.toString(), (int)openBacklog));
+			lineData.addPoint(projectionSeries, projectedSprints.toString(), (int)openBacklog);
 				
 		}
 		
@@ -113,5 +114,6 @@ public class BacklogChartData {
 
 		return lineData;
 	}
+	
 	
 }
