@@ -45,13 +45,6 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="26.0" text="  ID" />
-                        <Label alignment="CENTER" contentDisplay="CENTER" text="  Assignee" textAlignment="CENTER" GridPane.rowIndex="1" />
-                        <Label text="  The Task" GridPane.rowIndex="2" />
-                        <Label text="  Estimated Time (min)" GridPane.rowIndex="3" />
-                        <Label text="  Actual Time (min)" GridPane.rowIndex="4" />
-                        <Label text="  Backlog Item Reference" GridPane.rowIndex="5" />
-                        <Label text="  Status" GridPane.rowIndex="6" />
                         <Label prefHeight="17.0" prefWidth="102.0" text="ID" />
                         <Label prefHeight="17.0" prefWidth="102.0" text="Assignee" GridPane.rowIndex="1" />
                         <Label prefHeight="17.0" prefWidth="102.0" text="The Task" GridPane.rowIndex="2" />
