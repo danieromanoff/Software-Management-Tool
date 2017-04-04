@@ -1,0 +1,45 @@
+.root {
+  -fx-base: #8B8989;
+}
+
+.label {
+    -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: white;
+    -fx-opacity: 0.6;
+    -fx-effect: dropshadow(gaussian , black, 10, 0.0 , 4, 5);
+}
+
+.label-bright {
+    -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: white;
+    -fx-opacity: 1;
+}
+.label-header {
+    -fx-font-size: 32pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: white;
+    -fx-opacity: 1;
+}
+
+.text-field {
+    -fx-font-size: 12pt;
+    -fx-font-family: "Segoe UI Semibold";
+}
+
+.grid-pane {
+    -fx-background-color: #8B8989;
+}
+
+.grid-pane .text-field {
+    -fx-background-color: white;
+}
+
+.grid-pane .text-area {
+    -fx-background-color: white;
+}
+
+.grid-pane .combo-box {
+    -fx-background-color: white;
+}
