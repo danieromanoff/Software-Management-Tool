@@ -36,14 +36,6 @@ public class LineChartData {
 		
 	}
 	
-
-	
 	
 }
 
-public class AreaChartData {
-	public ObservableList<XYChart.Series> data;
-	public String xAxisLabel;
-	public String yAxisLabel;
-	public String title;
-}
