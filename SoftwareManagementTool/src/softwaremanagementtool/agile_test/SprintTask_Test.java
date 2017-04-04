@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import softwaremanagementtool.agile.Sprint;
 import softwaremanagementtool.agile.SprintTask;
 
 public class SprintTask_Test {
@@ -36,7 +35,7 @@ public class SprintTask_Test {
 	@Test
 	public void test_estTime() {
 		SprintTask task = new SprintTask();
-	// TODO	task.setEstTime(120);
+		task.setEstTime(120);
 		assertEquals(task.getEstTime(), 120);
 		assertEquals(task.EstTimeProperty().get(), 120);
 	}
@@ -44,7 +43,7 @@ public class SprintTask_Test {
 	@Test
 	public void test_actTime() {
 		SprintTask task = new SprintTask();
-	// TODO	task.setActTime(110);
+		task.setActTime(110);
 		assertEquals(task.getActTime(), 110);
 		assertEquals(task.ActTimeProperty().get(), 110);
 	}
@@ -52,7 +51,7 @@ public class SprintTask_Test {
 	@Test
 	public void test_backlogRef() {
 		SprintTask task = new SprintTask();
-	// TODO	task.setbacklogRef(9);
+		task.setBacklogRef(9);
 		assertEquals(task.getBacklogRef(), 9);
 		assertEquals(task.BacklogRefProperty().get(), 9);
 	}

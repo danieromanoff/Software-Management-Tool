@@ -25,6 +25,8 @@ public class AgileProject {
   
   private BorderPane mainLayout;
   private Stage primaryStage;
+  private File file;
+  private AgilePrjData prjData;
   private ProductBacklog productBacklog;
   private SprintList sprintList;
   private TaskList taskList;
@@ -41,7 +43,13 @@ public class AgileProject {
   /**
    *  Constructor
    */
-  public AgileProject(String mode, Stage inStage, BorderPane inLayout) throws IOException {
+  public AgileProject(
+  		String mode, 
+  		File inFile,
+  		AgilePrjData agilePrjData, 
+  		Stage inStage, 
+  		BorderPane inLayout) 
+  				throws IOException {
     
   	productBacklog = new ProductBacklog();
     sprintList = new SprintList();
@@ -49,10 +57,13 @@ public class AgileProject {
     openProdBacklogList = new BacklogList();
     sprintBacklogList = new BacklogList();
     sprintTaskList = new TaskList();
+    file = inFile;
   	
     // Open existing project
     if (mode.equals("OPEN")) {
     	load();
+    } else {
+    	prjData = agilePrjData;
     }
   	
     primaryStage = inStage;
@@ -101,13 +112,18 @@ public class AgileProject {
     return mainLayout;
   }
   
+  public ObservableList<String> getUsers() {
+  	return prjData.getUserList();
+  }
+  
   /**
    *  Load and Save methods 
    *  
    */
   public void save() {
   	// TODO get file from input
-  	File file = new File("test.xml");
+  	//File file = new File(prjData.xmlFileName());
+  	//File file = new File("C:\\Users\\Stephen\\Desktop\\School\\SSW-695\\SMT\\test.xml");
   	
   	AgileDatabase db = new AgileDatabase(file, this);
 	  db.save();
@@ -115,11 +131,20 @@ public class AgileProject {
   
   public void load() {
     // TODO get file from input
-    File file = new File("test.xml");
+    //File file = new File(prjData.xmlFileName());
+  	//File file = new File("test.xml");
   	
   	AgileDatabase db = new AgileDatabase(file, this);
 		db.load();  	
   } 
+  
+  public AgilePrjData getPrjData() {
+  	return prjData;
+  }
+  
+  public void loadPrjData(AgilePrjData data) {
+  	prjData = data;
+  }
   
   public List<UserStory> getUserStories() {
   	ObservableList<UserStory> list = FXCollections.observableArrayList();
@@ -260,7 +285,7 @@ public class AgileProject {
    *  Sprint Backlog 
    *  
    */
-  public ObservableList<BacklogEntry> getSprintBacklogList(Sprint sprint) {
+  public ObservableList<BacklogEntry> getSprintBacklogList() {
   	sprintBacklogList.clear();
     for (int i = 0; i < productBacklog.get().size(); i++) {
     	if ( productBacklog.get().get(i).getSprintId() == sprintUi.currentSprint().getID()) {
@@ -268,6 +293,15 @@ public class AgileProject {
     	}
     }
   	return sprintBacklogList.get();
+  }
+  
+  public ObservableList<String> getSprintBacklogListStr() {
+  	ObservableList<String> backlogList = FXCollections.observableArrayList();
+    
+    for (int i = 0; i < sprintBacklogList.size(); i++) {
+    	backlogList.add(Integer.toString(sprintBacklogList.get().get(i).getID()));
+    }
+  	return backlogList;
   }
   
   public ObservableList<BacklogEntry> getOpenProdBacklogList() {

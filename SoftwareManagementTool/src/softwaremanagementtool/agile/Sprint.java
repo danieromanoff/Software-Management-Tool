@@ -83,6 +83,9 @@ public class Sprint {
   public StringProperty startDateStringProperty() {
   	return dateToStringPoperty(startDate.get());
   }
+  public String startDateStr() {
+  	return startDate.get().toString();
+  }
   
   @XmlJavaTypeAdapter(LocalDateAdapter.class)
   public LocalDate getEndDate() {
@@ -96,6 +99,9 @@ public class Sprint {
   }
   public StringProperty endDateStringProperty() {
   	return dateToStringPoperty(endDate.get());
+  }
+  public String endDateStr() {
+  	return endDate.get().toString();
   }
   
   public String getState() {

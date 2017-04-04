@@ -12,6 +12,11 @@ public class SprintList {
     return sprintList;
   }
   
+  public Sprint Sprint(int indx) {
+    return sprintList.get(indx);
+  }
+  
+  
   public Integer nextId() {
   
     Integer biggest = 0;

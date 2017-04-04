@@ -12,6 +12,16 @@
         <justification>Found when testing sprint 1</justification>
         <openInSprintId>0</openInSprintId>
     </changereq>
+    <prjdata>
+        <prjUsers>Jack</prjUsers>
+        <prjUsers>Jill</prjUsers>
+        <prjUsers>Danielle</prjUsers>
+        <prjUsers>Siddhesh</prjUsers>
+        <prjUsers>Steve</prjUsers>
+        <prjUsers>Varun</prjUsers>
+        <description>This project provides a program to validate Gedcom files</description>
+        <name>Gedcom</name>
+    </prjdata>
     <sprints>
         <backlogStats>
             <numUserStory state="Draft">

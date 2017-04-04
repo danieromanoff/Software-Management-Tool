@@ -22,17 +22,21 @@ public class BacklogViewController {
 	@FXML
 	private TableView<BacklogEntry> backlogTable;
 	@FXML
-	private TableColumn<BacklogEntry, Integer> IDColumn;
+	private TableColumn<BacklogEntry, Integer> idColumn;
 	@FXML
-	private TableColumn<BacklogEntry, String> TitleColumn;
+	private TableColumn<BacklogEntry, String> titleColumn;
+	@FXML
+	private TableColumn<BacklogEntry, String> stateColumn;
  
 	
 	@FXML
   private void initialize() {
     // Initialize the person table with the two columns.
-   	IDColumn.setCellValueFactory(cellData -> cellData.getValue().IDProperty().asObject());
-    TitleColumn.setCellValueFactory(cellData -> cellData.getValue().titleProperty());
-       
+   	idColumn.setCellValueFactory(cellData -> cellData.getValue().IDProperty().asObject());
+    titleColumn.setCellValueFactory(cellData -> cellData.getValue().titleProperty());
+    stateColumn.setCellValueFactory(cellData -> cellData.getValue().stateProperty());
+    
+    
     // Listen for selection changes and show the user story details when changed.
     backlogTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> newSelection(oldValue, newValue));
     
