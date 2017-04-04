@@ -18,7 +18,7 @@ public class SprintTaskViewController {
   @FXML
   private TextField id;
   @FXML
-  private TextField assignee;
+  private ComboBox<String> assignee;
   @FXML
   private TextArea theTask;
   @FXML
@@ -26,16 +26,16 @@ public class SprintTaskViewController {
   @FXML
   private TextField actTime;
   @FXML
-  private TextField backlogRef;
+  private ComboBox<String> backlogRef;
   @FXML
   private ComboBox<String> status;
 
   @FXML
 	private TableView<SprintTask> taskTable;
 	@FXML
-	private TableColumn<SprintTask, Integer> IDColumn;
+	private TableColumn<SprintTask, Integer> idColumn;
 	@FXML
-	private TableColumn<SprintTask, String> TaskColumn;
+	private TableColumn<SprintTask, String> assigneeColumn;
   
   // Reference to the main application.
   private AgileProject agilePrj;
@@ -52,8 +52,8 @@ public class SprintTaskViewController {
       status.getItems().add(usStatus);
     }
     
-    IDColumn.setCellValueFactory(cellData -> cellData.getValue().IDProperty().asObject());
-    TaskColumn.setCellValueFactory(cellData -> cellData.getValue().theTaskProperty());
+    idColumn.setCellValueFactory(cellData -> cellData.getValue().IDProperty().asObject());
+    assigneeColumn.setCellValueFactory(cellData -> cellData.getValue().assigneeProperty());
        
     // Listen for selection changes and show the user story details when changed.
     taskTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> newSelection(oldValue, newValue));
@@ -96,11 +96,13 @@ public class SprintTaskViewController {
   public void showSprintTaskDetails(SprintTask sprinttask) {
     if (sprinttask != null) {
       id.setText(Integer.toString(sprinttask.getId()));
-      assignee.setText(sprinttask.getAssignee());      
+      assignee.setItems(agilePrj.getUsers());
+      assignee.setValue(sprinttask.getAssignee());      
       theTask.setText(sprinttask.getTheTask());
       estTime.setText(Integer.toString(sprinttask.getEstTime()));
       actTime.setText(Integer.toString(sprinttask.getActTime()));
-      backlogRef.setText(Integer.toString(sprinttask.getBacklogRef()));
+      backlogRef.setItems(agilePrj.getSprintBacklogListStr());
+      backlogRef.setValue(Integer.toString(sprinttask.getBacklogRef()));
       status.setValue(sprinttask.getStatus());
       
     }
@@ -108,30 +110,28 @@ public class SprintTaskViewController {
     
     public void updateSprintTaskDetails(SprintTask sprinttask) {
       if (sprinttask != null) {
-        sprinttask.setAssignee(assignee.getText());
+        sprinttask.setAssignee(assignee.getValue());
         sprinttask.setTheTask(theTask.getText());
         sprinttask.setEstTime(Integer.parseInt(estTime.getText()));
         sprinttask.setActTime(Integer.parseInt(actTime.getText()));
-        sprinttask.setBacklogRef(Integer.parseInt(backlogRef.getText()));
+        sprinttask.setBacklogRef(Integer.parseInt(backlogRef.getValue()));
         sprinttask.setStatus(status.getValue());
       }
     }
     
     private void clearSprintTaskDetails() {
       id.setText("");
-      assignee.setText(""); 
       theTask.setText("");  
-      backlogRef.setText("");
       status.setPromptText("");
     }
     
     public boolean anyChanges(SprintTask task) {
     	boolean changed = true;
-    	if ((task.getAssignee().equals(assignee.getText())) &&
+    	if ((task.getAssignee().equals(assignee.getValue())) &&
       	 (task.getTheTask().equals(theTask.getText())) &&
       	 (task.getEstTime() == Integer.parseInt(estTime.getText())) &&
       	 (task.getActTime() == Integer.parseInt(actTime.getText())) &&
-      	 (task.getBacklogRef() == Integer.parseInt(backlogRef.getText())) &&
+      	 (task.getBacklogRef() == Integer.parseInt(backlogRef.getValue())) &&
       	 (task.getStatus().equals(status.getValue()))) {
     		changed = false;
     	}
@@ -150,7 +150,7 @@ public class SprintTaskViewController {
     	taskTable.setItems(agilePrj.getTaskList(sprint));
     	clearSprintTaskDetails();
     	taskTable.getSelectionModel().selectFirst(); 
-    	showSprintTaskDetails(getSelectedItem());
+    	//showSprintTaskDetails(getSelectedItem());
   	}
   	
     public void updateTask() {

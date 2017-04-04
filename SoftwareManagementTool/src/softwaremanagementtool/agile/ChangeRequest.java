@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -14,12 +13,10 @@ import softwaremanagementtool.agile.db.LocalDateAdapter;
 public class ChangeRequest extends BacklogEntry {
    
 	public static final String type = "ChangeRequest";
-	public static final String[] STATE = {"Draft","Open","Closed","Deleted"};
   
   private final StringProperty ChangeReq;
   private final StringProperty Justification;
   private final ObjectProperty<LocalDate> dateCreated;
-  private final StringProperty state;
   private  Integer openInSprintId;
    
   /**
@@ -28,10 +25,9 @@ public class ChangeRequest extends BacklogEntry {
    */
   public ChangeRequest() {
     //setting default data to some attributes
-    this.ChangeReq= new SimpleStringProperty("Change Request Description");
-    this.Justification = new SimpleStringProperty("some acceptance test");
+    this.ChangeReq= new SimpleStringProperty("");
+    this.Justification = new SimpleStringProperty("");
     this.dateCreated = new SimpleObjectProperty<LocalDate>(LocalDate.now());
-    this.state = new SimpleStringProperty(STATE[0]);
     openInSprintId = 0;
   }
   
@@ -47,7 +43,7 @@ public class ChangeRequest extends BacklogEntry {
     this.ChangeReq.set(inChangeRequest);
   }
   
-  public StringProperty userStoryProperty() {
+  public StringProperty changeReqProperty() {
     return ChangeReq;
   }
 
@@ -60,7 +56,7 @@ public class ChangeRequest extends BacklogEntry {
     this.Justification.set(inAcceptanceCriteria);
   }
     
-  public StringProperty acceptanceCriteriaProperty() {
+  public StringProperty justificationProperty() {
     return Justification;
   }
 
@@ -76,18 +72,6 @@ public class ChangeRequest extends BacklogEntry {
     
   public ObjectProperty<LocalDate> dateCreatedProperty() {
     return dateCreated;
-  }
-  
-  public String getState() {
-    return state.get();
-  }
-  
-  public void setState(String inState) {
-    this.state.set(inState);
-  }
-  
-  public StringProperty stateProperty() {
-    return state;
   }
 
   public Integer getOpenInSprintId() {

@@ -1,11 +1,7 @@
 package softwaremanagementtool.agile.ui;
 
 import java.io.IOException;
-import java.util.Optional;
 
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
 import softwaremanagementtool.agile.AgileProject;
 import softwaremanagementtool.agile.BacklogEntry;
@@ -46,9 +42,7 @@ public class BacklogUi extends BaseUi<ProductBacklogViewController> {
     changeReqController.setPane( (AnchorPane) blEntryPane.getChildren().get(1));
     changeReqController.setAgilePrj(agilePrj);
     changeReqController.setVisable(false);
-    
   }
-  
   
   public void showBacklogEntry(BacklogEntry blEntry) throws IOException {
     if (blEntry != null) {
@@ -62,10 +56,6 @@ public class BacklogUi extends BaseUi<ProductBacklogViewController> {
       	userStoryController.setVisable(false);
       	changeReqController.setVisable(true);
       }
-    } 
-    else 
-    {
-  
     }   
   }
   
@@ -82,25 +72,12 @@ public class BacklogUi extends BaseUi<ProductBacklogViewController> {
       else if (blEntry.getType().equals("ChangeRequest")) {
       	changeReqController.updateChangeRequestDetails((ChangeRequest) blEntry);
       }
-    } 
-    else 
-    {
-      
-    }
-  
+    }   
   }
   
-  public void addUserStory(UserStory userStory)  {
-    userStoryController.showUserStoryDetails(userStory);
+  public void showNewEntry()  {
     backlogViewController.setLast();
-    
-  } 
-  
-  public void addChangeRequest(ChangeRequest changeRequest) {
-    changeReqController.showChangeRequestDetails(changeRequest);
-    backlogViewController.setLast();
-
-  } 
+  }  
   
   public void leavingBacklogEntry(BacklogEntry blEntry) {
   	boolean changes = false;

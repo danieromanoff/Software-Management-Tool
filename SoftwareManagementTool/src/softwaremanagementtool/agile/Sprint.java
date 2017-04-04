@@ -10,21 +10,26 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import softwaremanagementtool.agile.db.LocalDateAdapter;
 
 public class Sprint {
 
-  public static final String[] STATE = {"Draft","InProgress","Closed","Deleted"};
+	public static final String STATE_DRAFT = "Draft";
+	public static final String STATE_PROGRESS = "InProgress";
+	public static final String STATE_REVIEW = "Review";
+	public static final String STATE_CLOSED = "Closed";
+	public static final String STATE_DELETED = "Deleted";
+  public static final String[] STATE = {
+  		STATE_DRAFT,
+  		STATE_PROGRESS,
+  		STATE_REVIEW,
+  		STATE_CLOSED,
+  		STATE_DELETED};
   
   private final IntegerProperty id;
   private final ObjectProperty<LocalDate> startDate;
   private final ObjectProperty<LocalDate> endDate;
   private final StringProperty state;
- // private ObservableList<BacklogEntry> sprintBacklog = FXCollections.observableArrayList();
- // private ObservableList<SprintTask> taskList = FXCollections.observableArrayList();
- // private ObservableList<Integer> issuesOpened = FXCollections.observableArrayList();
   private final IntegerProperty endNumFiles;
   private final IntegerProperty endSloc;
   private final StringProperty reviewNotes;
@@ -33,6 +38,7 @@ public class Sprint {
   private final IntegerProperty numTests;
   private final IntegerProperty testsAttempted;
   private final IntegerProperty testsPassed;
+  private BacklogStats backlogStats;
   
   public Sprint() {
     
@@ -77,6 +83,9 @@ public class Sprint {
   public StringProperty startDateStringProperty() {
   	return dateToStringPoperty(startDate.get());
   }
+  public String startDateStr() {
+  	return startDate.get().toString();
+  }
   
   @XmlJavaTypeAdapter(LocalDateAdapter.class)
   public LocalDate getEndDate() {
@@ -91,6 +100,9 @@ public class Sprint {
   public StringProperty endDateStringProperty() {
   	return dateToStringPoperty(endDate.get());
   }
+  public String endDateStr() {
+  	return endDate.get().toString();
+  }
   
   public String getState() {
     return state.get();
@@ -101,28 +113,6 @@ public class Sprint {
   public StringProperty stateProperty() {
     return state;
   }
-  
-  
-//  public void addToBacklog(BacklogEntry item) {
-  //  sprintBacklog.add(item);
- // }
- // public ObservableList<BacklogEntry> sprintBacklog( ) {
- //   return sprintBacklog;
- // }
-  
-  //public void addToIssues(ChangeRequest issue) {
-    // TODOissuesOpened.add((Integer)issue.getID());
- // }
- // public ObservableList<Integer> issuesOpened( ) {
- //   return issuesOpened;
- // }
-  
- // public void addToTaskList(SprintTask task) {
- //   taskList.add(task);
- // }
- // public ObservableList<SprintTask> taskList( ) {
-//    return taskList;
- // }
   
   public int getEndNumFiles() {
     return endNumFiles.get();
@@ -202,5 +192,12 @@ public class Sprint {
   }
   public IntegerProperty numTestsProperty() {
     return numTests;
+  }
+  
+  public BacklogStats getBacklogStats() {
+    return backlogStats;
+  }
+  public void setBacklogStats(BacklogStats stats) {
+    this.backlogStats = stats; 
   }
 }

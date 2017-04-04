@@ -19,6 +19,9 @@ public class SmtMainViewControl {
   private MenuItem menuSave;
   @FXML
   private MenuItem menuClose;
+  @FXML
+  private Menu menuBurndown;
+  
   
   
   @FXML
@@ -70,7 +73,7 @@ public class SmtMainViewControl {
   private void showAgileReports() throws IOException {
     smt.showAgileReports();
   }
-  
+   
   public void setSmt(SoftwareManagementToolMain inSmt) {
     smt = inSmt;
   }
@@ -80,6 +83,8 @@ public class SmtMainViewControl {
   	menuEdit.setVisible(showit);
   	menuSave.setDisable(!showit);
   	menuClose.setDisable(!showit);
+  	menuBurndown.setVisible(showit);
+  	
   }
   
 }

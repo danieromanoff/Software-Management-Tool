@@ -21,7 +21,7 @@ import softwaremanagementtool.agile.userstoryview.UserStoryViewController;
 
 public class SprintUi extends BaseUi<SprintViewController> {
 	
-	private AnchorPane sprintLayout;
+	//private AnchorPane sprintLayout;
 	private SprintInfoViewController infoViewController;
 	private SprintBacklogViewController backlogViewController;
 	private UserStoryViewController userStoryController;
@@ -48,7 +48,9 @@ public class SprintUi extends BaseUi<SprintViewController> {
   	classController.setAgilePrj(agilePrj);
     
   	infoViewController = (SprintInfoViewController) loadSubView(classController.getSprintInfoPane(), FXML_SPRINT_INFO_VIEW);
+  	infoViewController.setAgilePrj(agilePrj);
   	backlogViewController = (SprintBacklogViewController) loadSubView(classController.getSprintBacklogPane(), FXML_SPRINT_BACKLOG_VIEW);
+  	backlogViewController.setAgilePrj(agilePrj);
   	sprintBlViewController = (BacklogViewController) loadSubView(backlogViewController.getSprintBacklogPane(), FXML_BACKLOG_VIEW);
   	sprintBlViewController.setDisplayUi(this);
   	prodOpenBlViewController = (BacklogViewController) loadSubView(backlogViewController.getProductBacklogPane(), FXML_BACKLOG_VIEW);
@@ -73,20 +75,17 @@ public class SprintUi extends BaseUi<SprintViewController> {
 	public void showSprint(Sprint sprint) {
 		if (sprint != null) {
 	    infoViewController.showSprint(sprint);
-	    sprintBlViewController.setAgilePrj(agilePrj, agilePrj.getSprintBacklogList(sprint));
+	    sprintBlViewController.setAgilePrj(agilePrj, agilePrj.getSprintBacklogList());
 	    prodOpenBlViewController.setAgilePrj(agilePrj, agilePrj.getOpenProdBacklogList());
 	    backlogViewController.showSprint(sprint);
 	    taskViewController.showSprint(sprint);
 	    reviewViewController.showSprint(sprint);
 	    retrospectViewController.showSprint(sprint);
 		}
-	  
 	}
 	
-	public void addSprint(Sprint sprint)  {
-    showSprint(sprint);
+	public void showNewSprint(Sprint sprint)  {
     classController.setLast();
-    
   }
 	
 	public void saveSprint() {
@@ -105,14 +104,13 @@ public class SprintUi extends BaseUi<SprintViewController> {
 	}
 	
 	public void showBacklogEntry(BacklogEntry blEntry) throws IOException {
-  	// need to override
 		boolean prodBl = false;
 		if (blEntry != null) {
       if (blEntry.getType().equals("UserStory")) {
         userStoryController.showUserStoryDetails((UserStory) blEntry);
         userStoryController.setVisable(true);
         changeReqController.setVisable(false);
-        prodBl = ((UserStory)blEntry).getState().equals("Open");
+        prodBl = blEntry.getState().equals(BacklogEntry.STATE_OPEN);
       }
       else if (blEntry.getType().equals("ChangeRequest")) {
       	changeReqController.showChangeRequestDetails((ChangeRequest) blEntry);
@@ -121,16 +119,29 @@ public class SprintUi extends BaseUi<SprintViewController> {
       	prodBl = ((ChangeRequest)blEntry).getState().equals("Open");
       }
       if (prodBl) {
-      	// TODO sprintBlViewController.noSelect();
+      	sprintBlViewController.setNoSelection();
       	backlogViewController.setButtonAdd();
-      	
+      }
+      else {
+      	prodOpenBlViewController.setNoSelection();
+      	backlogViewController.setButtonRemove();
       }
     } 
   }
 	
-	public void addTask(SprintTask task) {
-		taskViewController.showSprint(currentSprint());
-		taskViewController.showSprintTaskDetails(task);
+	public BacklogEntry getBacklogSlection() {
+		BacklogEntry entry;
+		entry = sprintBlViewController.getSelectedItem();
+		if (entry == null) {
+			entry = prodOpenBlViewController.getSelectedItem();
+		}
+		return entry;
+	}
+	
+	
+	public void showNewTask(SprintTask task) {
+		//taskViewController.showSprint(currentSprint());
+		//taskViewController.showSprintTaskDetails(task);
 		taskViewController.setLast();
 	}
 	

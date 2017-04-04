@@ -26,42 +26,28 @@
     -fx-opacity: 1;
 }
 
-.table-view {
-    -fx-base: #8B8989;
-    -fx-control-inner-background: #8B8989;
-    -fx-background-color: #8B8989;
-    -fx-padding: 5;
-}
-.table-view .column-header-background {
-    -fx-background-color: #8B8989;
+.chart-series-line {
+	-fx-stroke-width: 2px;
+	-fx-effect: null;
 }
 
-.table-view .column-header, .table-view .filler {
-    -fx-size: 35;
-    -fx-border-width: 0 0 1 0;
-    -fx-background-color: #8B8989;
-    -fx-border-color: 
-        transparent
-        transparent
-        derive(-fx-base, 80%) 
-        transparent;
-    -fx-border-insets: 0 10 1 0;
-}
-.table-view .column-header .label {
-    -fx-font-size: 12pt;
-    -fx-font-family: "Segoe UI Light";
-    -fx-text-fill: white;
-    -fx-alignment: center-left;
-    -fx-opacity: 1;
+
+.default-color0.chart-series-line {
+	-fx-stroke: blue;
 }
 
-.table-view:focused .table-row-cell:filled:focused:selected {
-    -fx-background-color: #8B8989;
+.default-color1.chart-series-line {
+	-fx-stroke: red;
 }
 
-.text-field {
-    -fx-font-size: 12pt;
-    -fx-font-family: "Segoe UI Semibold";
+.default-color0.chart-line-symbol {
+	-fx-background-color: blue, white;
 }
+
+.default-color1.chart-line-symbol {
+	-fx-background-color: red, white;
+	-fx-shape: "M5,0 L10,8 L0,8 Z";
+}
+
 
 
