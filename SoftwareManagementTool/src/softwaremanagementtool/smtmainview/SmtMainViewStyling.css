@@ -20,3 +20,7 @@
 .menu .left-container {
     -fx-background-color: #8B8989;
 }
+
+.menu:hover {
+    -fx-background-color: linear-gradient(to left, #ff0000, #7d1e15);
+}
