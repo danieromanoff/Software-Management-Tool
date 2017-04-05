@@ -38,4 +38,7 @@ public class LineChartData {
 	
 	
 }
+<<<<<<< HEAD:SoftwareManagementTool/src/softwaremanagementtool/agile/charts/LineChartData.java
+=======
 
+>>>>>>> refs/remotes/origin/Sprint:SoftwareManagementTool/src/softwaremanagementtool/agile/dashboardview/LineChartData.java
