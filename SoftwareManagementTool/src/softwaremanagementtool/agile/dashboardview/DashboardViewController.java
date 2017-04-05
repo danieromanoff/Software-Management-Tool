@@ -7,6 +7,7 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.layout.AnchorPane;
 import softwaremanagementtool.agile.AgileProject;
 import softwaremanagementtool.agile.charts.LineChartData;
 
@@ -22,8 +23,19 @@ public class DashboardViewController {
   
  @FXML
  NumberAxis yAxis = new NumberAxis("Backlog", 0, 100, 10);
+ 
+ @FXML
+ private AnchorPane ChartUpperLeft;
+ 
+ @FXML
+ private AnchorPane ChartUpperRight;
+ 
+ @FXML
+ private AnchorPane ChartLowerLeft;
 
-
+ @FXML
+ private AnchorPane ChartLowerRight;
+ 
   public void setAgileProject(AgileProject inPrj) {
     agilePrj = inPrj;
   }
