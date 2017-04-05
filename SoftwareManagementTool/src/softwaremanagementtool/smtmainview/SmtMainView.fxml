@@ -3,7 +3,6 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
 <BorderPane prefHeight="544.0" prefWidth="800.0" stylesheets="@SmtMainViewStyling.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="softwaremanagementtool.smtmainview.SmtMainViewControl">
@@ -63,7 +62,4 @@
         </menus>
       </MenuBar>
    </top>
-   <bottom>
-      <AnchorPane prefHeight="567.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
-   </bottom>
 </BorderPane>
