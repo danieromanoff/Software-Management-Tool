@@ -18,13 +18,13 @@ public class DashboardUi extends BaseUi<DashboardViewController> {
   
   public void showBurndownSprintCount() {
   	BacklogChartData chartData = new BacklogChartData(agilePrj.sprintList());
-  	classController.setLineData(chartData.getSprntBurndownData());
+  	//classController.setLineData(chartData.getSprntBurndownData());
   	
   }
   
   public void showBurndownSprintPoints() {
   	BacklogChartData chartData = new BacklogChartData(agilePrj.sprintList());
-  	classController.setLineData(chartData.getPointsBurndownData());
+  //	classController.setLineData(chartData.getPointsBurndownData());
   	
   }
 }
