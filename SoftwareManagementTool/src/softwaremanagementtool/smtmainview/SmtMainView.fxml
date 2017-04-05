@@ -45,11 +45,11 @@
               <MenuItem mnemonicParsing="false" text="About SMT" />
             </items>
           </Menu>
-            <Menu fx:id="menuBurndown" mnemonicParsing="false" text="Charts" visible="false">
+            <Menu fx:id="menuCharts" mnemonicParsing="false" text="Charts" visible="false">
               <items>
                   <Menu mnemonicParsing="false" text="Burndown Charts">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Line Chart - Story Points" />
+                      <MenuItem mnemonicParsing="false" onAction="#showBurndownLinePoints" text="Line Chart - Story Points" />
                       <MenuItem mnemonicParsing="false" text="Area Chart - User Stories" />
                     </items>
                   </Menu>
@@ -64,6 +64,6 @@
       </MenuBar>
    </top>
    <bottom>
-      <AnchorPane prefHeight="567.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
+      <AnchorPane BorderPane.alignment="CENTER" />
    </bottom>
 </BorderPane>

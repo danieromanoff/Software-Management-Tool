@@ -20,7 +20,7 @@ public class SmtMainViewControl {
   @FXML
   private MenuItem menuClose;
   @FXML
-  private Menu menuBurndown;
+  private Menu menuCharts;
   
   
   
@@ -73,7 +73,12 @@ public class SmtMainViewControl {
   private void showAgileReports() throws IOException {
     smt.showAgileReports();
   }
-   
+  
+  @FXML
+  private void showBurndownLinePoints() throws IOException {
+    smt.showBurndownLinePoints();
+  }
+  
   public void setSmt(SoftwareManagementToolMain inSmt) {
     smt = inSmt;
   }
@@ -83,7 +88,7 @@ public class SmtMainViewControl {
   	menuEdit.setVisible(showit);
   	menuSave.setDisable(!showit);
   	menuClose.setDisable(!showit);
-  	menuBurndown.setVisible(showit);
+  	menuCharts.setVisible(showit);
   	
   }
   
