@@ -1,0 +1,22 @@
+.root {
+  -fx-base: #8B8989;
+}
+
+.menu-bar {
+    -fx-background-color: #8B8989;
+}
+
+.context-menu {
+    -fx-background-color: #8B8989;
+}
+
+.menu-bar .label {
+    -fx-font-size: 12pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: white;
+    -fx-opacity: 0.9;
+    -fx-effect: dropshadow(gaussian , black, 10, 0.0 , 4, 5);
+}
+.menu .left-container {
+    -fx-background-color: #8B8989;
+}

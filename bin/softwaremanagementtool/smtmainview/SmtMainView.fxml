@@ -3,10 +3,9 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="544.0" prefWidth="800.0" stylesheets="@SmtMainViewStyling.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="softwaremanagementtool.smtmainview.SmtMainViewControl">
+<BorderPane prefHeight="600.0" prefWidth="800.0" stylesheets="@SmtMainViewStyling.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="softwaremanagementtool.smtmainview.SmtMainViewControl">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -45,25 +44,7 @@
               <MenuItem mnemonicParsing="false" text="About SMT" />
             </items>
           </Menu>
-            <Menu fx:id="menuBurndown" mnemonicParsing="false" text="Charts" visible="false">
-              <items>
-                  <Menu mnemonicParsing="false" text="Burndown Charts">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Line Chart - Story Points" />
-                      <MenuItem mnemonicParsing="false" text="Area Chart - User Stories" />
-                    </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Status Charts">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                    </items>
-                  </Menu>
-              </items>
-            </Menu>
         </menus>
       </MenuBar>
    </top>
-   <bottom>
-      <AnchorPane prefHeight="567.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
-   </bottom>
 </BorderPane>

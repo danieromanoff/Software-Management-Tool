@@ -1,4 +1,4 @@
-package softwaremanagementtool.agile.dashboardview;
+package softwaremanagementtool.agile.charts;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -36,7 +36,6 @@ public class LineChartData {
 		
 	}
 	
-
-	
 	
 }
+

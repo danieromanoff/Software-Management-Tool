@@ -10,12 +10,12 @@
 <AnchorPane minHeight="400.0" minWidth="600.0" stylesheets="@DashboardStyling.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="softwaremanagementtool.agile.dashboardview.DashboardViewController">
    <children>
       
-            <Label fx:id="ProjectName" alignment="CENTER" contentDisplay="CENTER" layoutX="256.0" prefHeight="38.0" prefWidth="153.0" text="Dashboard View" textAlignment="CENTER" AnchorPane.topAnchor="0.0">
+            <Label fx:id="ProjectName" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="51.0" prefWidth="153.0" text="Dashboard View" textAlignment="CENTER" AnchorPane.topAnchor="10.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <LineChart fx:id="lineChart" layoutX="14.0" layoutY="51.0" prefHeight="150.0" prefWidth="200.0" title="Burndown Chart" AnchorPane.bottomAnchor="270.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="450.0" AnchorPane.topAnchor="51.0">
+      <LineChart fx:id="lineChart" layoutX="14.0" layoutY="89.0" prefHeight="236.0" prefWidth="377.0" title="Burndown Chart" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0">
         <xAxis>
           <CategoryAxis label="Sprints and Dates" prefHeight="30.0" prefWidth="238.0" side="BOTTOM" fx:id="xAxis" />
         </xAxis>
@@ -23,10 +23,5 @@
           <NumberAxis fx:id="yAxis" label="User Stories" side="LEFT" />
         </yAxis>
       </LineChart>
-      <AnchorPane layoutX="241.0" layoutY="51.0" prefHeight="150.0" prefWidth="183.0" />
-      <AnchorPane layoutX="445.0" layoutY="51.0" prefHeight="150.0" prefWidth="183.0" />
-      <AnchorPane layoutX="31.0" layoutY="271.0" prefHeight="150.0" prefWidth="183.0" />
-      <AnchorPane layoutX="241.0" layoutY="271.0" prefHeight="150.0" prefWidth="183.0" />
-      <AnchorPane layoutX="445.0" layoutY="271.0" prefHeight="150.0" prefWidth="183.0" />
    </children>
 </AnchorPane>
