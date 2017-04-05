@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@BacklogStyling.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="softwaremanagementtool.agile.backlogview.ProductBacklogViewController">
+   <children>
+      <AnchorPane fx:id="backlogPane" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <SplitPane dividerPositions="0.29797979797979796" prefHeight="300.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <items>
+                  <AnchorPane fx:id="backlogListPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+                  <AnchorPane fx:id="backlogEntryPane" maxHeight="1200.0" maxWidth="800.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+               </items>
+            </SplitPane>
+         </children></AnchorPane>
+      <ButtonBar prefHeight="40.0" prefWidth="355.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+        <buttons>
+            <Button mnemonicParsing="false" onAction="#goNewUserStory" text="New User Story" />
+          <Button mnemonicParsing="false" onAction="#goNewChangeRequest" prefHeight="25.0" prefWidth="164.0" text="New Change Request" />
+        </buttons>
+      </ButtonBar>
+      <ButtonBar layoutX="345.0" layoutY="342.0" prefHeight="40.0" prefWidth="255.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="288.0" AnchorPane.rightAnchor="0.0">
+        <buttons>
+            <Button mnemonicParsing="false" onAction="#goSaveBacklogItem" prefHeight="25.0" prefWidth="117.0" text="Apply Updates" />
+        </buttons>
+         <padding>
+            <Insets right="10.0" />
+         </padding>
+      </ButtonBar>
+   </children>
+</AnchorPane>

@@ -1,4 +1,4 @@
-package softwaremanagementtool.agile.dashboardview;
+package softwaremanagementtool.agile.charts;
 
 import softwaremanagementtool.agile.Sprint;
 import softwaremanagementtool.agile.SprintList;

@@ -62,4 +62,10 @@
         </menus>
       </MenuBar>
    </top>
+<<<<<<< HEAD
+   <bottom>
+      <AnchorPane BorderPane.alignment="CENTER" />
+   </bottom>
+=======
+>>>>>>> refs/remotes/origin/Sprint
 </BorderPane>

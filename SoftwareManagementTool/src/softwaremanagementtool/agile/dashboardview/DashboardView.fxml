@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.LineChart?>
-<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -10,18 +7,14 @@
 <AnchorPane minHeight="400.0" minWidth="600.0" stylesheets="@DashboardStyling.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="softwaremanagementtool.agile.dashboardview.DashboardViewController">
    <children>
       
-            <Label fx:id="ProjectName" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="51.0" prefWidth="153.0" text="Dashboard View" textAlignment="CENTER" AnchorPane.topAnchor="10.0">
+            <Label fx:id="ProjectName" alignment="CENTER" contentDisplay="CENTER" layoutX="256.0" prefHeight="38.0" prefWidth="153.0" text="Dashboard View" textAlignment="CENTER" AnchorPane.topAnchor="0.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <LineChart fx:id="lineChart" layoutX="14.0" layoutY="89.0" prefHeight="236.0" prefWidth="377.0" title="Burndown Chart" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0">
-        <xAxis>
-          <CategoryAxis label="Sprints and Dates" prefHeight="30.0" prefWidth="238.0" side="BOTTOM" fx:id="xAxis" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis fx:id="yAxis" label="User Stories" side="LEFT" />
-        </yAxis>
-      </LineChart>
+      <AnchorPane fx:id="ChartUpperLeft" layoutX="58.0" layoutY="47.0" prefHeight="164.0" prefWidth="205.0" />
+      <AnchorPane fx:id="ChartUpperRight" layoutX="361.0" layoutY="51.0" prefHeight="164.0" prefWidth="205.0" />
+      <AnchorPane fx:id="ChartLowerLeft" layoutX="58.0" layoutY="223.0" prefHeight="164.0" prefWidth="205.0" />
+      <AnchorPane fx:id="ChartLowerRight" layoutX="361.0" layoutY="223.0" prefHeight="164.0" prefWidth="205.0" />
    </children>
 </AnchorPane>
