@@ -1,4 +1,4 @@
-package softwaremanagementtool.agile.dashboardview;
+package softwaremanagementtool.agile.charts;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -39,11 +39,4 @@ public class LineChartData {
 
 	
 	
-}
-
-public class AreaChartData {
-	public ObservableList<XYChart.Series> data;
-	public String xAxisLabel;
-	public String yAxisLabel;
-	public String title;
 }

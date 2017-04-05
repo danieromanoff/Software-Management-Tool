@@ -1,6 +1,6 @@
 /* Background Image for the SMT*/
 
-.root {
+.anchor-pane {
 -fx-background-image: url('Splash-Background-SMT.gif');
 -fx-background-size: stretch;
 -fx-background-repeat: no-repeat; 
