@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 
 import softwaremanagementtool.agile.ui.BacklogUi;
 import softwaremanagementtool.agile.ui.BaseUi;
+import softwaremanagementtool.agile.ui.ChartsUi;
 import softwaremanagementtool.agile.ui.DashboardUi;
 import softwaremanagementtool.agile.ui.ReportsUi;
 import softwaremanagementtool.agile.ui.SprintUi;
@@ -39,6 +40,7 @@ public class AgileProject {
 	private DashboardUi dashboardUi;
 	private BacklogUi backlogUi;
 	private ReportsUi reportsUi;
+	private ChartsUi chartsUi;
 
   /**
    *  Constructor
@@ -74,6 +76,7 @@ public class AgileProject {
     dashboardUi = new DashboardUi(this);
     backlogUi = new BacklogUi(this);
     reportsUi = new ReportsUi(this);
+    chartsUi = new ChartsUi(this);
     
     showDashboard();
   }
@@ -358,6 +361,15 @@ public class AgileProject {
     	}
     }
   	return sprintTaskList.get();
+  }
+  
+  /**
+   *  Charts 
+   *  
+   */
+  
+  public void showBurndownLinePoints() {
+  	chartsUi.showBurndownSprintPoints();
   }
   
 

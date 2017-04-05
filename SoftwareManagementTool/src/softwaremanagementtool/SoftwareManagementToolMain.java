@@ -111,6 +111,13 @@ public class SoftwareManagementToolMain extends Application {
     	agilePrj.showReportsView();
     }
   }
+  
+  public void showBurndownLinePoints() throws IOException {
+    if (agilePrj != null)
+    {
+    	agilePrj.showBurndownLinePoints();
+    }
+  }
     
 	public void save()  {
 	    if (agilePrj != null )
