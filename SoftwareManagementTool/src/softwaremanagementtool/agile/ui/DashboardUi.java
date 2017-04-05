@@ -3,7 +3,7 @@ package softwaremanagementtool.agile.ui;
 import java.io.IOException;
 
 import softwaremanagementtool.agile.AgileProject;
-import softwaremanagementtool.agile.dashboardview.BacklogChartData;
+import softwaremanagementtool.agile.charts.BacklogChartData;
 import softwaremanagementtool.agile.dashboardview.DashboardViewController;
 
 public class DashboardUi extends BaseUi<DashboardViewController> {

@@ -8,6 +8,7 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import softwaremanagementtool.agile.AgileProject;
+import softwaremanagementtool.agile.charts.LineChartData;
 
 public class DashboardViewController {
   
