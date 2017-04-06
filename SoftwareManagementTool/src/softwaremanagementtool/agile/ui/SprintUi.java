@@ -75,7 +75,7 @@ public class SprintUi extends BaseUi<SprintViewController> {
 	public void showSprint(Sprint sprint) {
 		if (sprint != null) {
 	    infoViewController.showSprint(sprint);
-	    sprintBlViewController.setAgilePrj(agilePrj, agilePrj.getSprintBacklogList(sprint));
+	    sprintBlViewController.setAgilePrj(agilePrj, agilePrj.getSprintBacklogList());
 	    prodOpenBlViewController.setAgilePrj(agilePrj, agilePrj.getOpenProdBacklogList());
 	    backlogViewController.showSprint(sprint);
 	    taskViewController.showSprint(sprint);

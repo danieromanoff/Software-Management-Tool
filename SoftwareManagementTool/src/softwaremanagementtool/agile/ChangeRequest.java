@@ -43,7 +43,7 @@ public class ChangeRequest extends BacklogEntry {
     this.ChangeReq.set(inChangeRequest);
   }
   
-  public StringProperty userStoryProperty() {
+  public StringProperty changeReqProperty() {
     return ChangeReq;
   }
 
@@ -56,7 +56,7 @@ public class ChangeRequest extends BacklogEntry {
     this.Justification.set(inAcceptanceCriteria);
   }
     
-  public StringProperty acceptanceCriteriaProperty() {
+  public StringProperty justificationProperty() {
     return Justification;
   }
 

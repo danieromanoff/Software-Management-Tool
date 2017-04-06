@@ -1,5 +1,6 @@
 package softwaremanagementtool;
 
+import java.io.File;
 import java.io.IOException;
 
 import javafx.application.Application;
@@ -8,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import softwaremanagementtool.agile.AgilePrjData;
 import softwaremanagementtool.agile.AgileProject;
 import softwaremanagementtool.smtmainview.SmtMainViewControl;
 
@@ -18,6 +20,7 @@ public class SoftwareManagementToolMain extends Application {
   private SmtMainViewControl controller;
   
   private AgileProject agilePrj;
+  private AgilePrjData agilePrjData;
 	
   @Override
   public void start(Stage primaryStage) throws IOException {
@@ -48,12 +51,36 @@ public class SoftwareManagementToolMain extends Application {
     mainLayout.setCenter(splashLayout);
 	}
 		
+	private void tempCreateData() {
+		
+		agilePrjData = new AgilePrjData();
+		agilePrjData.addUser("Jack");
+		agilePrjData.addUser("Jill");
+		agilePrjData.addUser("Danielle");
+		agilePrjData.addUser("Siddhesh");
+		agilePrjData.addUser("Steve");
+		agilePrjData.addUser("Varun");
+		
+		agilePrjData.setName("Gedcom");
+		agilePrjData.setDescription("This project provides a program to validate Gedcom files");
+	}
+	
 	public void openAgile(String mode) throws IOException {
-	  closePrj();
-    agilePrj = new AgileProject(mode, primaryStage, mainLayout); // TODO pass agilePrjData
+		closePrj();
+	  try {
+	  	if (mode.equals("NEW")) tempCreateData(); // TODO temp
+      agilePrj = new AgileProject(mode, new File("test.xml"), agilePrjData, primaryStage, mainLayout);
+	  } catch (Exception e) {
+		  // TODO Auto-generated catch block
+		  e.printStackTrace();
+		  agilePrj = null;
+	  }
+    
     if (agilePrj != null)
     {
     	controller.showAgileMenu(true);
+    } else {
+    	closePrj();
     }
   }
 	

@@ -33,6 +33,7 @@ public class AgileXmlDatabase {
   //saving data to xml file
   public void saveDataToFile() throws JAXBException { 
   	
+  	writeWrapper.setPrjData(agilePrj.getPrjData());
   	writeWrapper.setUserStories(agilePrj.getUserStories());
   	writeWrapper.setChangeReqs(agilePrj.getChangeReqs());
   	writeWrapper.setSprints(agilePrj.getSprints());
@@ -46,6 +47,7 @@ public class AgileXmlDatabase {
   public void loadDataFromFile() throws JAXBException {
   	
   	readWrapper = (AgileXmlWrapper) reader.unmarshal(file);
+  	agilePrj.loadPrjData(readWrapper.getPrjData());
   	agilePrj.loadUserStories(readWrapper.getUserStories());
   	agilePrj.loadChangeReqs(readWrapper.getChangeReqs());
   	agilePrj.loadSprints(readWrapper.getSprints());
