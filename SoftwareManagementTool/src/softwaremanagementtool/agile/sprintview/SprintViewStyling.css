@@ -32,6 +32,10 @@
     -fx-padding: 1 0 0 0;
 }
 
+.combo-box:disabled, .combo-box:disabled > * {
+  -fx-opacity: 1.0 ;
+}
+
 .table-view {
     -fx-base: #8B8989;
     -fx-control-inner-background: #8B8989;
