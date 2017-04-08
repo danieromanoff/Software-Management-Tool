@@ -68,6 +68,7 @@ public class SprintUi extends BaseUi<SprintViewController> {
   	taskViewController = (SprintTaskViewController) loadSubView(classController.getSprintTaskPane(), FXML_SPRINT_TASK_VIEW);
   	taskViewController.setAgilePrj(agilePrj);
   	reviewViewController = (SprintReviewViewController) loadSubView(classController.getSprintReviewPane(), FXML_SPRINT_REVIEW_VIEW);
+  	reviewViewController.setAgilePrj(agilePrj);
   	retrospectViewController = (SprintRetrospectViewController) loadSubView(classController.getSprintRetrospctPane(), FXML_SPRINT_RETROSPECT_VIEW);
   	     
 	}
