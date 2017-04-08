@@ -54,7 +54,10 @@
                   </Menu>
                   <Menu mnemonicParsing="false" text="Status Charts">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                      <MenuItem mnemonicParsing="false" text="Scatter Chart" />
+                        <MenuItem mnemonicParsing="false" text="Stacked Area Chart" />
+                        <MenuItem mnemonicParsing="false" text="Stacked Bar Chart" />
+                        <MenuItem mnemonicParsing="false" text="Bar Chart" />
                     </items>
                   </Menu>
               </items>
