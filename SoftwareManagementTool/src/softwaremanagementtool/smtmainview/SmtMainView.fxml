@@ -49,7 +49,7 @@
                   <Menu mnemonicParsing="false" text="Burndown Charts">
                     <items>
                       <MenuItem mnemonicParsing="false" onAction="#showBurndownLinePoints" text="Line Chart - Story Points" />
-                      <MenuItem mnemonicParsing="false" text="Area Chart - User Stories" />
+                      <MenuItem mnemonicParsing="false" onAction="#showBurndownLinePoints" text="Area Chart - User Stories" />
                     </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="Status Charts">
