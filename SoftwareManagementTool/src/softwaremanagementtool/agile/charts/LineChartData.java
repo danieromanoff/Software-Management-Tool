@@ -3,6 +3,7 @@ package softwaremanagementtool.agile.charts;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.LineChart;
+import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.XYChart;
 
 public class LineChartData {
@@ -17,6 +18,15 @@ public class LineChartData {
 	}
 	
 	public void addPoint(int indx, String X, Integer Y){
+		data.get(indx).getData().add(new XYChart.Data(X, Y));
+	}
+	
+	public int addSeries1(String name){
+		data.add(new AreaChart.Series<Integer,Integer>(name, FXCollections.observableArrayList()));
+    return seriesIndx(name);
+	}
+	
+	public void addPoint1(int indx, String X, Integer Y){
 		data.get(indx).getData().add(new XYChart.Data(X, Y));
 	}
 	

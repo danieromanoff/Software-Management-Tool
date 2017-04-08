@@ -49,15 +49,33 @@
                   <Menu mnemonicParsing="false" text="Burndown Charts">
                     <items>
                       <MenuItem mnemonicParsing="false" onAction="#showBurndownLinePoints" text="Line Chart - Story Points" />
-                      <MenuItem mnemonicParsing="false" text="Area Chart - User Stories" />
+                      <MenuItem mnemonicParsing="false" onAction="#showBurndownLinePoints" text="Area Chart - User Stories" />
                     </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="Status Charts">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                      <MenuItem mnemonicParsing="false" text="Scatter Chart" />
+                        <MenuItem mnemonicParsing="false" text="Stacked Area Chart" />
+                        <MenuItem mnemonicParsing="false" text="Stacked Bar Chart" />
+                        <MenuItem mnemonicParsing="false" text="Bar Chart" />
                     </items>
                   </Menu>
               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Reports" visible="false">
+               <items>
+                  <Menu mnemonicParsing="false" text="Sprints">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Tasks" />
+                        <MenuItem mnemonicParsing="false" text="Assignments by Name" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Changes">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Enhancements" />
+                    </items>
+                  </Menu>
+               </items>
             </Menu>
         </menus>
       </MenuBar>
