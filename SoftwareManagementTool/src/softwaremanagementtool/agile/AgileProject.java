@@ -90,7 +90,7 @@ public class AgileProject {
   public void showDashboard() throws IOException {
     dashboardUi.show();
    // dashboardUi.showBurndownSprintCount();
-    dashboardUi.showBurndownSprintPoints();
+   // dashboardUi.showBurndownSprintPoints();
   }
 
   public  void showBacklog() throws IOException {
