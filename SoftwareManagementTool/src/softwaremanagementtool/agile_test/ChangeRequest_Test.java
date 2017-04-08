@@ -35,8 +35,8 @@ public class ChangeRequest_Test {
 	@Test
 	public void test_acceptanceTest() {
 		ChangeRequest cr = new ChangeRequest();
-		cr.setJustification("issue");;
-		assertEquals(cr.getJustification(), "issue");
+		cr.setReason("issue");;
+		assertEquals(cr.getReason(), "issue");
 		assertEquals(cr.justificationProperty().get(), "issue");
 	}
 	

@@ -9,8 +9,20 @@
         <title>portfolios not loading properly from file</title>
         <changeRequest>After saveing 5 ortfolios only 4 are loaded on next run</changeRequest>
         <dateCreated>2017-02-24</dateCreated>
-        <justification>Found when testing sprint 1</justification>
         <openInSprintId>0</openInSprintId>
+        <reason>Issue</reason>
+    </changereq>
+    <changereq>
+        <ID>5</ID>
+        <priority>4</priority>
+        <sprintId>0</sprintId>
+        <state>Open</state>
+        <storyPoints>1</storyPoints>
+        <title>New</title>
+        <changeRequest>Refactor the code in the blah blah</changeRequest>
+        <dateCreated>2017-04-05</dateCreated>
+        <openInSprintId>0</openInSprintId>
+        <reason>Refactor</reason>
     </changereq>
     <prjdata>
         <prjUsers>Jack</prjUsers>

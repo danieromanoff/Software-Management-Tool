@@ -8,7 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-
+import softwaremanagementtool.agile.ui.AlertMsg;
 import softwaremanagementtool.agile.ui.BacklogUi;
 import softwaremanagementtool.agile.ui.BaseUi;
 import softwaremanagementtool.agile.ui.ChartsUi;
@@ -34,6 +34,7 @@ public class AgileProject {
   
   private BacklogList openProdBacklogList;
   private BacklogList sprintBacklogList;
+  private BacklogList sprintIssueList;
   private TaskList sprintTaskList;
   
 	private SprintUi sprintUi;
@@ -58,6 +59,7 @@ public class AgileProject {
     taskList = new TaskList();
     openProdBacklogList = new BacklogList();
     sprintBacklogList = new BacklogList();
+    sprintIssueList = new BacklogList();
     sprintTaskList = new TaskList();
     file = inFile;
   	
@@ -88,7 +90,7 @@ public class AgileProject {
   public void showDashboard() throws IOException {
     dashboardUi.show();
    // dashboardUi.showBurndownSprintCount();
-    dashboardUi.showBurndownSprintPoints();
+   // dashboardUi.showBurndownSprintPoints();
   }
 
   public  void showBacklog() throws IOException {
@@ -259,18 +261,44 @@ public class AgileProject {
   }
   
   public void sprintStateChangeReq(Sprint sprint, String newState) {
+  	boolean change = true;
   	if (sprint.getState().equals(newState)) {
-  		return;
+  		change = false;
   	}
   	if (newState.equals(Sprint.STATE_PROGRESS)) {
   		if (sprintList.isSprintInProgress()) {
   			// dont change another sprint in progress
   		}
   	}
-  	if (newState.equals(Sprint.STATE_REVIEW)) {
-  		sprint.setBacklogStats(productBacklog.getStats());
+  	if (newState.equals(Sprint.STATE_CLOSED)) {
+  		if (!productBacklog.allItemsClosed(sprint.getID())) {
+  			AlertMsg.send("Backlog Item not Closed","All Sprint Backlog items need"
+  					+ " to be closed or moved back to the Product Backlog to close Sprint!");
+  			change = false;
+  		} else if (!taskList.allTasksComplete(sprint.getID())) {
+  			AlertMsg.send("Tasks not complete","All Sprint Tasks need"
+  					+ " to be set to Complete or Incomplete to close Sprint!");
+  			change = false;
+  		} else if ((sprint.getEndNumFiles() < 1) || (sprint.getEndSloc() < 1)) {
+  			AlertMsg.send("Files and SLOC",
+  				 "Update Number of Files and SLOC!");
+  			change = false;
+  		} else if (sprint.getNumTests() < sprint.getTestsAttempted()) {
+  			AlertMsg.send("Tests",
+   				 "Tests Attempted cannot be greater than Number of Tests");
+  			change = false;
+  		} else if (sprint.getTestsAttempted() < sprint.getTestsPassed()) {
+  			AlertMsg.send("Tests",
+  					"Tests Passed cannot be greater than Tests Attempted");
+  			change = false;
+  		}	
   	}
-  	sprint.setState(newState);
+  	
+  	if (change) {
+  	  sprint.setState(newState);
+  	}
+  	sprintUi.showSprint(sprint); 
+  	
   }
   
   public void showSprintDetails(Sprint sprint) {
@@ -361,6 +389,20 @@ public class AgileProject {
     	}
     }
   	return sprintTaskList.get();
+  }
+  
+  /**
+   *  Sprint Review 
+   *  
+   */
+  public ObservableList<BacklogEntry> getSprintIssuesList(Sprint sprint) {
+    sprintIssueList.clear();
+    for (int i=0; i< productBacklog.get().size(); i++ ) {
+  		if (productBacklog.get().get(i).getSprintId() == sprint.getID()) {
+  			sprintIssueList.add(productBacklog.get().get(i));
+  		}
+  	}
+    return sprintIssueList.get();
   }
   
   /**

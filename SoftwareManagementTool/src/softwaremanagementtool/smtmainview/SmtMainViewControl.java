@@ -23,7 +23,6 @@ public class SmtMainViewControl {
   private Menu menuCharts;
   
   
-  
   @FXML
   private void goNewAgile() throws IOException {
     smt.openAgile("NEW");

@@ -27,7 +27,7 @@ public class ChangeReqViewController {
   @FXML
   private TextArea ChangeReqText;
   @FXML
-  private TextField JustificationText;
+  private ComboBox<String> reason;
   @FXML
   private DatePicker date;
   @FXML
@@ -36,6 +36,8 @@ public class ChangeReqViewController {
   private ComboBox<Integer> storyPoints;
   @FXML
   private ComboBox<String> state;
+  @FXML
+  private TextField sprintIdText;
 
   // Reference to the main application.
   private AgileProject agilePrj;
@@ -56,6 +58,9 @@ public class ChangeReqViewController {
     }
     for (String usState : ChangeRequest.STATE) {
       state.getItems().add(usState);
+    }
+    for (String reasons : ChangeRequest.REASON) {
+      reason.getItems().add(reasons);
     }
   }
 
@@ -78,9 +83,10 @@ public class ChangeReqViewController {
       ChangeReqText.setText(changereq.getChangeRequest());
       priority.setValue(changereq.getPriority());
       state.setValue(changereq.getState());
-      JustificationText.setText(changereq.getJustification());
+      reason.setValue(changereq.getReason());
       date.setValue(changereq.getDateCreated());
       storyPoints.setValue(changereq.getStoryPoints());
+      sprintIdText.setText(Integer.toString(changereq.getSprintId()));
     } 
   }
 
@@ -89,10 +95,11 @@ public class ChangeReqViewController {
       changereq.setTitle(titleText.getText());
       changereq.setChangeRequest(ChangeReqText.getText());
       changereq.setPriority(priority.getValue());
-      changereq.setJustification(JustificationText.getText());
+      changereq.setReason(reason.getValue());
       changereq.setDateCreated(date.getValue());
       changereq.setState(state.getValue());
       changereq.setStoryPoints(storyPoints.getValue());
+      changereq.setSprintId(Integer.parseInt(sprintIdText.getText()));
     }
   }
 
@@ -100,7 +107,6 @@ public class ChangeReqViewController {
     iDText.setText("");
     titleText.setText(""); 
     ChangeReqText.setText("");  
-    JustificationText.setText("");
     date.setPromptText("");
   }  
   
@@ -109,7 +115,7 @@ public class ChangeReqViewController {
   	if ((changeRequest.getTitle().equals(titleText.getText())) &&
     	 (changeRequest.getChangeRequest().equals(ChangeReqText.getText())) &&
     	 (changeRequest.getPriority() == (priority.getValue())) &&
-    	 (changeRequest.getJustification().equals(JustificationText.getText())) &&
+    	 (changeRequest.getReason().equals(reason.getValue())) &&
     	 (changeRequest.getDateCreated().equals(date.getValue())) &&
     	 (changeRequest.getState().equals(state.getValue())) &&
     	 (changeRequest.getStoryPoints() == storyPoints.getValue())) {

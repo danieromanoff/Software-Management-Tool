@@ -11,6 +11,7 @@ public class SprintTask {
 	public static final String STATUS_DRAFT = "Draft";
 	public static final String STATUS_PROGRESS = "InProgress";
 	public static final String STATUS_COMPLETE = "Complete";
+	public static final String STATUS_INCOMPLETE = "Incomplete";
 	public static final String STATUS_DELETED = "Deleted";
   public static final String[] STATUS = {
   		STATUS_DRAFT,

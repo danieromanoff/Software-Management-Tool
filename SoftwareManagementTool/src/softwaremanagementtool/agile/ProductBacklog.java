@@ -39,4 +39,16 @@ public class ProductBacklog {
   	
   	return stats;
   }
+  
+  public boolean allItemsClosed(int sprint) {
+  	boolean allClosed = true;
+  	for (int i=0; i < productBacklog.size(); i++)
+  	{
+  		if ((productBacklog.get(i).getSprintId() == sprint) &&
+  				(!productBacklog.get(i).getState().equals(BacklogEntry.STATE_CLOSED))) {
+  			allClosed = false;
+  		}
+  	}
+  	return allClosed;
+  }
 }
