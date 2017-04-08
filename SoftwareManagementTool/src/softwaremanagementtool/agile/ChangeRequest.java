@@ -14,8 +14,15 @@ public class ChangeRequest extends BacklogEntry {
    
 	public static final String type = "ChangeRequest";
   
-  private final StringProperty ChangeReq;
-  private final StringProperty Justification;
+	public static final String REASON_ISSUE = "Issue";
+	public static final String REASON_REFACT = "Refactor";
+	public static final String REASON_ENHANCE = "Enhancement";
+	public static final String[] REASON = {
+			REASON_ISSUE, REASON_REFACT, REASON_ENHANCE
+	};
+	
+  private final StringProperty changeReq;
+  private final StringProperty reason;
   private final ObjectProperty<LocalDate> dateCreated;
   private  Integer openInSprintId;
    
@@ -25,8 +32,8 @@ public class ChangeRequest extends BacklogEntry {
    */
   public ChangeRequest() {
     //setting default data to some attributes
-    this.ChangeReq= new SimpleStringProperty("");
-    this.Justification = new SimpleStringProperty("");
+    this.changeReq= new SimpleStringProperty("");
+    this.reason = new SimpleStringProperty("");
     this.dateCreated = new SimpleObjectProperty<LocalDate>(LocalDate.now());
     openInSprintId = 0;
   }
@@ -36,28 +43,28 @@ public class ChangeRequest extends BacklogEntry {
   }
   
   public String getChangeRequest() {
-    return ChangeReq.get();
+    return changeReq.get();
   }
   
   public void setChangeRequest(String inChangeRequest) {
-    this.ChangeReq.set(inChangeRequest);
+    this.changeReq.set(inChangeRequest);
   }
   
   public StringProperty changeReqProperty() {
-    return ChangeReq;
+    return changeReq;
   }
 
   //Acceptance criteria setter and getter method
-  public String getJustification() {
-    return Justification.get();
+  public String getReason() {
+    return reason.get();
   }
   
-  public void setJustification(String inAcceptanceCriteria) {
-    this.Justification.set(inAcceptanceCriteria);
+  public void setReason(String inReason) {
+    this.reason.set(inReason);
   }
     
   public StringProperty justificationProperty() {
-    return Justification;
+    return reason;
   }
 
   //date setter and getter method

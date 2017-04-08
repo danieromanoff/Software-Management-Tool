@@ -31,4 +31,17 @@ public class TaskList {
   	taskList.clear();
   }
   
+  public boolean allTasksComplete(int sprint) {
+  	boolean done = true;
+  	for (int i=0; i < taskList.size(); i++)
+  	{
+  		if ((taskList.get(i).getSprintId() == sprint) &&
+  				(!taskList.get(i).getStatus().equals(SprintTask.STATUS_COMPLETE)) &&
+  				(!taskList.get(i).getStatus().equals(SprintTask.STATUS_INCOMPLETE))) {
+  			done = false;
+  		}
+  	}
+  	return done;
+  }
+  
 }

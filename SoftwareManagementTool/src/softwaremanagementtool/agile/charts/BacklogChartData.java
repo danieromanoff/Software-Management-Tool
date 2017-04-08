@@ -86,6 +86,7 @@ public class BacklogChartData {
 	
 		for (int sprint = 0; sprint < sprintList.size(); sprint++) {
 			if (sprintList.Sprint(sprint).getState().equals(Sprint.STATE_CLOSED)) {
+		
 				lineData.addPoint(burndownSeries, sprintList.get().get(sprint).endDateStr(), 
 				    sprintList.Sprint(sprint).getBacklogStats().getBacklogPoints());
 			  sprintsComplete++;
