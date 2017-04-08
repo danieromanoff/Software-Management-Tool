@@ -62,6 +62,21 @@
                   </Menu>
               </items>
             </Menu>
+            <Menu mnemonicParsing="false" text="Reports" visible="false">
+               <items>
+                  <Menu mnemonicParsing="false" text="Sprints">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Tasks" />
+                        <MenuItem mnemonicParsing="false" text="Assignments by Name" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Changes">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Enhancements" />
+                    </items>
+                  </Menu>
+               </items>
+            </Menu>
         </menus>
       </MenuBar>
    </top>
