@@ -33,7 +33,7 @@ public class ChangeRequest extends BacklogEntry {
   public ChangeRequest() {
     //setting default data to some attributes
     this.changeReq= new SimpleStringProperty("");
-    this.reason = new SimpleStringProperty("");
+    this.reason = new SimpleStringProperty(REASON_ISSUE);
     this.dateCreated = new SimpleObjectProperty<LocalDate>(LocalDate.now());
     openInSprintId = 0;
   }

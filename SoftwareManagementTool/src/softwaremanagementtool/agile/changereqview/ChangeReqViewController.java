@@ -76,6 +76,16 @@ public class ChangeReqViewController {
 	  thisPane.setVisible(visable);
   }
 
+  private void setEditable(boolean edit) {
+  	titleText.setEditable(edit);
+  	ChangeReqText.setEditable(edit);
+  	sprintIdText.setEditable(edit);
+  	priority.setDisable(!edit);
+  	date.setDisable(!edit);
+  	storyPoints.setDisable(!edit);
+  	reason.setDisable(!edit);
+  }
+  
   public void showChangeRequestDetails(ChangeRequest changereq) {
     if (changereq != null) {
       iDText.setText(Integer.toString(changereq.getID()));
@@ -87,6 +97,9 @@ public class ChangeReqViewController {
       date.setValue(changereq.getDateCreated());
       storyPoints.setValue(changereq.getStoryPoints());
       sprintIdText.setText(Integer.toString(changereq.getSprintId()));
+      
+      setEditable(!(changereq.getState().equals(UserStory.STATE_CLOSED) || 
+      		changereq.getState().equals(UserStory.STATE_ASSIGNED) )); 
     } 
   }
 

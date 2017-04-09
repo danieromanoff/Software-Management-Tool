@@ -82,6 +82,7 @@ public class SprintUi extends BaseUi<SprintViewController> {
 	    taskViewController.showSprint(sprint);
 	    reviewViewController.showSprint(sprint);
 	    retrospectViewController.showSprint(sprint);
+	    sprintBlViewController.setFirst();
 		}
 	}
 	

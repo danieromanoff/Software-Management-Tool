@@ -2,6 +2,7 @@ package softwaremanagementtool.agile;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 
 import javafx.collections.FXCollections;
@@ -13,6 +14,7 @@ import softwaremanagementtool.agile.ui.BacklogUi;
 import softwaremanagementtool.agile.ui.BaseUi;
 import softwaremanagementtool.agile.ui.ChartsUi;
 import softwaremanagementtool.agile.ui.DashboardUi;
+import softwaremanagementtool.agile.ui.OkMsg;
 import softwaremanagementtool.agile.ui.ReportsUi;
 import softwaremanagementtool.agile.ui.SprintUi;
 import softwaremanagementtool.agile.UserStory;
@@ -296,6 +298,16 @@ public class AgileProject {
   	
   	if (change) {
   	  sprint.setState(newState);
+  	  if (newState.equals(Sprint.STATE_PROGRESS)) {
+  	  	if (OkMsg.send("Set Date", "Set Start Date to today?")) {
+  	  		sprint.setStartDate(LocalDate.now());
+  	  	}
+  	  }
+  	  if (newState.equals(Sprint.STATE_REVIEW)) {
+  	  	if (OkMsg.send("Set Date", "Set End Date to today?")) {
+  	  		sprint.setEndDate(LocalDate.now());
+  	  	}
+  	  }
   	}
   	sprintUi.showSprint(sprint); 
   	
