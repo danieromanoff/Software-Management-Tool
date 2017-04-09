@@ -75,6 +75,15 @@ public class UserStoryViewController {
   	thisPane.setVisible(visable);
   }
 
+  private void setEditable(boolean edit) {
+  	titleText.setEditable(edit);
+  	userStoryText.setEditable(edit);
+  	acceptanceCriteriaText.setEditable(edit);
+  	priority.setDisable(!edit);
+  	date.setDisable(!edit);
+  	storyPoints.setDisable(!edit);
+  }
+  
   public void showUserStoryDetails(UserStory userstory) {
     if (userstory != null) {
       iDText.setText(Integer.toString(userstory.getID()));
@@ -85,7 +94,10 @@ public class UserStoryViewController {
       acceptanceCriteriaText.setText(userstory.getAcceptanceCriteria());
       date.setValue(userstory.getDateCreated());
       storyPoints.setValue(userstory.getStoryPoints());
-    } 
+      
+      setEditable(!(userstory.getState().equals(UserStory.STATE_CLOSED) || 
+      		userstory.getState().equals(UserStory.STATE_ASSIGNED) )); 
+    }
   }
   
   public void updateUserStoryDetails(UserStory userstory) {
