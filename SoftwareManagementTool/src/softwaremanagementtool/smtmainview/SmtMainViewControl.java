@@ -26,12 +26,14 @@ public class SmtMainViewControl {
   
   @FXML
   private void goNewAgile() throws IOException {
-    smt.openAgile("NEW");
+    smt.NewAgile("NEW");
+    
   }
+  
   
   @FXML
   private void goOpenAgile() throws IOException {
-    smt.openAgile("OPEN");
+    smt.OpenAgile("OPEN");
   }
   
   @FXML
@@ -69,6 +71,11 @@ public class SmtMainViewControl {
     smt.showAgileSprint();
   }
   
+  @FXML
+  private void GoAbout() throws IOException{
+    smt.GoAbout();
+    
+  }
   @FXML
   private void showAgileReports() throws IOException {
     smt.showAgileReports();

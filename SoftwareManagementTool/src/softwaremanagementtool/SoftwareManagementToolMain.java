@@ -6,11 +6,16 @@ import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 import softwaremanagementtool.agile.AgilePrjData;
 import softwaremanagementtool.agile.AgileProject;
+import softwaremanagementtool.smtmainview.NewAgileProjectController;
 import softwaremanagementtool.smtmainview.SmtMainViewControl;
 
 public class SoftwareManagementToolMain extends Application {
@@ -44,6 +49,41 @@ public class SoftwareManagementToolMain extends Application {
 		showSplash();
 	}
 	
+	public void NewAgile(String mode) throws IOException {
+	    
+
+	    if (mode.equals("NEW")){
+	          
+	     
+	        FXMLLoader loader = new FXMLLoader();
+	        loader.setLocation(SoftwareManagementToolMain.class.getResource("smtmainview/NewAgileProject.fxml"));
+	        AnchorPane Newlayout = loader.load();
+	        mainLayout.setCenter(Newlayout);
+	        NewAgileProjectController proj = (NewAgileProjectController)loader.getController();
+	        proj.setSmt(this);
+	    }
+	}
+	    
+	 public void SaveProj() throws IOException{    
+	        
+	        FileChooser fileChooser = new FileChooser();
+	        fileChooser.setTitle("Save file");
+	        
+	        fileChooser.getExtensionFilters().addAll(
+	                new ExtensionFilter("XML Files", "*.xml"));
+	        File savedFile = fileChooser.showSaveDialog(null);
+	        tempCreateData();
+	        agilePrj = new AgileProject("NEW", savedFile, agilePrjData, primaryStage, mainLayout);
+	        if (agilePrj != null)
+	        {
+	        	controller.showAgileMenu(true);
+	        } else {
+	        	closePrj();
+	        }
+	        
+	      }
+
+	
 	private void showSplash() throws IOException {
 	  FXMLLoader loader = new FXMLLoader();
     loader.setLocation(SoftwareManagementToolMain.class.getResource("smtmainview/SmtSplashView.fxml"));
@@ -65,12 +105,25 @@ public class SoftwareManagementToolMain extends Application {
 		agilePrjData.setDescription("This project provides a program to validate Gedcom files");
 	}
 	
-	public void openAgile(String mode) throws IOException {
+	public void OpenAgile(String mode) throws IOException {
+				   
+		
+	
 		closePrj();
 	  try {
-	  	if (mode.equals("NEW")) tempCreateData(); // TODO temp
-      agilePrj = new AgileProject(mode, new File("test.xml"), agilePrjData, primaryStage, mainLayout);
-	  } catch (Exception e) {
+		  FileChooser fc = new FileChooser();
+			fc.setTitle("Open Existing Project");
+			File selectedFile = fc.showOpenDialog(null);
+			if (selectedFile != null){
+				tempCreateData();
+			
+//					  
+		  
+	  	//if (mode.equals("Open")) tempCreateData(); // TODO temp
+               agilePrj = new AgileProject(mode, selectedFile, agilePrjData, primaryStage, mainLayout);
+			}
+	  }
+               catch (Exception e) {
 		  // TODO Auto-generated catch block
 		  e.printStackTrace();
 		  agilePrj = null;
@@ -111,6 +164,14 @@ public class SoftwareManagementToolMain extends Application {
     	agilePrj.showReportsView();
     }
   }
+  public void GoAbout() throws IOException{
+	    Alert alert = new Alert(AlertType.INFORMATION);
+	    alert.setTitle("Software Management Tool");
+	    alert.setHeaderText(null);
+	    alert.setContentText("Version 1.0");
+
+	    alert.showAndWait();
+	  }	
     
 	public void save()  {
 	    if (agilePrj != null )

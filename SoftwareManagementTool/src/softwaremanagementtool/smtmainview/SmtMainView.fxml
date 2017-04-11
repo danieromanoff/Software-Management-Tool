@@ -41,7 +41,7 @@
             </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About SMT" />
+              <MenuItem mnemonicParsing="false" onAction="#GoAbout" text="About SMT" />
             </items>
           </Menu>
             <Menu fx:id="menuBurndown" mnemonicParsing="false" text="Burndown Charts" visible="false">
