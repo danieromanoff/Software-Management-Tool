@@ -117,10 +117,7 @@ public class SprintTaskViewController {
   	assignee.setDisable(!edit);
   	theTask.setEditable(edit);
   	estTime.setEditable(edit);
-  	actTime.setEditable(edit);
   	backlogRef.setDisable(!edit);
-  	status.setDisable(!edit);
-  	applyButton.setDisable(!edit);
   	newButton.setDisable(!edit);
 	}
     

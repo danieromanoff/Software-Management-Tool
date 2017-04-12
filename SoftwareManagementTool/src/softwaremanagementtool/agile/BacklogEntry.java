@@ -111,4 +111,12 @@ public class BacklogEntry {
     return state;
   }
   
+  public static int indexOf(String inState) {
+  	int i = 0;
+  	for (String str : STATE) {
+  		if (str.equals(inState)) return i;
+  		i++;
+  	}
+  	return -1;
+  }
 }

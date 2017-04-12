@@ -14,10 +14,10 @@ public class BarChartViewController {
 	CategoryAxis xAxis = new CategoryAxis();
 	  
 	@FXML
-	NumberAxis yAxis = new NumberAxis("Backlog", 0, 100, 10);
+	NumberAxis yAxis = new NumberAxis("", 0, 100, 10);
 	
 
-	public void setLineData(LineChartData data) {
+	public void setData(ChartData data) {
   	barChart.setData(data.data);
   	
     yAxis.setLabel(data.yAxisLabel);
