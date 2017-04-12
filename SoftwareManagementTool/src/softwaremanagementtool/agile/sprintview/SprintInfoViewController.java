@@ -39,8 +39,8 @@ public class SprintInfoViewController {
 	}
 	
 	public void saveSprint(Sprint sprint) {
-		agilePrj.sprintStateChangeReq(sprint, status.getValue());
 	  sprint.setStartDate(startDate.getValue());
 	  sprint.setEndDate(endDate.getValue());
+	  agilePrj.sprintStateChangeReq(sprint, status.getValue());
 	}
 }

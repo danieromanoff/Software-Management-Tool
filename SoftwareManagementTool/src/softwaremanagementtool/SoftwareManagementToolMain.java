@@ -111,13 +111,48 @@ public class SoftwareManagementToolMain extends Application {
     	agilePrj.showReportsView();
     }
   }
-  
+   /* Chart Methods */
   public void showBurndownLinePoints() throws IOException {
     if (agilePrj != null)
     {
     	agilePrj.showBurndownLinePoints();
     }
   }
+  public void showBurndownLineBacklogItems() throws IOException {
+    if (agilePrj != null)
+    {
+    	agilePrj.showBurndownLineBacklogItems();
+    }
+  }
+  public void showBurndownAreaStateCount() {
+  	agilePrj.showBurndownAreaStateCount();
+  }
+  public void showBurndownAreaStatePoints() {
+  	agilePrj.showBurndownAreaStatePoints();
+  }
+  public void showBurndownAreaUsCr() {
+  	agilePrj.showBurndownAreaUsCr();
+  }
+  public void showSprintTasksBarChart() {
+  	agilePrj.showSprintTasksBarChart();
+  }
+  public void showStoryPointBarChart() {
+  	agilePrj.showStoryPointBarChart();
+  }
+  public void showTestBarChart() {
+  	agilePrj.showTestBarChart();
+  }
+  public void showNumFilesLineChart() {
+  	agilePrj.showNumFilesLineChart();
+  }
+  public void showSlocLineChart() {
+  	agilePrj.showSlocLineChart();
+  }
+  public void showCurrentSprintTaskChart() {
+  	agilePrj.showCurrentSprintTaskChart();
+  }
+  
+  
     
 	public void save()  {
 	    if (agilePrj != null )

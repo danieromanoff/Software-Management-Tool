@@ -308,8 +308,15 @@ public class AgileProject {
   	  		sprint.setEndDate(LocalDate.now());
   	  	}
   	  }
+  	  if (newState.equals(Sprint.STATE_CLOSED)) {
+  	  	if (sprint.getBacklogStats() == null) {
+  	  		sprint.setBacklogStats(productBacklog.getStats());
+  	  	} else if (OkMsg.send("Backlog Stats", "Get New Backlog Stats?")) {
+  	  		sprint.setBacklogStats(productBacklog.getStats());
+  	  	}
+  	  }
   	}
-  	sprintUi.showSprint(sprint); 
+  	
   	
   }
   
@@ -396,11 +403,15 @@ public class AgileProject {
   public ObservableList<SprintTask> getTaskList(Sprint sprint) {
     sprintTaskList.clear();
     for (int i=0; i<taskList.get().size(); i++) {
-    	if (taskList.get().get(i).getSprintId() == sprintUi.currentSprint().getID()) {
+    	if (taskList.get().get(i).getSprintId() == sprint.getID()) {
     		sprintTaskList.add(taskList.get().get(i));
     	}
     }
   	return sprintTaskList.get();
+  }
+  
+  public TaskList getTaskList() {
+  	return taskList;
   }
   
   /**
@@ -424,6 +435,36 @@ public class AgileProject {
   
   public void showBurndownLinePoints() {
   	chartsUi.showBurndownSprintPoints();
+  }
+  public void showBurndownLineBacklogItems() {
+  	chartsUi.showBurndownSprintCount();
+  }
+  public void showBurndownAreaStateCount() {
+  	chartsUi.showBurndownAreaStateCount();
+  }
+  public void showBurndownAreaStatePoints() {
+  	chartsUi.showBurndownAreaStatePoints();
+  }
+  public void showBurndownAreaUsCr() {
+  	chartsUi.showBurndownAreaUsCr();
+  }
+  public void showSprintTasksBarChart() {
+  	chartsUi.showSprintTasksBarChart();
+  }
+  public void showStoryPointBarChart() {
+  	chartsUi.showStoryPointBarChart();
+  }
+  public void showTestBarChart() {
+  	chartsUi.showTestBarChart();
+  }
+  public void showNumFilesLineChart() {
+  	chartsUi.showNumFilesLineChart();
+  }
+  public void showSlocLineChart() {
+  	chartsUi.showSlocLineChart();
+  }
+  public void showCurrentSprintTaskChart() {
+  	chartsUi.showCurrentSprintTaskChart();
   }
   
 
