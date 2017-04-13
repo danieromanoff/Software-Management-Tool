@@ -25,7 +25,7 @@ public class SmtMainViewControl {
   
   @FXML
   private void goNewAgile() throws IOException {
-    smt.openAgile("NEW");
+    smt.NewAgile("NEW");
   }
   
   @FXML
@@ -75,6 +75,11 @@ public class SmtMainViewControl {
   
   public void setSmt(SoftwareManagementToolMain inSmt) {
     smt = inSmt;
+  }
+  
+  @FXML
+  private void GoAbout() throws IOException{
+    smt.GoAbout(); 
   }
   
   public void showAgileMenu(boolean showit) {
