@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="411.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="softwaremanagementtool.agile.sprintview.SprintTaskViewController">
+<AnchorPane prefHeight="462.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="softwaremanagementtool.agile.sprintview.SprintTaskViewController">
    <children>
       <SplitPane dividerPositions="0.2976588628762542" layoutX="107.0" layoutY="132.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -25,12 +25,12 @@
                       <TableColumn fx:id="assigneeColumn" prefWidth="97.0" text="Assignee" />
                     </columns>
                   </TableView>
-                  <Button layoutX="45.0" layoutY="358.0" mnemonicParsing="false" onAction="#goNewTask" prefHeight="25.0" prefWidth="98.0" text="New Task" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" />
+                  <Button fx:id="newButton" layoutX="45.0" layoutY="358.0" mnemonicParsing="false" onAction="#goNewTask" prefHeight="25.0" prefWidth="98.0" text="New Task" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="372.0" prefWidth="417.0">
                <children>
-                  <GridPane layoutX="3.0" layoutY="33.0" prefHeight="349.0" prefWidth="411.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="30.0">
+                  <GridPane layoutX="3.0" layoutY="33.0" prefHeight="349.0" prefWidth="411.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="30.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="204.0" minWidth="10.0" prefWidth="105.0" />
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="316.0" minWidth="10.0" prefWidth="312.0" />
@@ -61,7 +61,8 @@
                         <ComboBox fx:id="backlogRef" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                      </children>
                   </GridPane>
-                  <Button layoutX="47.0" layoutY="373.0" mnemonicParsing="false" onAction="#goSaveTask" prefHeight="25.0" prefWidth="108.0" text="Apply Changes" AnchorPane.bottomAnchor="10.0" />
+                  <Button fx:id="applyButton" layoutX="47.0" layoutY="383.0" mnemonicParsing="false" onAction="#goSaveTask" prefHeight="25.0" prefWidth="108.0" text="Apply Changes" />
+                  <Label layoutX="11.0" layoutY="418.0" text="(Updates made when in Draft or Review State)" />
                </children></AnchorPane>
         </items>
       </SplitPane>

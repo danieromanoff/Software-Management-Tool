@@ -33,7 +33,8 @@ public class SprintBacklogViewController {
 	}
 	
 	public void showSprint(Sprint sprint) {
-		//id.setText(Integer.toString(sprint.getID()));
+		blButton.setDisable(!sprint.getState().equals(Sprint.STATE_DRAFT) &&
+				!sprint.getState().equals(Sprint.STATE_REVIEW));
 	}
 	
 	public void saveSprint(Sprint sprint) {

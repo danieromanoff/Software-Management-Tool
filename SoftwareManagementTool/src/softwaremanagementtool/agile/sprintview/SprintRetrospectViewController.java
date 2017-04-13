@@ -14,6 +14,13 @@ public class SprintRetrospectViewController {
 	public void showSprint(Sprint sprint) {
 		good.setText(sprint.getRetrospectiveWell());
 		bad.setText(sprint.getRetrospectiveNotSo());
+		
+		setEditable(sprint.getState().equals(Sprint.STATE_REVIEW));
+	}
+	
+	private void setEditable(boolean edit) {
+		good.setEditable(edit);
+		bad.setEditable(edit);
 	}
 	
 	public void saveSprint(Sprint sprint) {

@@ -9,8 +9,20 @@
         <title>portfolios not loading properly from file</title>
         <changeRequest>After saveing 5 ortfolios only 4 are loaded on next run</changeRequest>
         <dateCreated>2017-02-24</dateCreated>
-        <justification>Found when testing sprint 1</justification>
         <openInSprintId>0</openInSprintId>
+        <reason>Issue</reason>
+    </changereq>
+    <changereq>
+        <ID>5</ID>
+        <priority>4</priority>
+        <sprintId>0</sprintId>
+        <state>Open</state>
+        <storyPoints>1</storyPoints>
+        <title>New</title>
+        <changeRequest>Refactor the code in the blah blah</changeRequest>
+        <dateCreated>2017-04-05</dateCreated>
+        <openInSprintId>0</openInSprintId>
+        <reason>Refactor</reason>
     </changereq>
     <prjdata>
         <prjUsers>Jack</prjUsers>
@@ -207,8 +219,8 @@
         <retrospectiveNotSo></retrospectiveNotSo>
         <retrospectiveWell></retrospectiveWell>
         <reviewNotes></reviewNotes>
-        <startDate>2017-03-25</startDate>
-        <state>Draft</state>
+        <startDate>2017-04-11</startDate>
+        <state>InProgress</state>
         <testsAttempted>0</testsAttempted>
         <testsPassed>0</testsPassed>
     </sprints>
@@ -329,18 +341,28 @@
         <estTime>60</estTime>
         <id>12</id>
         <sprintId>3</sprintId>
-        <status>Draft</status>
+        <status>InProgress</status>
         <theTask>Fix sprint loading issue</theTask>
     </tasks>
     <tasks>
-        <actTime>0</actTime>
+        <actTime>90</actTime>
         <assignee>Jack</assignee>
         <backlogRef>3</backlogRef>
         <estTime>120</estTime>
         <id>13</id>
         <sprintId>3</sprintId>
-        <status>Draft</status>
+        <status>Complete</status>
         <theTask>Create simulations view and controller</theTask>
+    </tasks>
+    <tasks>
+        <actTime>0</actTime>
+        <assignee>Jack</assignee>
+        <backlogRef>3</backlogRef>
+        <estTime>40</estTime>
+        <id>14</id>
+        <sprintId>3</sprintId>
+        <status>Draft</status>
+        <theTask></theTask>
     </tasks>
     <userstory>
         <ID>1</ID>

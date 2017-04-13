@@ -1,6 +1,7 @@
 package softwaremanagementtool.agile.sprintview;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -30,6 +31,11 @@ public class SprintTaskViewController {
   @FXML
   private ComboBox<String> status;
 
+  @FXML
+  private Button applyButton;
+  @FXML
+  private Button newButton;
+  
   @FXML
 	private TableView<SprintTask> taskTable;
 	@FXML
@@ -104,9 +110,16 @@ public class SprintTaskViewController {
       backlogRef.setItems(agilePrj.getSprintBacklogListStr());
       backlogRef.setValue(Integer.toString(sprinttask.getBacklogRef()));
       status.setValue(sprinttask.getStatus());
-      
     }
   }
+  
+  private void setEditable(boolean edit) {
+  	assignee.setDisable(!edit);
+  	theTask.setEditable(edit);
+  	estTime.setEditable(edit);
+  	backlogRef.setDisable(!edit);
+  	newButton.setDisable(!edit);
+	}
     
     public void updateSprintTaskDetails(SprintTask sprinttask) {
       if (sprinttask != null) {
@@ -150,7 +163,8 @@ public class SprintTaskViewController {
     	taskTable.setItems(agilePrj.getTaskList(sprint));
     	clearSprintTaskDetails();
     	taskTable.getSelectionModel().selectFirst(); 
-    	//showSprintTaskDetails(getSelectedItem());
+    	
+    	 setEditable((sprint.getState().equals(Sprint.STATE_DRAFT)) || (sprint.getState().equals(Sprint.STATE_REVIEW)));
   	}
   	
     public void updateTask() {

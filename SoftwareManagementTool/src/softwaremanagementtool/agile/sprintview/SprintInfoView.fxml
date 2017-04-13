@@ -30,7 +30,7 @@
             <ComboBox fx:id="status" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <DatePicker fx:id="endDate" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <DatePicker fx:id="startDate" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="id" GridPane.columnIndex="1" />
+            <TextField fx:id="id" editable="false" GridPane.columnIndex="1" />
          </children>
       </GridPane>
    </children>

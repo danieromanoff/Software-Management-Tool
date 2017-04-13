@@ -1,20 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane minHeight="400.0" minWidth="600.0" stylesheets="@DashboardStyling.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="softwaremanagementtool.agile.dashboardview.DashboardViewController">
    <children>
-      
-            <Label fx:id="ProjectName" alignment="CENTER" contentDisplay="CENTER" layoutX="256.0" prefHeight="38.0" prefWidth="153.0" text="Dashboard View" textAlignment="CENTER" AnchorPane.topAnchor="0.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <AnchorPane fx:id="ChartUpperLeft" layoutX="58.0" layoutY="47.0" prefHeight="164.0" prefWidth="205.0" />
-      <AnchorPane fx:id="ChartUpperRight" layoutX="361.0" layoutY="51.0" prefHeight="164.0" prefWidth="205.0" />
-      <AnchorPane fx:id="ChartLowerLeft" layoutX="58.0" layoutY="223.0" prefHeight="164.0" prefWidth="205.0" />
-      <AnchorPane fx:id="ChartLowerRight" layoutX="361.0" layoutY="223.0" prefHeight="164.0" prefWidth="205.0" />
+      <SplitPane disable="true" dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <SplitPane disable="true" dividerPositions="0.5" layoutX="57.0" layoutY="73.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                        <AnchorPane fx:id="ChartUpperLeft" minHeight="100.0" minWidth="150.0" scaleShape="false" />
+                        <AnchorPane fx:id="ChartLowerLeft" minHeight="100.0" minWidth="150.0" />
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <SplitPane disable="true" dividerPositions="0.5" layoutX="52.0" layoutY="99.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                        <AnchorPane fx:id="ChartUpperRight" minHeight="100.0" minWidth="150.0" scaleShape="false" />
+                        <AnchorPane fx:id="ChartLowerRight" minHeight="100.0" minWidth="150.0" />
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
    </children>
 </AnchorPane>

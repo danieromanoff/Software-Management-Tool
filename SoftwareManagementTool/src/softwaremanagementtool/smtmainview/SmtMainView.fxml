@@ -5,7 +5,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="544.0" prefWidth="800.0" stylesheets="@SmtMainViewStyling.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="softwaremanagementtool.smtmainview.SmtMainViewControl">
+<BorderPane onDragDetected="#showBurndownLineBacklogItems" prefHeight="544.0" prefWidth="800.0" stylesheets="@SmtMainViewStyling.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="softwaremanagementtool.smtmainview.SmtMainViewControl">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -41,7 +41,7 @@
             </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About SMT" />
+              <MenuItem mnemonicParsing="false" onAction="#GoAbout" text="About SMT" />
             </items>
           </Menu>
             <Menu fx:id="menuCharts" mnemonicParsing="false" text="Charts" visible="false">
@@ -49,15 +49,39 @@
                   <Menu mnemonicParsing="false" text="Burndown Charts">
                     <items>
                       <MenuItem mnemonicParsing="false" onAction="#showBurndownLinePoints" text="Line Chart - Story Points" />
-                      <MenuItem mnemonicParsing="false" text="Area Chart - User Stories" />
+                        <MenuItem mnemonicParsing="false" onAction="#showBurndownLineBacklogItems" text="Line Chart - Backlog Items" />
+                      <MenuItem mnemonicParsing="false" onAction="#showBurndownLinePoints" text="Area Chart - User Stories" />
+                        <MenuItem mnemonicParsing="false" onAction="#showBurndownAreaStateCount" text="States - User Stories" />
+                        <MenuItem mnemonicParsing="false" onAction="#showBurndownAreaStatePoints" text="States - Points" />
+                        <MenuItem mnemonicParsing="false" onAction="#showBurndownAreaUsCr" text="UserSories - ChangeRequests" />
                     </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="Status Charts">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                      <MenuItem mnemonicParsing="false" onAction="#showSprintTasksBarChart" text="Task Estimate" />
+                        <MenuItem mnemonicParsing="false" onAction="#showStoryPointBarChart" text="Story Point Estimate" />
+                        <MenuItem mnemonicParsing="false" onAction="#showTestBarChart" text="Test Status" />
+                        <MenuItem mnemonicParsing="false" onAction="#showNumFilesLineChart" text="File Count" />
+                        <MenuItem mnemonicParsing="false" onAction="#showSlocLineChart" text="SLOC" />
+                        <MenuItem mnemonicParsing="false" onAction="#showCurrentSprintTaskChart" text="Sprint Status" />
                     </items>
                   </Menu>
               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Reports" visible="false">
+               <items>
+                  <Menu mnemonicParsing="false" text="Sprints">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Tasks" />
+                        <MenuItem mnemonicParsing="false" text="Assignments by Name" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Changes">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Enhancements" />
+                    </items>
+                  </Menu>
+               </items>
             </Menu>
         </menus>
       </MenuBar>
