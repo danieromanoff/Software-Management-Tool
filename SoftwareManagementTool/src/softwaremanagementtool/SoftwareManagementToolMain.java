@@ -83,10 +83,11 @@ public class SoftwareManagementToolMain extends Application {
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("SMT Files", "*.smt"));
         File savedFile = fileChooser.showSaveDialog(null);
-        tempCreateData();
-        agilePrj = new AgileProject("NEW", savedFile, agilePrjData, primaryStage, mainLayout);
-        this.primaryStage.setTitle("Software Management Tool - " + savedFile.getName()); 
-        
+        if (savedFile != null) {
+          tempCreateData();
+          agilePrj = new AgileProject("NEW", savedFile, agilePrjData, primaryStage, mainLayout);
+          this.primaryStage.setTitle("Software Management Tool - " + savedFile.getName()); 
+        }
         if (agilePrj != null)
         {
         	controller.showAgileMenu(true);

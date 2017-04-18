@@ -132,9 +132,10 @@ public class ChangeReqViewController {
     	 (changeRequest.getDateCreated().equals(date.getValue())) &&
     	 (changeRequest.getState().equals(state.getValue())) &&
     	 (changeRequest.getStoryPoints() == storyPoints.getValue()) &&
-    	 (changeRequest.getOpenInSprintId().equals(sprintIdText.getText()))) {
+    	 (changeRequest.getOpenInSprintId() == Integer.parseInt(sprintIdText.getText()))) {
   		changed = false;
-  	}
+  	}  	
+  	
   	return changed;
   }
 }
