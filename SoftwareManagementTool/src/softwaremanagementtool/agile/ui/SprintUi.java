@@ -150,7 +150,7 @@ public class SprintUi extends BaseUi<SprintViewController> {
 	
 	public void show() {
   	super.show();
-  	classController.setFirst();
+  	classController.setLast();
   	showSprint(classController.getSelectedItem());
 	}
 }

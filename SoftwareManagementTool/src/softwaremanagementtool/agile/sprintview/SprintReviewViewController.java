@@ -1,6 +1,5 @@
 package softwaremanagementtool.agile.sprintview;
 
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TableColumn;
@@ -9,7 +8,6 @@ import javafx.scene.control.TextArea;
 import softwaremanagementtool.agile.AgileProject;
 import softwaremanagementtool.agile.BacklogEntry;
 import softwaremanagementtool.agile.Sprint;
-import softwaremanagementtool.agile.SprintTask;
 
 
 public class SprintReviewViewController {

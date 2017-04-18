@@ -65,13 +65,9 @@ public class SprintData {
 		actSeries = data.addLineSeries("Actual Time (m)");  
 		
 		for (int sprint = 0; sprint < sprintList.size(); sprint++) {
-			if (sprintList.get().get(sprint).getState().equals(Sprint.STATE_CLOSED)) {
 				tasks = agilePrj.getTaskList(sprintList.get().get(sprint));
-				
 				data.addPoint(estSeries, Integer.toString(sprintList.get().get(sprint).getID()), estTime(tasks));
 				data.addPoint(actSeries, Integer.toString(sprintList.get().get(sprint).getID()), actTime(tasks));
-	
-			}
 		}
 		
 		data.xAxisLabel = "Sprints";

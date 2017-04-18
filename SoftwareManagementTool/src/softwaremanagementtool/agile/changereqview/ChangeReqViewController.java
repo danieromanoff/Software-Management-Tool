@@ -96,7 +96,7 @@ public class ChangeReqViewController {
       reason.setValue(changereq.getReason());
       date.setValue(changereq.getDateCreated());
       storyPoints.setValue(changereq.getStoryPoints());
-      sprintIdText.setText(Integer.toString(changereq.getSprintId()));
+      sprintIdText.setText(Integer.toString(changereq.getOpenInSprintId()));
       
       setEditable(!(changereq.getState().equals(UserStory.STATE_CLOSED) || 
       		changereq.getState().equals(UserStory.STATE_ASSIGNED) )); 
@@ -112,7 +112,7 @@ public class ChangeReqViewController {
       changereq.setDateCreated(date.getValue());
       changereq.setState(state.getValue());
       changereq.setStoryPoints(storyPoints.getValue());
-      changereq.setSprintId(Integer.parseInt(sprintIdText.getText()));
+      changereq.setOpenInSprintId(Integer.parseInt(sprintIdText.getText()));
     }
   }
 
@@ -131,7 +131,8 @@ public class ChangeReqViewController {
     	 (changeRequest.getReason().equals(reason.getValue())) &&
     	 (changeRequest.getDateCreated().equals(date.getValue())) &&
     	 (changeRequest.getState().equals(state.getValue())) &&
-    	 (changeRequest.getStoryPoints() == storyPoints.getValue())) {
+    	 (changeRequest.getStoryPoints() == storyPoints.getValue()) &&
+    	 (changeRequest.getOpenInSprintId().equals(sprintIdText.getText()))) {
   		changed = false;
   	}
   	return changed;
