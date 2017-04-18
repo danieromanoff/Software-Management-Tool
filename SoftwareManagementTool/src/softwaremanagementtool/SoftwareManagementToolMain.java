@@ -85,6 +85,8 @@ public class SoftwareManagementToolMain extends Application {
         File savedFile = fileChooser.showSaveDialog(null);
         tempCreateData();
         agilePrj = new AgileProject("NEW", savedFile, agilePrjData, primaryStage, mainLayout);
+        this.primaryStage.setTitle("Software Management Tool - " + savedFile.getName()); 
+        
         if (agilePrj != null)
         {
         	controller.showAgileMenu(true);
@@ -130,6 +132,7 @@ public class SoftwareManagementToolMain extends Application {
 			if (selectedFile != null){
 				tempCreateData();
         agilePrj = new AgileProject(mode, selectedFile, agilePrjData, primaryStage, mainLayout);
+        this.primaryStage.setTitle("Software Management Tool - " + selectedFile.getName()); 	
 			}
 		
 
@@ -236,6 +239,7 @@ public class SoftwareManagementToolMain extends Application {
     {
       // TODO agilePrj.close();
       agilePrj = null;
+      this.primaryStage.setTitle("Software Management Tool"); 	
     }
     controller.showAgileMenu(false);
     showSplash();
