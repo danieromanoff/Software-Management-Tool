@@ -25,7 +25,7 @@ public class SmtMainViewControl {
   
   @FXML
   private void goNewAgile() throws IOException {
-    smt.openAgile("NEW");
+    smt.NewAgile("NEW");
   }
   
   @FXML
@@ -73,13 +73,13 @@ public class SmtMainViewControl {
     smt.showAgileReports();
   }
   
-  @FXML
-  private void showBurndownLinePoints() throws IOException {
-    smt.showBurndownLinePoints();
-  }
-  
   public void setSmt(SoftwareManagementToolMain inSmt) {
     smt = inSmt;
+  }
+  
+  @FXML
+  private void GoAbout() throws IOException{
+    smt.GoAbout(); 
   }
   
   public void showAgileMenu(boolean showit) {
@@ -90,5 +90,53 @@ public class SmtMainViewControl {
   	menuCharts.setVisible(showit);
   	
   }
+  
+  /* Chart Menu Items */
+  @FXML
+  private void showBurndownLinePoints() throws IOException {
+    smt.showBurndownLinePoints();
+  }
+  @FXML
+  private void showBurndownLineBacklogItems() throws IOException {
+    smt.showBurndownLineBacklogItems();
+  }
+  @FXML
+  public void showBurndownAreaStateCount() {
+  	smt.showBurndownAreaStateCount();
+  }
+  @FXML
+  public void showBurndownAreaStatePoints() {
+  	smt.showBurndownAreaStatePoints();
+  }
+  @FXML
+  public void showBurndownAreaUsCr() {
+  	smt.showBurndownAreaUsCr();
+  }
+  
+  @FXML
+  public void showSprintTasksBarChart() {
+  	smt.showSprintTasksBarChart();
+  }
+  @FXML
+  public void showStoryPointBarChart() {
+  	smt.showStoryPointBarChart();
+  }
+  @FXML
+  public void showTestBarChart() {
+  	smt.showTestBarChart();
+  }
+  @FXML
+  public void showNumFilesLineChart() {
+  	smt.showNumFilesLineChart();
+  }
+  @FXML
+  public void showSlocLineChart() {
+  	smt.showSlocLineChart();
+  }
+  @FXML
+  public void showCurrentSprintTaskChart() {
+  	smt.showCurrentSprintTaskChart();
+  }
+  
   
 }

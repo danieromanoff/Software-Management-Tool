@@ -2,6 +2,7 @@ package softwaremanagementtool.agile;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 
 import javafx.collections.FXCollections;
@@ -13,6 +14,7 @@ import softwaremanagementtool.agile.ui.BacklogUi;
 import softwaremanagementtool.agile.ui.BaseUi;
 import softwaremanagementtool.agile.ui.ChartsUi;
 import softwaremanagementtool.agile.ui.DashboardUi;
+import softwaremanagementtool.agile.ui.OkMsg;
 import softwaremanagementtool.agile.ui.ReportsUi;
 import softwaremanagementtool.agile.ui.SprintUi;
 import softwaremanagementtool.agile.UserStory;
@@ -296,8 +298,25 @@ public class AgileProject {
   	
   	if (change) {
   	  sprint.setState(newState);
+  	  if (newState.equals(Sprint.STATE_PROGRESS)) {
+  	  	if (OkMsg.send("Set Date", "Set Start Date to today?")) {
+  	  		sprint.setStartDate(LocalDate.now());
+  	  	}
+  	  }
+  	  if (newState.equals(Sprint.STATE_REVIEW)) {
+  	  	if (OkMsg.send("Set Date", "Set End Date to today?")) {
+  	  		sprint.setEndDate(LocalDate.now());
+  	  	}
+  	  }
+  	  if (newState.equals(Sprint.STATE_CLOSED)) {
+  	  	if (sprint.getBacklogStats() == null) {
+  	  		sprint.setBacklogStats(productBacklog.getStats());
+  	  	} else if (OkMsg.send("Backlog Stats", "Get New Backlog Stats?")) {
+  	  		sprint.setBacklogStats(productBacklog.getStats());
+  	  	}
+  	  }
   	}
-  	sprintUi.showSprint(sprint); 
+  	
   	
   }
   
@@ -384,11 +403,15 @@ public class AgileProject {
   public ObservableList<SprintTask> getTaskList(Sprint sprint) {
     sprintTaskList.clear();
     for (int i=0; i<taskList.get().size(); i++) {
-    	if (taskList.get().get(i).getSprintId() == sprintUi.currentSprint().getID()) {
+    	if (taskList.get().get(i).getSprintId() == sprint.getID()) {
     		sprintTaskList.add(taskList.get().get(i));
     	}
     }
   	return sprintTaskList.get();
+  }
+  
+  public TaskList getTaskList() {
+  	return taskList;
   }
   
   /**
@@ -412,6 +435,36 @@ public class AgileProject {
   
   public void showBurndownLinePoints() {
   	chartsUi.showBurndownSprintPoints();
+  }
+  public void showBurndownLineBacklogItems() {
+  	chartsUi.showBurndownSprintCount();
+  }
+  public void showBurndownAreaStateCount() {
+  	chartsUi.showBurndownAreaStateCount();
+  }
+  public void showBurndownAreaStatePoints() {
+  	chartsUi.showBurndownAreaStatePoints();
+  }
+  public void showBurndownAreaUsCr() {
+  	chartsUi.showBurndownAreaUsCr();
+  }
+  public void showSprintTasksBarChart() {
+  	chartsUi.showSprintTasksBarChart();
+  }
+  public void showStoryPointBarChart() {
+  	chartsUi.showStoryPointBarChart();
+  }
+  public void showTestBarChart() {
+  	chartsUi.showTestBarChart();
+  }
+  public void showNumFilesLineChart() {
+  	chartsUi.showNumFilesLineChart();
+  }
+  public void showSlocLineChart() {
+  	chartsUi.showSlocLineChart();
+  }
+  public void showCurrentSprintTaskChart() {
+  	chartsUi.showCurrentSprintTaskChart();
   }
   
 

@@ -82,6 +82,7 @@ public class SprintUi extends BaseUi<SprintViewController> {
 	    taskViewController.showSprint(sprint);
 	    reviewViewController.showSprint(sprint);
 	    retrospectViewController.showSprint(sprint);
+	    sprintBlViewController.setFirst();
 		}
 	}
 	
@@ -97,7 +98,8 @@ public class SprintUi extends BaseUi<SprintViewController> {
   	  taskViewController.saveSprint(sprint);
   	  reviewViewController.saveSprint(sprint);
   	  retrospectViewController.saveSprint(sprint);
-    }
+  	  showSprint(sprint);
+    } 
   }
 	
 	public Sprint currentSprint() {

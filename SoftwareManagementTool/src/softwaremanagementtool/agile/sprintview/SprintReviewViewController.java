@@ -70,8 +70,8 @@ public class SprintReviewViewController {
 	public void saveSprint(Sprint sprint) {
     sprint.setEndNumFiles(Integer.parseInt(numFiles.getText()));
     sprint.setReviewNotes(notes.getText());
-    sprint.setTestsAttempted(Integer.parseInt(numTests.getText()));
-    sprint.setTestsPassed(Integer.parseInt(numTests.getText()));
+    sprint.setTestsAttempted(Integer.parseInt(testsAttempted.getText()));
+    sprint.setTestsPassed(Integer.parseInt(testsPassed.getText()));
     sprint.setNumTests(Integer.parseInt(numTests.getText()));
 	  sprint.setEndSloc(Integer.parseInt(TotalSloc.getText()));
 	}

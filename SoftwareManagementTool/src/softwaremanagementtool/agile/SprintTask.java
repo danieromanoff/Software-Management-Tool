@@ -17,6 +17,7 @@ public class SprintTask {
   		STATUS_DRAFT,
   		STATUS_PROGRESS,
   		STATUS_COMPLETE,
+  		STATUS_INCOMPLETE,
   		STATUS_DELETED};
 	
   private final IntegerProperty id;

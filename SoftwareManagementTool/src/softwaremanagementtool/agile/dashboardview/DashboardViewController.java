@@ -9,7 +9,7 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.layout.AnchorPane;
 import softwaremanagementtool.agile.AgileProject;
-import softwaremanagementtool.agile.charts.LineChartData;
+import softwaremanagementtool.agile.charts.ChartData;
 
 public class DashboardViewController {
   

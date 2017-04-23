@@ -16,7 +16,7 @@ import javafx.scene.chart.NumberAxis;
 		@FXML
 		NumberAxis yAxis = new NumberAxis("Backlog", 0, 100, 10);
 
-		public void setLineData(LineChartData data) {
+		public void setLineData(ChartData data) {
 	  	areaChart.setData(data.data);
 	  	
 	    yAxis.setLabel(data.yAxisLabel);

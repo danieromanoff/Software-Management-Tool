@@ -8,15 +8,16 @@ import javafx.scene.chart.NumberAxis;
 public class LineChartViewController {
 	
 	@FXML
-	private LineChart lineChart;
+	private LineChart<String, Integer> lineChart;
 	  
 	@FXML
 	CategoryAxis xAxis = new CategoryAxis();
 	  
 	@FXML
-	NumberAxis yAxis = new NumberAxis("Backlog", 0, 100, 10);
+	NumberAxis yAxis = new NumberAxis(" ", 0, 100, 10);
 
-	public void setLineData(LineChartData data) {
+	public void setLineData(ChartData<String, Integer> data) {
+	 
   	lineChart.setData(data.data);
   	
     yAxis.setLabel(data.yAxisLabel);
