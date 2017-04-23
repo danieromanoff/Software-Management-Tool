@@ -46,25 +46,33 @@
           </Menu>
             <Menu fx:id="menuCharts" mnemonicParsing="false" text="Charts" visible="false">
               <items>
-                  <Menu mnemonicParsing="false" text="Burndown Charts">
+                  <Menu mnemonicParsing="false" text="Burndown ">
                     <items>
-                      <MenuItem mnemonicParsing="false" onAction="#showBurndownLinePoints" text="Line Chart - Story Points" />
-                        <MenuItem mnemonicParsing="false" onAction="#showBurndownLineBacklogItems" text="Line Chart - Backlog Items" />
-                      <MenuItem mnemonicParsing="false" onAction="#showBurndownLinePoints" text="Area Chart - User Stories" />
-                        <MenuItem mnemonicParsing="false" onAction="#showBurndownAreaStateCount" text="States - User Stories" />
-                        <MenuItem mnemonicParsing="false" onAction="#showBurndownAreaStatePoints" text="States - Points" />
+                      <MenuItem mnemonicParsing="false" onAction="#showBurndownLinePoints" text="Story Points" />
+                        <MenuItem mnemonicParsing="false" onAction="#showBurndownLineBacklogItems" text="Backlog Items" />
                         <MenuItem mnemonicParsing="false" onAction="#showBurndownAreaUsCr" text="UserSories - ChangeRequests" />
                     </items>
                   </Menu>
-                  <Menu mnemonicParsing="false" text="Status Charts">
+                  <Menu mnemonicParsing="false" text="Backlog">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#showBurndownAreaStateCount" text="States - User Stories" />
+                        <MenuItem mnemonicParsing="false" onAction="#showBurndownAreaStatePoints" text="States - Points" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Sprint Status">
                     <items>
-                      <MenuItem mnemonicParsing="false" onAction="#showSprintTasksBarChart" text="Task Estimate" />
-                        <MenuItem mnemonicParsing="false" onAction="#showStoryPointBarChart" text="Story Point Estimate" />
                         <MenuItem mnemonicParsing="false" onAction="#showTestBarChart" text="Test Status" />
                         <MenuItem mnemonicParsing="false" onAction="#showNumFilesLineChart" text="File Count" />
                         <MenuItem mnemonicParsing="false" onAction="#showSlocLineChart" text="SLOC" />
-                        <MenuItem mnemonicParsing="false" onAction="#showCurrentSprintTaskChart" text="Sprint Status" />
+                        <MenuItem mnemonicParsing="false" onAction="#showCurrentSprintTaskChart" text="Current Sprint Status" />
                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Planning">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#showSprintTasksBarChart" text="Task Estimate" />
+                        <MenuItem mnemonicParsing="false" onAction="#showStoryPointBarChart" text="Story Point Estimate" />
+                        <MenuItem mnemonicParsing="false" onAction="#showTestBarChart" text="Test Status" />
+                     </items>
                   </Menu>
               </items>
             </Menu>

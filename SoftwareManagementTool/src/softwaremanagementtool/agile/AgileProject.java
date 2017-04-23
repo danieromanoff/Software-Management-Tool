@@ -414,6 +414,16 @@ public class AgileProject {
   	return taskList;
   }
   
+  public ObservableList<SprintTask> getOpebedCrTaskList(Sprint sprint) {
+    sprintTaskList.clear();
+    for (int i=0; i<taskList.get().size(); i++) {
+    	if (taskList.get().get(i).getSprintId() == sprint.getID()) {
+    		sprintTaskList.add(taskList.get().get(i));
+    	}
+    }
+  	return sprintTaskList.get();
+  }
+  
   /**
    *  Sprint Review 
    *  
@@ -421,7 +431,8 @@ public class AgileProject {
   public ObservableList<BacklogEntry> getSprintIssuesList(Sprint sprint) {
     sprintIssueList.clear();
     for (int i=0; i< productBacklog.get().size(); i++ ) {
-  		if (productBacklog.get().get(i).getSprintId() == sprint.getID()) {
+  		if (productBacklog.get().get(i).getType().equals(ChangeRequest.type) &&
+  			 (((ChangeRequest)productBacklog.get().get(i)).getOpenInSprintId() == sprint.getID())) {
   			sprintIssueList.add(productBacklog.get().get(i));
   		}
   	}
