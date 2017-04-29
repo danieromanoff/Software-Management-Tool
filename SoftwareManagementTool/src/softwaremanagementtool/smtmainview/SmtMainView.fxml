@@ -71,7 +71,6 @@
                      <items>
                         <MenuItem mnemonicParsing="false" onAction="#showSprintTasksBarChart" text="Task Estimate" />
                         <MenuItem mnemonicParsing="false" onAction="#showStoryPointBarChart" text="Story Point Estimate" />
-                        <MenuItem mnemonicParsing="false" onAction="#showTestBarChart" text="Test Status" />
                      </items>
                   </Menu>
               </items>
